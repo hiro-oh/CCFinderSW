@@ -1,0 +1,12 @@
+{
+  "comment": {
+    "prefix": ["comment"]
+  },
+  "string": {
+    "prefix": ["string", "character"]
+  },
+  "reserved": {
+    "prefix": ["keyword", "reserved", "reserve"],
+    "exact": []
+  }
+}

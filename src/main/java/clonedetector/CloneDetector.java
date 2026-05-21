@@ -20,10 +20,17 @@ public class CloneDetector {
         //parse commandline
         OptionReader or = new OptionReader();
         new CloneDetectorCLIParser(or).commandline(args);
-        if (!or.isANTLRMode()) {
-            or.readCommentReservedFiles();
-        } else {
-            or.ANTLRInitializer();
+        try {
+            if (or.isTreeSitterMode()) {
+                or.treeSitterInitializer();
+            } else if (or.isANTLRMode()) {
+                or.ANTLRInitializer();
+            } else {
+                or.readCommentReservedFiles();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
         }
 
         //build instance

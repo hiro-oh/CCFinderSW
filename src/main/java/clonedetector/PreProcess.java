@@ -4,6 +4,7 @@ import clonedetector.classlist.CommentRule;
 import clonedetector.classlist.Pre;
 import clonedetector.classlist.Token;
 import common.JudgeCharset;
+import treesitter.TreeSitterRanges;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,6 +65,10 @@ public class PreProcess {
 
     private boolean space = false;
 
+    // === tree-sitter モード用のフィールド ===
+    private TreeSitterRanges tsRanges = null;
+    private boolean skipZeroToken = false;
+
     PreProcess(OptionReader or, String language, String filename) {
         this.or = or;
         //System.out.println(language);
@@ -91,6 +96,18 @@ public class PreProcess {
         }
 
         p = Pattern.compile(or.getVariableRegex());
+    }
+
+    /**
+     * tree-sitter モード用 hook: 範囲情報を注入し，skipZeroToken を有効化．
+     */
+    public void setTreeSitterRanges(TreeSitterRanges r) {
+        if (r == null) {
+            throw new IllegalArgumentException("TreeSitterRanges must not be null");
+        }
+        this.tsRanges = r;
+        this.skipZeroToken = true;  // ANTLR モードと揃え，zeroTokenCheck を無効化
+        this.doZero = false;        // 念のため二重ガード
     }
 
     /**
@@ -172,11 +189,13 @@ public class PreProcess {
 
                 //コメント
                 else if (i != (tmpIndex = isComment(str, i))) {
+                    if (tsRanges != null) advancePosition(str, i, tmpIndex);
                     i = tmpIndex;
                 }
 
                 // literal
                 else if (i != (tmpIndex = isLiteral(i, str))) {
+                    if (tsRanges != null) advancePosition(str, i, tmpIndex);
                     i = tmpIndex;
                     String tmpStr = str.substring(startIndex, i);
                     tokenRegister(tmpStr, startLine, startClm, nowLine, i - lastNewLine, startIndex, i, STRING);
@@ -197,7 +216,7 @@ public class PreProcess {
                     }
                     String strTmp = str.substring(startIndex, i);
                     tokenRegister(strTmp, startLine, startClm, nowLine, i - lastNewLine, startIndex, i,
-                            Character.isDigit(strTmp.charAt(0)) ? NUMBER : reservedWordList.contains(strTmp) ? RESERVE : IDENTIFIER);
+                            Character.isDigit(strTmp.charAt(0)) ? NUMBER : isReserved(strTmp, startIndex) ? RESERVE : IDENTIFIER);
                 }
 
                 //それ以外（記号など）
@@ -252,7 +271,33 @@ public class PreProcess {
         nowLine = nowLineTmp;
     }
 
+    private void advancePosition(String str, int from, int to) {
+        for (int j = from; j < to && j < str.length(); j++) {
+            if (str.charAt(j) == '\n') {
+                nowLine++;
+                lastNewLine = j + 1;
+            } else if (str.charAt(j) == '\r') {
+                if (j + 1 < to && j + 1 < str.length() && str.charAt(j + 1) == '\n') {
+                    j++;
+                    lastNewLine = j + 1;
+                } else {
+                    lastNewLine = j + 1;
+                }
+                nowLine++;
+            }
+        }
+    }
+
     private int isLiteral(int i, String str) {
+        // === tree-sitter hook: 範囲ベースの文字列判定 ===
+        if (tsRanges != null) {
+            if (tsRanges.isInString(i)) {
+                int end = tsRanges.endOfStringAt(i);
+                return Math.min(end, str.length());
+            }
+            return i;
+        }
+        // ↓ 既存ロジック
         int tmpIndex;
         for (int k = 0; k < literalRuleSize; k++) {
             if (i + literalList.get(k).start.length() - 1 >= str.length()) {
@@ -313,6 +358,16 @@ public class PreProcess {
     }
 
     private int isComment(String str, int i) {
+        // === tree-sitter hook: 範囲ベースのコメント判定 ===
+        if (tsRanges != null) {
+            if (tsRanges.isInComment(i)) {
+                // コメント範囲ならその末尾までスキップ
+                int end = tsRanges.endOfCommentAt(i);
+                return Math.min(end, str.length());
+            }
+            return i;  // 通常モードのコメントルールは使わない
+        }
+        // ↓ 既存ロジック
         for (int rule = 0; rule < commentRuleSize; rule++) {
             commentStart = ruleList.get(rule).start;
             commentEnd = ruleList.get(rule).end;
@@ -509,11 +564,8 @@ public class PreProcess {
         preList.add(tmp);
     }
 
-    /**
-     * hash Register
-     */
     private void tokenRegister(String str, int lineS, int clmS, int lineE, int clmE, int sumStart, int sumEnd, int type) {
-        zeroTokenCheck(str, lineS, clmS, sumStart);
+        if (!skipZeroToken) zeroTokenCheck(str, lineS, clmS, sumStart);  // ← tree-sitter モードではスキップ
         tokenListAdd(new Token(str, lineS, clmS, lineE, clmE, type));
         preListAdd(new Pre(str, lineS, clmS, lineE, clmE, type, sumStart, sumEnd));
 
@@ -530,5 +582,13 @@ public class PreProcess {
         if (end != null)
             return end.length();
         return 0;
+    }
+
+    /**
+     * 予約語判定：tree-sitter モードでは範囲ベース，通常モードでは Set ベース．
+     */
+    private boolean isReserved(String str, int offset) {
+        if (tsRanges != null) return tsRanges.isReserved(offset);
+        return reservedWordList.contains(str);
     }
 }

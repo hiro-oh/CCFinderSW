@@ -21,6 +21,7 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     compile fileTree(include: '*.jar', dir: 'lib')
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 }
 
 jar {

@@ -25,6 +25,7 @@ public class CloneDetectorCLIParser {
     private final String b = "b";
     private final String g = "g";
     private final String antlr = "antlr";
+    private final String ts = "ts";
     private final String nolx = "nolx";
     private final String ccf = "ccf";
     private final String ccfx = "ccfx";
@@ -80,6 +81,12 @@ public class CloneDetectorCLIParser {
                 "As this argument, you should set Regular Expression of extensions of target source codes.\n" +
                 "Example: -antlr h|hh|hpp|hxx|c|cc|cpp|cxx\n" +
                 "Example: -antlr py");
+        opts.addOption(ts, "treesitter", true,
+                "Use tree-sitter mode. Pass the extension regex.\n" +
+                "The actual grammar/query is resolved from treesitter-config.json by the -l key.\n" +
+                "Example: -ts java -l java                  (default grammar + highlights.scm)\n" +
+                "Example: -ts java -l java-custom           (default grammar + custom ccfsw.scm)\n" +
+                "Example: -ts \"h|hh|hpp|c|cc|cpp\" -l cpp");
         opts.addOption(g, "group", true,
                 "grouping of detection \nExample: -g 10 ");
         opts.addOption(nolx, "noLexer", false,
@@ -268,6 +275,20 @@ public class CloneDetectorCLIParser {
                 System.out.println("ANTLR mode");
                 or.setANTLRMode(true);
                 or.setExtensionRegex(extensionRegex);
+            }
+
+            if (cl.hasOption(ts)) {
+                if (cl.getOptionValue(ts) == null) {
+                    System.out.println("set extension regex as an argument.");
+                    throw new ParseException("");
+                }
+                if (cl.hasOption(antlr)) {
+                    System.out.println("-ts and -antlr are mutually exclusive");
+                    throw new ParseException("");
+                }
+                System.out.println("tree-sitter mode");
+                or.setTreeSitterMode(true);
+                or.setExtensionRegex(cl.getOptionValue(ts));
             }
 
             if (cl.hasOption(tks)) {

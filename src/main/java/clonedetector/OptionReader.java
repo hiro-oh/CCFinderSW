@@ -3,6 +3,7 @@ package clonedetector;
 import aleesa.Aleesa;
 import ccfindersw.CCFSWData;
 import clonedetector.classlist.LangRuleConstructor;
+import treesitter.TreeSitterExtractor;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,6 +45,10 @@ public class OptionReader {
     private int tks = 0;
     private float rnr = 0;
     public Aleesa als = new Aleesa();
+
+    // === tree-sitter モード用フィールド ===
+    private boolean treeSitterMode = false;
+    public TreeSitterExtractor tsExtractor;
 
     public HashMap<String, LangRuleConstructor> languageRuleMap = new HashMap<>();
     public ArrayList<String> extensionList = new ArrayList<>();
@@ -165,6 +170,36 @@ public class OptionReader {
         String g4DirectoryPath = g4Read() + File.separator + "grammarsv4" + File.separator + getLanguage();
         als = new Aleesa();
         als.getGrammar(g4DirectoryPath);
+    }
+
+    /**
+     * tree-sitter モード用の初期化：grammar registry と capture categories をロード．
+     */
+    public void treeSitterInitializer() throws Exception {
+        extensionMapTrueEnd.put(getExtensionRegex(), getLanguage());
+
+        // PreProcess が languageRuleMap を参照するので，空の枠を作っておく
+        LangRuleConstructor lrc = new LangRuleConstructor();
+        lrc.reserved = true;
+        lrc.comment = false;   // tsRanges が hook を奪うので形式上の値
+        languageRuleMap.put(getLanguage(), lrc);
+
+        // ベースパス解決は ANTLRInitializer と同じ g4Read() を意図的に流用
+        Path base = Paths.get(g4Read()).getParent();
+
+        // レジストリと capture 分類設定をロード
+        treesitter.GrammarRegistry registry = treesitter.GrammarRegistry.load(
+                base.resolve("treesitter-config.json"));
+        treesitter.CaptureCategories categories = treesitter.CaptureCategories.load(
+                base.resolve("treesitter-queries").resolve("capture-categories.json"));
+
+        // -l で渡された言語 key を解決
+        treesitter.GrammarRegistry.Entry e = registry.get(getLanguage());
+        Path grammarDir = base.resolve(e.grammar);
+        Path queryFile  = base.resolve(e.query);
+
+        // tsLanguageName は language key と分離して渡す
+        tsExtractor = new TreeSitterExtractor(e.tsLanguageName, queryFile, grammarDir, categories);
     }
 
     public boolean isJson() {
@@ -305,6 +340,14 @@ public class OptionReader {
 
     public boolean isANTLRMode() {
         return ANTLRMode;
+    }
+
+    public boolean isTreeSitterMode() {
+        return treeSitterMode;
+    }
+
+    public void setTreeSitterMode(boolean b) {
+        this.treeSitterMode = b;
     }
 
     public boolean isCcfinder() {

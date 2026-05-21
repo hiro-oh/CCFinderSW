@@ -6,6 +6,7 @@ import clonedetector.classlist.FileData;
 import common.FileAndString;
 import common.PrintProgress;
 import common.Time;
+import treesitter.TreeSitterRanges;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,12 +55,15 @@ public class Lexer {
         IntStream.range(0, max)
                 //.parallel()
                 .forEach(i -> {
-                    //System.out.println(fd.filePathList.get(i));
-                    if (!or.isANTLRMode()) {
-                        String extension = fd.filePathList.get(i).substring(fd.filePathList.get(i).lastIndexOf('.') + 1);
-                        tokenizeAFile(fd.filePathList.get(i), i, or.extensionMapTrueEnd.get(extension));
+                    String path = fd.filePathList.get(i);
+                    String extension = path.substring(path.lastIndexOf('.') + 1);
+
+                    if (or.isTreeSitterMode()) {
+                        tokenizeAFileTreeSitter(path, i);
+                    } else if (or.isANTLRMode()) {
+                        tokenizeAFileANTLR(path, i);
                     } else {
-                        tokenizeAFileANTLR(fd.filePathList.get(i), i);
+                        tokenizeAFile(path, i, or.extensionMapTrueEnd.get(extension));
                     }
                     ps.plusProgress(max);
                     tmpNGram[i] = Math.max(fd.tokenCountList[i] - or.getN() + 1, 0);
@@ -96,7 +100,9 @@ public class Lexer {
             File aFile = new File(x);
             int last = x.lastIndexOf(".");
             String tmp = x.substring(last + 1);
-            if (aFile.isFile() && last != -1 && (or.extensionList.contains(tmp) || (or.isANTLRMode() && tmp.matches(or.getExtensionRegex())))) {
+            if (aFile.isFile() && last != -1 && (or.extensionList.contains(tmp) 
+                    || (or.isANTLRMode() && tmp.matches(or.getExtensionRegex()))
+                    || (or.isTreeSitterMode() && tmp.matches(or.getExtensionRegex())))) {
                 fd.filePathList.add(aFile.getPath());
                 fd.fileNameList.add(aFile.getAbsolutePath());
             }
@@ -205,6 +211,33 @@ public class Lexer {
         plusLineCount(ppe.nowLine, ppe.tokenList.size());
         fd.lineCountList[i] = ppe.nowLine;
         fd.tokenCountList[i] = ppe.tokenList.size();
+    }
+
+    /**
+     * tree-sitter モード用：query で取得した範囲情報を使用したトークン化．
+     */
+    private void tokenizeAFileTreeSitter(String filename, int i) {
+        try {
+            // 1. tree-sitter で範囲抽出
+            TreeSitterRanges ranges = or.tsExtractor.extract(filename, or.getCharset());
+            if (ranges == null) {
+                throw new IllegalStateException("tree-sitter ranges are null: " + filename);
+            }
+
+            // 2. PreProcess を range 注入モードで初期化
+            PreProcess pp = new PreProcess(or, or.getLanguage(), filename);
+            pp.setTreeSitterRanges(ranges);
+            pp.readFile();
+
+            // 3. prep ファイル出力（既存と同じ）
+            new CCFXPrepOutput(or.getDirectory(), pp.preList, or.getLanguage())
+                    .outputCCFXPrep(filename);
+            plusLineCount(pp.nowLine, pp.tokenList.size());
+            fd.lineCountList[i] = pp.nowLine;
+            fd.tokenCountList[i] = pp.tokenList.size();
+        } catch (Exception e) {
+            throw new RuntimeException("tree-sitter preprocessing failed: " + filename, e);
+        }
     }
 
     private String getFileListPath() {

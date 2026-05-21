@@ -1,0 +1,62 @@
+{
+  "c": {
+    "grammar": "treesitter-grammars/tree-sitter-c",
+    "query":   "treesitter-grammars/tree-sitter-c/queries/highlights.scm",
+    "tsLanguageName": "c"
+  },
+  "cpp": {
+    "grammar": "treesitter-grammars/tree-sitter-cpp",
+    "query":   "treesitter-grammars/tree-sitter-cpp/queries/highlights.scm",
+    "tsLanguageName": "cpp"
+  },
+  "csharp": {
+    "grammar": "treesitter-grammars/tree-sitter-c-sharp",
+    "query":   "treesitter-grammars/tree-sitter-c-sharp/queries/highlights.scm",
+    "tsLanguageName": "c-sharp"
+  },
+  "css3": {
+    "grammar": "treesitter-grammars/tree-sitter-css",
+    "query":   "treesitter-grammars/tree-sitter-css/queries/highlights.scm",
+    "tsLanguageName": "css"
+  },
+  "ecmascript": {
+    "grammar": "treesitter-grammars/tree-sitter-javascript",
+    "query":   "treesitter-grammars/tree-sitter-javascript/queries/highlights.scm",
+    "tsLanguageName": "javascript"
+  },
+  "golang": {
+    "grammar": "treesitter-grammars/tree-sitter-go",
+    "query":   "treesitter-grammars/tree-sitter-go/queries/highlights.scm",
+    "tsLanguageName": "go"
+  },
+  "html": {
+    "grammar": "treesitter-grammars/tree-sitter-html",
+    "query":   "treesitter-grammars/tree-sitter-html/queries/highlights.scm",
+    "tsLanguageName": "html"
+  },
+  "java9": {
+    "grammar": "treesitter-grammars/tree-sitter-java",
+    "query":   "treesitter-grammars/tree-sitter-java/queries/highlights.scm",
+    "tsLanguageName": "java"
+  },
+  "php": {
+    "grammar": "treesitter-grammars/tree-sitter-php",
+    "query":   "treesitter-grammars/tree-sitter-php/queries/highlights.scm",
+    "tsLanguageName": "php"
+  },
+  "python3": {
+    "grammar": "treesitter-grammars/tree-sitter-python",
+    "query":   "treesitter-grammars/tree-sitter-python/queries/highlights.scm",
+    "tsLanguageName": "python"
+  },
+  "scala": {
+    "grammar": "treesitter-grammars/tree-sitter-scala",
+    "query":   "treesitter-grammars/tree-sitter-scala/queries/highlights.scm",
+    "tsLanguageName": "scala"
+  },
+  "verilog": {
+    "grammar": "treesitter-grammars/tree-sitter-verilog",
+    "query":   "treesitter-queries/verilog/ccfsw.scm",
+    "tsLanguageName": "verilog"
+  }
+}
