@@ -1,0 +1,340 @@
+{
+  "grammar": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/lua/Lua.g4",
+  "targetMode": "DEFAULT_MODE",
+  "seedRules": [
+    "NESTED_STR",
+    "COMMENT",
+    "LINE_COMMENT"
+  ],
+  "sourceAcquisition": {
+    "rules": [
+      {
+        "name": "COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          315,
+          319
+        ],
+        "references": [
+          "NESTED_STR"
+        ],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "HIDDEN"
+          }
+        ],
+        "literals": [
+          "'--['",
+          "']'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "LINE_COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          319,
+          329
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "HIDDEN"
+          }
+        ],
+        "literals": [
+          "'--'",
+          "'['",
+          "'='",
+          "'['",
+          "'='",
+          "'='",
+          "'['",
+          "'\\r'",
+          "'\\n'",
+          "'\\r'",
+          "'\\n'",
+          "'['",
+          "'\\r'",
+          "'\\n'",
+          "'\\r'",
+          "'\\n'",
+          "'\\r\\n'",
+          "'\\r'",
+          "'\\n'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": [
+          "EOF"
+        ]
+      },
+      {
+        "name": "NESTED_STR",
+        "mode": "DEFAULT_MODE",
+        "fragment": true,
+        "sourceSpan": [
+          244,
+          249
+        ],
+        "references": [],
+        "commands": [],
+        "literals": [
+          "'='",
+          "'='",
+          "'['",
+          "']'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      }
+    ],
+    "modePath": {
+      "targetMode": "DEFAULT_MODE",
+      "incomingRules": [],
+      "transitionSources": [],
+      "reverseModeClosure": [
+        "DEFAULT_MODE"
+      ],
+      "forwardModeClosureFromDefault": [
+        "DEFAULT_MODE"
+      ],
+      "structuralPathExists": true,
+      "entryCandidates": [
+        "DEFAULT_MODE"
+      ],
+      "popModeSemantics": "caller/previous stack mode; static graph cannot identify the concrete return mode"
+    },
+    "ruleOrderByRelevantMode": {
+      "DEFAULT_MODE": [
+        {
+          "order": 0,
+          "rule": "NAME"
+        },
+        {
+          "order": 1,
+          "rule": "NORMALSTRING"
+        },
+        {
+          "order": 2,
+          "rule": "CHARSTRING"
+        },
+        {
+          "order": 3,
+          "rule": "LONGSTRING"
+        },
+        {
+          "order": 4,
+          "rule": "NESTED_STR"
+        },
+        {
+          "order": 5,
+          "rule": "INT"
+        },
+        {
+          "order": 6,
+          "rule": "HEX"
+        },
+        {
+          "order": 7,
+          "rule": "FLOAT"
+        },
+        {
+          "order": 8,
+          "rule": "HEX_FLOAT"
+        },
+        {
+          "order": 9,
+          "rule": "ExponentPart"
+        },
+        {
+          "order": 10,
+          "rule": "HexExponentPart"
+        },
+        {
+          "order": 11,
+          "rule": "EscapeSequence"
+        },
+        {
+          "order": 12,
+          "rule": "DecimalEscape"
+        },
+        {
+          "order": 13,
+          "rule": "HexEscape"
+        },
+        {
+          "order": 14,
+          "rule": "UtfEscape"
+        },
+        {
+          "order": 15,
+          "rule": "Digit"
+        },
+        {
+          "order": 16,
+          "rule": "HexDigit"
+        },
+        {
+          "order": 17,
+          "rule": "COMMENT"
+        },
+        {
+          "order": 18,
+          "rule": "LINE_COMMENT"
+        },
+        {
+          "order": 19,
+          "rule": "WS"
+        },
+        {
+          "order": 20,
+          "rule": "SHEBANG"
+        }
+      ]
+    },
+    "stateAndHelperCandidates": []
+  },
+  "generatedAcquisition": {
+    "lexerClass": "LuaLexer",
+    "ruleNames": [
+      "T__0",
+      "T__1",
+      "T__2",
+      "T__3",
+      "T__4",
+      "T__5",
+      "T__6",
+      "T__7",
+      "T__8",
+      "T__9",
+      "T__10",
+      "T__11",
+      "T__12",
+      "T__13",
+      "T__14",
+      "T__15",
+      "T__16",
+      "T__17",
+      "T__18",
+      "T__19",
+      "T__20",
+      "T__21",
+      "T__22",
+      "T__23",
+      "T__24",
+      "T__25",
+      "T__26",
+      "T__27",
+      "T__28",
+      "T__29",
+      "T__30",
+      "T__31",
+      "T__32",
+      "T__33",
+      "T__34",
+      "T__35",
+      "T__36",
+      "T__37",
+      "T__38",
+      "T__39",
+      "T__40",
+      "T__41",
+      "T__42",
+      "T__43",
+      "T__44",
+      "T__45",
+      "T__46",
+      "T__47",
+      "T__48",
+      "T__49",
+      "T__50",
+      "T__51",
+      "T__52",
+      "T__53",
+      "T__54",
+      "NAME",
+      "NORMALSTRING",
+      "CHARSTRING",
+      "LONGSTRING",
+      "NESTED_STR",
+      "INT",
+      "HEX",
+      "FLOAT",
+      "HEX_FLOAT",
+      "ExponentPart",
+      "HexExponentPart",
+      "EscapeSequence",
+      "DecimalEscape",
+      "HexEscape",
+      "UtfEscape",
+      "Digit",
+      "HexDigit",
+      "COMMENT",
+      "LINE_COMMENT",
+      "WS",
+      "SHEBANG"
+    ],
+    "modeNames": [
+      "DEFAULT_MODE"
+    ],
+    "channelNames": [
+      "DEFAULT_TOKEN_CHANNEL",
+      "HIDDEN"
+    ],
+    "atn": {
+      "ruleCount": 76,
+      "modeCount": 1,
+      "stateCount": 601
+    },
+    "tokenMappings": [
+      {
+        "rule": "COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          315,
+          319
+        ],
+        "generatedTokenType": 64,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "LINE_COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          319,
+          329
+        ],
+        "generatedTokenType": 65,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "NESTED_STR",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          244,
+          249
+        ],
+        "generatedTokenType": null,
+        "generatedMode": null,
+        "mapping": "no token mapping (fragment or non-token rule)"
+      }
+    ],
+    "limitations": [
+      "Action and semantic predicate source is not reconstructed from the ATN",
+      "skip/more effects and contextual keyword meaning require lexer execution or grammar-source inspection",
+      "Implicit literal token types may not have a lexer rule name"
+    ]
+  },
+  "interpretation": {
+    "staticModePathsAreCandidates": true,
+    "runtimeModeStackAndActionsObservedElsewhere": true,
+    "ruleOrderIsRecordedButLongestMatchStillRequiresLexerSemantics": true
+  }
+}

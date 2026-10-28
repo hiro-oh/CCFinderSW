@@ -1,0 +1,36 @@
+{
+  "language": "csharp",
+  "grammar": "CCFinderSW-1.0/grammarsv4/csharp/CSharpLexer.g4",
+  "commentChannels": ["COMMENTS_CHANNEL"],
+  "comment": [
+    {"ruleName": "SINGLE_LINE_DOC_COMMENT", "evidence": "CSharpLexer.g4:21; channel(COMMENTS_CHANNEL)"},
+    {"ruleName": "DELIMITED_DOC_COMMENT", "evidence": "CSharpLexer.g4:22; channel(COMMENTS_CHANNEL)"},
+    {"ruleName": "SINGLE_LINE_COMMENT", "evidence": "CSharpLexer.g4:23; channel(COMMENTS_CHANNEL)"},
+    {"ruleName": "DELIMITED_COMMENT", "evidence": "CSharpLexer.g4:24; channel(COMMENTS_CHANNEL)"},
+    {"ruleName": "DIRECTIVE_SINGLE_LINE_COMMENT", "evidence": "CSharpLexer.g4:281; channel(COMMENTS_CHANNEL), type(SINGLE_LINE_COMMENT)"}
+  ],
+  "string": [
+    {"ruleName": "CHARACTER_LITERAL", "evidence": "CSharpLexer.g4:146"},
+    {"ruleName": "REGULAR_STRING", "evidence": "CSharpLexer.g4:147"},
+    {"ruleName": "VERBATIUM_STRING", "evidence": "CSharpLexer.g4:148"},
+    {"ruleName": "INTERPOLATED_REGULAR_STRING_START", "evidence": "CSharpLexer.g4:149-151; action and mode transition"},
+    {"ruleName": "INTERPOLATED_VERBATIUM_STRING_START", "evidence": "CSharpLexer.g4:151-153; action and mode transition"},
+    {"ruleName": "REGULAR_STRING_INSIDE", "evidence": "CSharpLexer.g4:247; interpolation mode"},
+    {"ruleName": "VERBATIUM_INSIDE_STRING", "evidence": "CSharpLexer.g4:248; interpolation mode"}
+  ],
+  "reserved": [
+    {"symbolicName": "ABSTRACT", "literal": "abstract", "evidence": "CSharpLexer.g4:29"},
+    {"symbolicName": "CLASS", "literal": "class", "evidence": "CSharpLexer.g4:48"},
+    {"symbolicName": "FALSE", "literal": "false", "evidence": "CSharpLexer.g4:62"},
+    {"symbolicName": "IF", "literal": "if", "evidence": "CSharpLexer.g4:74"},
+    {"symbolicName": "NULL", "literal": "null", "evidence": "CSharpLexer.g4:87"},
+    {"symbolicName": "RETURN", "literal": "return", "evidence": "CSharpLexer.g4:97"},
+    {"symbolicName": "STRING", "literal": "string", "evidence": "CSharpLexer.g4:108"},
+    {"symbolicName": "TRUE", "literal": "true", "evidence": "CSharpLexer.g4:116"},
+    {"symbolicName": "VAR", "literal": "var", "evidence": "CSharpLexer.g4:126"}
+  ],
+  "identifier": [{"ruleName": "IDENTIFIER", "evidence": "CSharpLexer.g4:137"}],
+  "number": [{"ruleName": "INTEGER_LITERAL", "evidence": "CSharpLexer.g4:142"}, {"ruleName": "REAL_LITERAL", "evidence": "CSharpLexer.g4:144"}],
+  "contextualOrUnknown": [{"symbolicName": "DEFINE", "reason": "directive channel and preprocessor context"}],
+  "grouping": [{"name": "interpolated regular string", "members": ["INTERPOLATED_REGULAR_STRING_START", "REGULAR_STRING_INSIDE", "DOUBLE_QUOTE_INSIDE"]}, {"name": "interpolated verbatim string", "members": ["INTERPOLATED_VERBATIUM_STRING_START", "VERBATIUM_INSIDE_STRING", "VERBATIUM_DOUBLE_QUOTE_INSIDE", "DOUBLE_QUOTE_INSIDE"]}]
+}

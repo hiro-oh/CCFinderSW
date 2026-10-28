@@ -1,0 +1,6 @@
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/csharp/CSharpLexer.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaBaseListener.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaLexer.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaListener.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaParser.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/php/PhpLexer.java

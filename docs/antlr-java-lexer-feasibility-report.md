@@ -123,3 +123,37 @@ sh ./gradlew test
 - `experiments/antlr-java-lexer/inputs/strings.cs`
 
 既存CCFinderSW本体、同梱文法、生成物は変更していない。
+
+## 10. Phase 1〜4の追加実装結果
+
+前節の独立プロトタイプを拡張し、生成Java Lexerを`experiments/antlr-generated-lexer/generated/{lua,php,csharp}`へ保存する再生成経路を追加した。`generate.sh`はリポジトリ内の3文法をANTLR 4.7.1で生成し、同じruntimeでコンパイルする。生成ファイル一覧、生成JavaのSHA-256、文法SHA-256、Javaバージョン、ANTLR jarを`generated/generated-files.txt`、`generated/generated-sha256.txt`、`generated/build-manifest.txt`へ記録する。生成Javaは再現可能な生成物であるため、実験確認用として保存し、classファイルはGit管理対象外の`classes/`へ置く。
+
+`experiments/antlr-generated-lexer/MetadataExtractor.java`は生成Lexerクラスをreflectionでロードし、`Vocabulary.getMaxTokenType()`、`getLiteralName()`、`getSymbolicName()`、`getDisplayName()`、Lexerの`getRuleNames()`、`getModeNames()`、`getChannelNames()`、`getATN()`を使用する。ATNの`ruleToTokenType`からrule/token対応を作り、`modeToStartState`からruleのmodeを取得する。implicit literal tokenは`T__n`のrule対応を持つ場合があるため、literalと対応状況をJSONへ残す。実測metadataは次の通りである。
+
+| 言語 | token最大値 | rule数 | mode数 | state数 | channel数 |
+|---|---:|---:|---:|---:|---:|
+| Lua | 67 | 76 | 1 | 601 | 2 |
+| PHP | 231 | 251 | 11 | 2118 | 5 |
+| C# | 192 | 238 | 5 | 1942 | 4 |
+
+`ground-truth/{lua,php,csharp}.json`は元`.g4`を読んで手作業で作成した。コメントrule、文字列rule、固定予約語、identifier/number、channel、contextual/action依存、複数token文字列のgroupingと根拠行を含む。自動分類出力をground-truthへ流用していない。
+
+`classify.py`はmetadataだけを入力にして、COMMENT、STRING、RESERVED、IDENTIFIER、NUMBER、OTHER、UNKNOWNへ分類し、根拠、confidence、token/rule/literal/modeを`classification/{language}.json`へ出力する。人手ground-truthと比較し、TP/FP/FN、Precision/Recall/F1、UNKNOWN件数、false positive/negative一覧を同じJSONへ保存する。静的metadataだけではchannelの実行時値、skip、action、contextual keywordを確定できないため、分類結果の低精度やFNは未実装の動的情報を示す。
+
+実測分類結果:
+
+| 言語 | カテゴリ | TP | FP | FN | Precision | Recall | F1 | UNKNOWN |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Lua | COMMENT | 2 | 0 | 1 | 1.000 | 0.667 | 0.800 | 0 |
+| Lua | STRING | 3 | 0 | 0 | 1.000 | 1.000 | 1.000 | 0 |
+| Lua | RESERVED | 18 | 4 | 0 | 0.818 | 1.000 | 0.900 | 0 |
+| PHP | COMMENT | 3 | 4 | 0 | 0.429 | 1.000 | 0.600 | 0 |
+| PHP | STRING | 1 | 10 | 5 | 0.091 | 0.167 | 0.118 | 0 |
+| PHP | RESERVED | 5 | 100 | 0 | 0.048 | 1.000 | 0.091 | 0 |
+| C# | COMMENT | 4 | 0 | 1 | 1.000 | 0.800 | 0.889 | 1 |
+| C# | STRING | 7 | 3 | 0 | 0.700 | 1.000 | 0.824 | 1 |
+| C# | RESERVED | 9 | 101 | 0 | 0.082 | 1.000 | 0.151 | 1 |
+
+PHPの低いprecisionは、HTML/PHP混在lexerの異なるmodeに同名またはstring/commentを示唆するruleがあり、metadata名だけでCCFinderSWの意味分類を決めると過剰分類するためである。C#のRESERVEDもdirective tokenや固定literalが同じlexer metadataに含まれるため、channel/modeと設定による除外が必要である。Luaのreserved FPは固定英字literalのうち、ground-truthで予約語から除外した`until`等の定義差を含むため、比較対象の定義を固定して再確認する必要がある。
+
+追加した自動検証は`experiments/antlr-generated-lexer/verify.sh`である。生成、コンパイル、metadata JSON、classification JSON、metricsキー、token/rule/mode/channelの非空を検証する。`sh experiments/antlr-generated-lexer/verify.sh`は成功した。既存テストは`sh ./gradlew test`で`BUILD SUCCESSFUL`、失敗0件だった。

@@ -1,0 +1,39 @@
+{
+  "language": "lua",
+  "grammar": "CCFinderSW-1.0/grammarsv4/lua/Lua.g4",
+  "commentChannels": ["HIDDEN"],
+  "comment": [
+    {"ruleName": "COMMENT", "evidence": "Lua.g4:315-316; --[ nested comment ] uses channel(HIDDEN)"},
+    {"ruleName": "LINE_COMMENT", "evidence": "Lua.g4:318-326; line comment uses channel(HIDDEN)"},
+    {"ruleName": "SHEBANG", "evidence": "Lua.g4:332-334; shebang uses channel(HIDDEN), kept separate from ordinary comments"}
+  ],
+  "string": [
+    {"ruleName": "NORMALSTRING", "evidence": "Lua.g4:231-233"},
+    {"ruleName": "CHARSTRING", "evidence": "Lua.g4:235-237"},
+    {"ruleName": "LONGSTRING", "evidence": "Lua.g4:239-241; NESTED_STR recursively matches counted long brackets"}
+  ],
+  "reserved": [
+    {"literal": "break", "evidence": "Lua.g4:71"},
+    {"literal": "goto", "evidence": "Lua.g4:72"},
+    {"literal": "do", "evidence": "Lua.g4:73"},
+    {"literal": "while", "evidence": "Lua.g4:74"},
+    {"literal": "repeat", "evidence": "Lua.g4:75"},
+    {"literal": "if", "evidence": "Lua.g4:76"},
+    {"literal": "then", "evidence": "Lua.g4:76"},
+    {"literal": "else", "evidence": "Lua.g4:76"},
+    {"literal": "end", "evidence": "Lua.g4:76"},
+    {"literal": "function", "evidence": "Lua.g4:78, 157"},
+    {"literal": "local", "evidence": "Lua.g4:79"},
+    {"literal": "return", "evidence": "Lua.g4:87"},
+    {"literal": "nil", "evidence": "Lua.g4:113"},
+    {"literal": "false", "evidence": "Lua.g4:113"},
+    {"literal": "true", "evidence": "Lua.g4:113"},
+    {"literal": "or", "evidence": "Lua.g4:196"},
+    {"literal": "and", "evidence": "Lua.g4:199"},
+    {"literal": "not", "evidence": "Lua.g4:216"}
+  ],
+  "identifier": [{"ruleName": "NAME", "evidence": "Lua.g4:227-229"}],
+  "number": [{"ruleName": "INT", "evidence": "Lua.g4:249-251"}, {"ruleName": "HEX", "evidence": "Lua.g4:253-255"}, {"ruleName": "FLOAT", "evidence": "Lua.g4:257-261"}, {"ruleName": "HEX_FLOAT", "evidence": "Lua.g4:263-267"}],
+  "contextualOrUnknown": [],
+  "grouping": []
+}

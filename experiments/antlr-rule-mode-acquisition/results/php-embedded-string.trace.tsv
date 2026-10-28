@@ -1,0 +1,15 @@
+0	before=DEFAULT_MODE	after=INSIDE	type=5	name=HtmlScriptOpen	channel=0	start=0	stop=6	text=<script
+1	before=INSIDE	after=SCRIPT	type=15	name=HtmlClose	channel=0	start=7	stop=7	text=>
+2	before=SCRIPT	after=PHP	type=36	name=PHPStartInsideScript	channel=4	start=8	stop=12	text=<?php
+3	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=13	stop=13	text= 
+4	before=PHP	after=PHP	type=62	name=Echo	channel=0	start=14	stop=17	text=echo
+5	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=18	stop=18	text= 
+6	before=PHP	after=InterpolationString	type=221	name=DoubleQuote	channel=0	start=19	stop=19	text="
+7	before=InterpolationString	after=InterpolationString	type=226	name=StringPart	channel=0	start=20	stop=38	text=/* not a comment */
+8	before=InterpolationString	after=PHP	type=221	name=DoubleQuote	channel=0	start=39	stop=39	text="
+9	before=PHP	after=PHP	type=208	name=SemiColon	channel=0	start=40	stop=40	text=;
+10	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=41	stop=41	text= 
+11	before=PHP	after=SCRIPT	type=208	name=SemiColon	channel=0	start=0	stop=0	text=<null>
+12	before=SCRIPT	after=DEFAULT_MODE	type=35	name=ScriptClose	channel=0	start=44	stop=52	text=</script>
+13	before=DEFAULT_MODE	after=DEFAULT_MODE	type=1	name=SeaWhitespace	channel=1	start=53	stop=53	text=\n
+14	before=DEFAULT_MODE	after=DEFAULT_MODE	type=-1	name=EOF	channel=0	start=54	stop=53	text=<EOF>

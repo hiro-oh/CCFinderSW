@@ -1,0 +1,1037 @@
+{
+  "language": "lua",
+  "lexerClass": "LuaLexer",
+  "source": "/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/metadata/lua.json",
+  "classificationBasis": "static Vocabulary and ATN-derived metadata; no source execution",
+  "items": [
+    {
+      "tokenType": 0,
+      "symbolicName": null,
+      "ruleName": "HexDigit",
+      "literalName": null,
+      "displayName": "0",
+      "channel": null,
+      "mode": null,
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 1,
+      "symbolicName": null,
+      "ruleName": "T__0",
+      "literalName": "';'",
+      "displayName": "';'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 2,
+      "symbolicName": null,
+      "ruleName": "T__1",
+      "literalName": "'='",
+      "displayName": "'='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 3,
+      "symbolicName": null,
+      "ruleName": "T__2",
+      "literalName": "'break'",
+      "displayName": "'break'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 4,
+      "symbolicName": null,
+      "ruleName": "T__3",
+      "literalName": "'goto'",
+      "displayName": "'goto'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 5,
+      "symbolicName": null,
+      "ruleName": "T__4",
+      "literalName": "'do'",
+      "displayName": "'do'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 6,
+      "symbolicName": null,
+      "ruleName": "T__5",
+      "literalName": "'end'",
+      "displayName": "'end'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 7,
+      "symbolicName": null,
+      "ruleName": "T__6",
+      "literalName": "'while'",
+      "displayName": "'while'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 8,
+      "symbolicName": null,
+      "ruleName": "T__7",
+      "literalName": "'repeat'",
+      "displayName": "'repeat'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 9,
+      "symbolicName": null,
+      "ruleName": "T__8",
+      "literalName": "'until'",
+      "displayName": "'until'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 10,
+      "symbolicName": null,
+      "ruleName": "T__9",
+      "literalName": "'if'",
+      "displayName": "'if'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 11,
+      "symbolicName": null,
+      "ruleName": "T__10",
+      "literalName": "'then'",
+      "displayName": "'then'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 12,
+      "symbolicName": null,
+      "ruleName": "T__11",
+      "literalName": "'elseif'",
+      "displayName": "'elseif'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 13,
+      "symbolicName": null,
+      "ruleName": "T__12",
+      "literalName": "'else'",
+      "displayName": "'else'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 14,
+      "symbolicName": null,
+      "ruleName": "T__13",
+      "literalName": "'for'",
+      "displayName": "'for'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 15,
+      "symbolicName": null,
+      "ruleName": "T__14",
+      "literalName": "','",
+      "displayName": "','",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 16,
+      "symbolicName": null,
+      "ruleName": "T__15",
+      "literalName": "'in'",
+      "displayName": "'in'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 17,
+      "symbolicName": null,
+      "ruleName": "T__16",
+      "literalName": "'function'",
+      "displayName": "'function'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 18,
+      "symbolicName": null,
+      "ruleName": "T__17",
+      "literalName": "'local'",
+      "displayName": "'local'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 19,
+      "symbolicName": null,
+      "ruleName": "T__18",
+      "literalName": "'return'",
+      "displayName": "'return'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 20,
+      "symbolicName": null,
+      "ruleName": "T__19",
+      "literalName": "'::'",
+      "displayName": "'::'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 21,
+      "symbolicName": null,
+      "ruleName": "T__20",
+      "literalName": "'.'",
+      "displayName": "'.'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 22,
+      "symbolicName": null,
+      "ruleName": "T__21",
+      "literalName": "':'",
+      "displayName": "':'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 23,
+      "symbolicName": null,
+      "ruleName": "T__22",
+      "literalName": "'nil'",
+      "displayName": "'nil'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 24,
+      "symbolicName": null,
+      "ruleName": "T__23",
+      "literalName": "'false'",
+      "displayName": "'false'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 25,
+      "symbolicName": null,
+      "ruleName": "T__24",
+      "literalName": "'true'",
+      "displayName": "'true'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 26,
+      "symbolicName": null,
+      "ruleName": "T__25",
+      "literalName": "'...'",
+      "displayName": "'...'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 27,
+      "symbolicName": null,
+      "ruleName": "T__26",
+      "literalName": "'('",
+      "displayName": "'('",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 28,
+      "symbolicName": null,
+      "ruleName": "T__27",
+      "literalName": "')'",
+      "displayName": "')'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 29,
+      "symbolicName": null,
+      "ruleName": "T__28",
+      "literalName": "'['",
+      "displayName": "'['",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 30,
+      "symbolicName": null,
+      "ruleName": "T__29",
+      "literalName": "']'",
+      "displayName": "']'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 31,
+      "symbolicName": null,
+      "ruleName": "T__30",
+      "literalName": "'{'",
+      "displayName": "'{'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 32,
+      "symbolicName": null,
+      "ruleName": "T__31",
+      "literalName": "'}'",
+      "displayName": "'}'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 33,
+      "symbolicName": null,
+      "ruleName": "T__32",
+      "literalName": "'or'",
+      "displayName": "'or'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 34,
+      "symbolicName": null,
+      "ruleName": "T__33",
+      "literalName": "'and'",
+      "displayName": "'and'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 35,
+      "symbolicName": null,
+      "ruleName": "T__34",
+      "literalName": "'<'",
+      "displayName": "'<'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 36,
+      "symbolicName": null,
+      "ruleName": "T__35",
+      "literalName": "'>'",
+      "displayName": "'>'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 37,
+      "symbolicName": null,
+      "ruleName": "T__36",
+      "literalName": "'<='",
+      "displayName": "'<='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 38,
+      "symbolicName": null,
+      "ruleName": "T__37",
+      "literalName": "'>='",
+      "displayName": "'>='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 39,
+      "symbolicName": null,
+      "ruleName": "T__38",
+      "literalName": "'~='",
+      "displayName": "'~='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 40,
+      "symbolicName": null,
+      "ruleName": "T__39",
+      "literalName": "'=='",
+      "displayName": "'=='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 41,
+      "symbolicName": null,
+      "ruleName": "T__40",
+      "literalName": "'..'",
+      "displayName": "'..'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 42,
+      "symbolicName": null,
+      "ruleName": "T__41",
+      "literalName": "'+'",
+      "displayName": "'+'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 43,
+      "symbolicName": null,
+      "ruleName": "T__42",
+      "literalName": "'-'",
+      "displayName": "'-'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 44,
+      "symbolicName": null,
+      "ruleName": "T__43",
+      "literalName": "'*'",
+      "displayName": "'*'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 45,
+      "symbolicName": null,
+      "ruleName": "T__44",
+      "literalName": "'/'",
+      "displayName": "'/'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 46,
+      "symbolicName": null,
+      "ruleName": "T__45",
+      "literalName": "'%'",
+      "displayName": "'%'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 47,
+      "symbolicName": null,
+      "ruleName": "T__46",
+      "literalName": "'//'",
+      "displayName": "'//'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 48,
+      "symbolicName": null,
+      "ruleName": "T__47",
+      "literalName": "'&'",
+      "displayName": "'&'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 49,
+      "symbolicName": null,
+      "ruleName": "T__48",
+      "literalName": "'|'",
+      "displayName": "'|'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 50,
+      "symbolicName": null,
+      "ruleName": "T__49",
+      "literalName": "'~'",
+      "displayName": "'~'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 51,
+      "symbolicName": null,
+      "ruleName": "T__50",
+      "literalName": "'<<'",
+      "displayName": "'<<'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 52,
+      "symbolicName": null,
+      "ruleName": "T__51",
+      "literalName": "'>>'",
+      "displayName": "'>>'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 53,
+      "symbolicName": null,
+      "ruleName": "T__52",
+      "literalName": "'not'",
+      "displayName": "'not'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 54,
+      "symbolicName": null,
+      "ruleName": "T__53",
+      "literalName": "'#'",
+      "displayName": "'#'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 55,
+      "symbolicName": null,
+      "ruleName": "T__54",
+      "literalName": "'^'",
+      "displayName": "'^'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 56,
+      "symbolicName": "NAME",
+      "ruleName": "NAME",
+      "literalName": null,
+      "displayName": "NAME",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "IDENTIFIER",
+      "confidence": "HIGH",
+      "evidence": [
+        "identifier token name"
+      ]
+    },
+    {
+      "tokenType": 57,
+      "symbolicName": "NORMALSTRING",
+      "ruleName": "NORMALSTRING",
+      "literalName": null,
+      "displayName": "NORMALSTRING",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 58,
+      "symbolicName": "CHARSTRING",
+      "ruleName": "CHARSTRING",
+      "literalName": null,
+      "displayName": "CHARSTRING",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 59,
+      "symbolicName": "LONGSTRING",
+      "ruleName": "LONGSTRING",
+      "literalName": null,
+      "displayName": "LONGSTRING",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 60,
+      "symbolicName": "INT",
+      "ruleName": "INT",
+      "literalName": null,
+      "displayName": "INT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 61,
+      "symbolicName": "HEX",
+      "ruleName": "HEX",
+      "literalName": null,
+      "displayName": "HEX",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 62,
+      "symbolicName": "FLOAT",
+      "ruleName": "FLOAT",
+      "literalName": null,
+      "displayName": "FLOAT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 63,
+      "symbolicName": "HEX_FLOAT",
+      "ruleName": "HEX_FLOAT",
+      "literalName": null,
+      "displayName": "HEX_FLOAT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 64,
+      "symbolicName": "COMMENT",
+      "ruleName": "COMMENT",
+      "literalName": null,
+      "displayName": "COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 65,
+      "symbolicName": "LINE_COMMENT",
+      "ruleName": "LINE_COMMENT",
+      "literalName": null,
+      "displayName": "LINE_COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 66,
+      "symbolicName": "WS",
+      "ruleName": "WS",
+      "literalName": null,
+      "displayName": "WS",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 67,
+      "symbolicName": "SHEBANG",
+      "ruleName": "SHEBANG",
+      "literalName": null,
+      "displayName": "SHEBANG",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    }
+  ],
+  "metrics": {
+    "COMMENT": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 1,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "unknownCount": 0
+    },
+    "STRING": {
+      "TP": 3,
+      "FP": 0,
+      "FN": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "unknownCount": 0
+    },
+    "RESERVED": {
+      "TP": 18,
+      "FP": 4,
+      "FN": 0,
+      "precision": 0.8181818181818182,
+      "recall": 1.0,
+      "f1": 0.9,
+      "unknownCount": 0
+    }
+  },
+  "errors": {
+    "COMMENT": {
+      "falsePositive": [],
+      "falseNegative": [
+        "SHEBANG"
+      ]
+    },
+    "STRING": {
+      "falsePositive": [],
+      "falseNegative": []
+    },
+    "RESERVED": {
+      "falsePositive": [
+        "elseif",
+        "for",
+        "in",
+        "until"
+      ],
+      "falseNegative": []
+    }
+  },
+  "limitations": [
+    "Channel is represented by channel names in metadata; token emission channel requires runtime execution",
+    "Contextual keywords and action-dependent grouping are UNKNOWN or require language-specific rules",
+    "Ground truth is manually authored from the grammar and is not inferred by this script"
+  ]
+}

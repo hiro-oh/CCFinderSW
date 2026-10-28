@@ -1,0 +1,20 @@
+0	before=DEFAULT_MODE	after=INSIDE	type=9	name=HtmlOpen	channel=0	start=0	stop=0	text=<
+1	before=INSIDE	after=INSIDE	type=24	name=HtmlName	channel=0	start=1	stop=4	text=html
+2	before=INSIDE	after=DEFAULT_MODE	type=15	name=HtmlClose	channel=0	start=5	stop=5	text=>
+3	before=DEFAULT_MODE	after=PHP	type=4	name=PHPStart	channel=4	start=6	stop=10	text=<?php
+4	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=11	stop=11	text=\n
+5	before=PHP	after=SingleLineCommentMode	type=41	name=SingleLineComment	channel=4	start=12	stop=13	text=//
+6	before=SingleLineCommentMode	after=SingleLineCommentMode	type=227	name=Comment	channel=2	start=14	stop=26	text= line comment
+7	before=SingleLineCommentMode	after=PHP	type=229	name=CommentEnd	channel=4	start=27	stop=27	text=\n
+8	before=PHP	after=PHP	type=212	name=VarName	channel=0	start=28	stop=29	text=$x
+9	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=30	stop=30	text= 
+10	before=PHP	after=PHP	type=209	name=Eq	channel=0	start=31	stop=31	text==
+11	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=32	stop=32	text= 
+12	before=PHP	after=PHP	type=215	name=Decimal	channel=0	start=33	stop=33	text=1
+13	before=PHP	after=PHP	type=208	name=SemiColon	channel=0	start=34	stop=34	text=;
+14	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=35	stop=35	text= 
+15	before=PHP	after=PHP	type=40	name=MultiLineComment	channel=2	start=36	stop=54	text=/* block comment */
+16	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=55	stop=55	text=\n
+17	before=PHP	after=DEFAULT_MODE	type=208	name=SemiColon	channel=0	start=0	stop=0	text=<null>
+18	before=DEFAULT_MODE	after=DEFAULT_MODE	type=2	name=HtmlText	channel=0	start=58	stop=63	text=\ntail\n
+19	before=DEFAULT_MODE	after=DEFAULT_MODE	type=-1	name=EOF	channel=0	start=64	stop=63	text=<EOF>

@@ -1,0 +1,2976 @@
+{
+  "language": "csharp",
+  "lexerClass": "CSharpLexer",
+  "source": "/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/metadata/csharp.json",
+  "classificationBasis": "static Vocabulary and ATN-derived metadata; no source execution",
+  "items": [
+    {
+      "tokenType": 0,
+      "symbolicName": null,
+      "ruleName": "UnicodeClassND",
+      "literalName": null,
+      "displayName": "0",
+      "channel": null,
+      "mode": null,
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "evidence": [
+        "no usable token name or literal"
+      ]
+    },
+    {
+      "tokenType": 1,
+      "symbolicName": "BYTE_ORDER_MARK",
+      "ruleName": "BYTE_ORDER_MARK",
+      "literalName": "'ï»¿'",
+      "displayName": "'ï»¿'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 2,
+      "symbolicName": "SINGLE_LINE_DOC_COMMENT",
+      "ruleName": "SINGLE_LINE_DOC_COMMENT",
+      "literalName": null,
+      "displayName": "SINGLE_LINE_DOC_COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 3,
+      "symbolicName": "DELIMITED_DOC_COMMENT",
+      "ruleName": "DELIMITED_DOC_COMMENT",
+      "literalName": null,
+      "displayName": "DELIMITED_DOC_COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 4,
+      "symbolicName": "SINGLE_LINE_COMMENT",
+      "ruleName": "SINGLE_LINE_COMMENT",
+      "literalName": null,
+      "displayName": "SINGLE_LINE_COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 5,
+      "symbolicName": "DELIMITED_COMMENT",
+      "ruleName": "DELIMITED_COMMENT",
+      "literalName": null,
+      "displayName": "DELIMITED_COMMENT",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "COMMENT",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name contains COMMENT"
+      ]
+    },
+    {
+      "tokenType": 6,
+      "symbolicName": "WHITESPACES",
+      "ruleName": "WHITESPACES",
+      "literalName": null,
+      "displayName": "WHITESPACES",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 7,
+      "symbolicName": "SHARP",
+      "ruleName": "SHARP",
+      "literalName": "'#'",
+      "displayName": "'#'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 8,
+      "symbolicName": "ABSTRACT",
+      "ruleName": "ABSTRACT",
+      "literalName": "'abstract'",
+      "displayName": "'abstract'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 9,
+      "symbolicName": "ADD",
+      "ruleName": "ADD",
+      "literalName": "'add'",
+      "displayName": "'add'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 10,
+      "symbolicName": "ALIAS",
+      "ruleName": "ALIAS",
+      "literalName": "'alias'",
+      "displayName": "'alias'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 11,
+      "symbolicName": "ARGLIST",
+      "ruleName": "ARGLIST",
+      "literalName": "'__arglist'",
+      "displayName": "'__arglist'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 12,
+      "symbolicName": "AS",
+      "ruleName": "AS",
+      "literalName": "'as'",
+      "displayName": "'as'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 13,
+      "symbolicName": "ASCENDING",
+      "ruleName": "ASCENDING",
+      "literalName": "'ascending'",
+      "displayName": "'ascending'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 14,
+      "symbolicName": "ASYNC",
+      "ruleName": "ASYNC",
+      "literalName": "'async'",
+      "displayName": "'async'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 15,
+      "symbolicName": "AWAIT",
+      "ruleName": "AWAIT",
+      "literalName": "'await'",
+      "displayName": "'await'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 16,
+      "symbolicName": "BASE",
+      "ruleName": "BASE",
+      "literalName": "'base'",
+      "displayName": "'base'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 17,
+      "symbolicName": "BOOL",
+      "ruleName": "BOOL",
+      "literalName": "'bool'",
+      "displayName": "'bool'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 18,
+      "symbolicName": "BREAK",
+      "ruleName": "BREAK",
+      "literalName": "'break'",
+      "displayName": "'break'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 19,
+      "symbolicName": "BY",
+      "ruleName": "BY",
+      "literalName": "'by'",
+      "displayName": "'by'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 20,
+      "symbolicName": "BYTE",
+      "ruleName": "BYTE",
+      "literalName": "'byte'",
+      "displayName": "'byte'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 21,
+      "symbolicName": "CASE",
+      "ruleName": "CASE",
+      "literalName": "'case'",
+      "displayName": "'case'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 22,
+      "symbolicName": "CATCH",
+      "ruleName": "CATCH",
+      "literalName": "'catch'",
+      "displayName": "'catch'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 23,
+      "symbolicName": "CHAR",
+      "ruleName": "CHAR",
+      "literalName": "'char'",
+      "displayName": "'char'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 24,
+      "symbolicName": "CHECKED",
+      "ruleName": "CHECKED",
+      "literalName": "'checked'",
+      "displayName": "'checked'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 25,
+      "symbolicName": "CLASS",
+      "ruleName": "CLASS",
+      "literalName": "'class'",
+      "displayName": "'class'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 26,
+      "symbolicName": "CONST",
+      "ruleName": "CONST",
+      "literalName": "'const'",
+      "displayName": "'const'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 27,
+      "symbolicName": "CONTINUE",
+      "ruleName": "CONTINUE",
+      "literalName": "'continue'",
+      "displayName": "'continue'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 28,
+      "symbolicName": "DECIMAL",
+      "ruleName": "DECIMAL",
+      "literalName": "'decimal'",
+      "displayName": "'decimal'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 29,
+      "symbolicName": "DEFAULT",
+      "ruleName": "DEFAULT",
+      "literalName": "'default'",
+      "displayName": "'default'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 30,
+      "symbolicName": "DELEGATE",
+      "ruleName": "DELEGATE",
+      "literalName": "'delegate'",
+      "displayName": "'delegate'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 31,
+      "symbolicName": "DESCENDING",
+      "ruleName": "DESCENDING",
+      "literalName": "'descending'",
+      "displayName": "'descending'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 32,
+      "symbolicName": "DO",
+      "ruleName": "DO",
+      "literalName": "'do'",
+      "displayName": "'do'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 33,
+      "symbolicName": "DOUBLE",
+      "ruleName": "DOUBLE",
+      "literalName": "'double'",
+      "displayName": "'double'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 34,
+      "symbolicName": "DYNAMIC",
+      "ruleName": "DYNAMIC",
+      "literalName": "'dynamic'",
+      "displayName": "'dynamic'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 35,
+      "symbolicName": "ELSE",
+      "ruleName": "ELSE",
+      "literalName": "'else'",
+      "displayName": "'else'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 36,
+      "symbolicName": "ENUM",
+      "ruleName": "ENUM",
+      "literalName": "'enum'",
+      "displayName": "'enum'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 37,
+      "symbolicName": "EQUALS",
+      "ruleName": "EQUALS",
+      "literalName": "'equals'",
+      "displayName": "'equals'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 38,
+      "symbolicName": "EVENT",
+      "ruleName": "EVENT",
+      "literalName": "'event'",
+      "displayName": "'event'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 39,
+      "symbolicName": "EXPLICIT",
+      "ruleName": "EXPLICIT",
+      "literalName": "'explicit'",
+      "displayName": "'explicit'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 40,
+      "symbolicName": "EXTERN",
+      "ruleName": "EXTERN",
+      "literalName": "'extern'",
+      "displayName": "'extern'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 41,
+      "symbolicName": "FALSE",
+      "ruleName": "FALSE",
+      "literalName": "'false'",
+      "displayName": "'false'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 42,
+      "symbolicName": "FINALLY",
+      "ruleName": "FINALLY",
+      "literalName": "'finally'",
+      "displayName": "'finally'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 43,
+      "symbolicName": "FIXED",
+      "ruleName": "FIXED",
+      "literalName": "'fixed'",
+      "displayName": "'fixed'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 44,
+      "symbolicName": "FLOAT",
+      "ruleName": "FLOAT",
+      "literalName": "'float'",
+      "displayName": "'float'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 45,
+      "symbolicName": "FOR",
+      "ruleName": "FOR",
+      "literalName": "'for'",
+      "displayName": "'for'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 46,
+      "symbolicName": "FOREACH",
+      "ruleName": "FOREACH",
+      "literalName": "'foreach'",
+      "displayName": "'foreach'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 47,
+      "symbolicName": "FROM",
+      "ruleName": "FROM",
+      "literalName": "'from'",
+      "displayName": "'from'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 48,
+      "symbolicName": "GET",
+      "ruleName": "GET",
+      "literalName": "'get'",
+      "displayName": "'get'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 49,
+      "symbolicName": "GOTO",
+      "ruleName": "GOTO",
+      "literalName": "'goto'",
+      "displayName": "'goto'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 50,
+      "symbolicName": "GROUP",
+      "ruleName": "GROUP",
+      "literalName": "'group'",
+      "displayName": "'group'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 51,
+      "symbolicName": "IF",
+      "ruleName": "IF",
+      "literalName": "'if'",
+      "displayName": "'if'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 52,
+      "symbolicName": "IMPLICIT",
+      "ruleName": "IMPLICIT",
+      "literalName": "'implicit'",
+      "displayName": "'implicit'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 53,
+      "symbolicName": "IN",
+      "ruleName": "IN",
+      "literalName": "'in'",
+      "displayName": "'in'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 54,
+      "symbolicName": "INT",
+      "ruleName": "INT",
+      "literalName": "'int'",
+      "displayName": "'int'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 55,
+      "symbolicName": "INTERFACE",
+      "ruleName": "INTERFACE",
+      "literalName": "'interface'",
+      "displayName": "'interface'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 56,
+      "symbolicName": "INTERNAL",
+      "ruleName": "INTERNAL",
+      "literalName": "'internal'",
+      "displayName": "'internal'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 57,
+      "symbolicName": "INTO",
+      "ruleName": "INTO",
+      "literalName": "'into'",
+      "displayName": "'into'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 58,
+      "symbolicName": "IS",
+      "ruleName": "IS",
+      "literalName": "'is'",
+      "displayName": "'is'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 59,
+      "symbolicName": "JOIN",
+      "ruleName": "JOIN",
+      "literalName": "'join'",
+      "displayName": "'join'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 60,
+      "symbolicName": "LET",
+      "ruleName": "LET",
+      "literalName": "'let'",
+      "displayName": "'let'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 61,
+      "symbolicName": "LOCK",
+      "ruleName": "LOCK",
+      "literalName": "'lock'",
+      "displayName": "'lock'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 62,
+      "symbolicName": "LONG",
+      "ruleName": "LONG",
+      "literalName": "'long'",
+      "displayName": "'long'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 63,
+      "symbolicName": "NAMEOF",
+      "ruleName": "NAMEOF",
+      "literalName": "'nameof'",
+      "displayName": "'nameof'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 64,
+      "symbolicName": "NAMESPACE",
+      "ruleName": "NAMESPACE",
+      "literalName": "'namespace'",
+      "displayName": "'namespace'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 65,
+      "symbolicName": "NEW",
+      "ruleName": "NEW",
+      "literalName": "'new'",
+      "displayName": "'new'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 66,
+      "symbolicName": "NULL",
+      "ruleName": "NULL",
+      "literalName": "'null'",
+      "displayName": "'null'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 67,
+      "symbolicName": "OBJECT",
+      "ruleName": "OBJECT",
+      "literalName": "'object'",
+      "displayName": "'object'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 68,
+      "symbolicName": "ON",
+      "ruleName": "ON",
+      "literalName": "'on'",
+      "displayName": "'on'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 69,
+      "symbolicName": "OPERATOR",
+      "ruleName": "OPERATOR",
+      "literalName": "'operator'",
+      "displayName": "'operator'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 70,
+      "symbolicName": "ORDERBY",
+      "ruleName": "ORDERBY",
+      "literalName": "'orderby'",
+      "displayName": "'orderby'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 71,
+      "symbolicName": "OUT",
+      "ruleName": "OUT",
+      "literalName": "'out'",
+      "displayName": "'out'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 72,
+      "symbolicName": "OVERRIDE",
+      "ruleName": "OVERRIDE",
+      "literalName": "'override'",
+      "displayName": "'override'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 73,
+      "symbolicName": "PARAMS",
+      "ruleName": "PARAMS",
+      "literalName": "'params'",
+      "displayName": "'params'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 74,
+      "symbolicName": "PARTIAL",
+      "ruleName": "PARTIAL",
+      "literalName": "'partial'",
+      "displayName": "'partial'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 75,
+      "symbolicName": "PRIVATE",
+      "ruleName": "PRIVATE",
+      "literalName": "'private'",
+      "displayName": "'private'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 76,
+      "symbolicName": "PROTECTED",
+      "ruleName": "PROTECTED",
+      "literalName": "'protected'",
+      "displayName": "'protected'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 77,
+      "symbolicName": "PUBLIC",
+      "ruleName": "PUBLIC",
+      "literalName": "'public'",
+      "displayName": "'public'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 78,
+      "symbolicName": "READONLY",
+      "ruleName": "READONLY",
+      "literalName": "'readonly'",
+      "displayName": "'readonly'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 79,
+      "symbolicName": "REF",
+      "ruleName": "REF",
+      "literalName": "'ref'",
+      "displayName": "'ref'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 80,
+      "symbolicName": "REMOVE",
+      "ruleName": "REMOVE",
+      "literalName": "'remove'",
+      "displayName": "'remove'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 81,
+      "symbolicName": "RETURN",
+      "ruleName": "RETURN",
+      "literalName": "'return'",
+      "displayName": "'return'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 82,
+      "symbolicName": "SBYTE",
+      "ruleName": "SBYTE",
+      "literalName": "'sbyte'",
+      "displayName": "'sbyte'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 83,
+      "symbolicName": "SEALED",
+      "ruleName": "SEALED",
+      "literalName": "'sealed'",
+      "displayName": "'sealed'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 84,
+      "symbolicName": "SELECT",
+      "ruleName": "SELECT",
+      "literalName": "'select'",
+      "displayName": "'select'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 85,
+      "symbolicName": "SET",
+      "ruleName": "SET",
+      "literalName": "'set'",
+      "displayName": "'set'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 86,
+      "symbolicName": "SHORT",
+      "ruleName": "SHORT",
+      "literalName": "'short'",
+      "displayName": "'short'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 87,
+      "symbolicName": "SIZEOF",
+      "ruleName": "SIZEOF",
+      "literalName": "'sizeof'",
+      "displayName": "'sizeof'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 88,
+      "symbolicName": "STACKALLOC",
+      "ruleName": "STACKALLOC",
+      "literalName": "'stackalloc'",
+      "displayName": "'stackalloc'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 89,
+      "symbolicName": "STATIC",
+      "ruleName": "STATIC",
+      "literalName": "'static'",
+      "displayName": "'static'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 90,
+      "symbolicName": "STRING",
+      "ruleName": "STRING",
+      "literalName": "'string'",
+      "displayName": "'string'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 91,
+      "symbolicName": "STRUCT",
+      "ruleName": "STRUCT",
+      "literalName": "'struct'",
+      "displayName": "'struct'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 92,
+      "symbolicName": "SWITCH",
+      "ruleName": "SWITCH",
+      "literalName": "'switch'",
+      "displayName": "'switch'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 93,
+      "symbolicName": "THIS",
+      "ruleName": "THIS",
+      "literalName": "'this'",
+      "displayName": "'this'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 94,
+      "symbolicName": "THROW",
+      "ruleName": "THROW",
+      "literalName": "'throw'",
+      "displayName": "'throw'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 95,
+      "symbolicName": "TRUE",
+      "ruleName": "TRUE",
+      "literalName": "'true'",
+      "displayName": "'true'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 96,
+      "symbolicName": "TRY",
+      "ruleName": "TRY",
+      "literalName": "'try'",
+      "displayName": "'try'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 97,
+      "symbolicName": "TYPEOF",
+      "ruleName": "TYPEOF",
+      "literalName": "'typeof'",
+      "displayName": "'typeof'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 98,
+      "symbolicName": "UINT",
+      "ruleName": "UINT",
+      "literalName": "'uint'",
+      "displayName": "'uint'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 99,
+      "symbolicName": "ULONG",
+      "ruleName": "ULONG",
+      "literalName": "'ulong'",
+      "displayName": "'ulong'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 100,
+      "symbolicName": "UNCHECKED",
+      "ruleName": "UNCHECKED",
+      "literalName": "'unchecked'",
+      "displayName": "'unchecked'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 101,
+      "symbolicName": "UNSAFE",
+      "ruleName": "UNSAFE",
+      "literalName": "'unsafe'",
+      "displayName": "'unsafe'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 102,
+      "symbolicName": "USHORT",
+      "ruleName": "USHORT",
+      "literalName": "'ushort'",
+      "displayName": "'ushort'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 103,
+      "symbolicName": "USING",
+      "ruleName": "USING",
+      "literalName": "'using'",
+      "displayName": "'using'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 104,
+      "symbolicName": "VAR",
+      "ruleName": "VAR",
+      "literalName": "'var'",
+      "displayName": "'var'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 105,
+      "symbolicName": "VIRTUAL",
+      "ruleName": "VIRTUAL",
+      "literalName": "'virtual'",
+      "displayName": "'virtual'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 106,
+      "symbolicName": "VOID",
+      "ruleName": "VOID",
+      "literalName": "'void'",
+      "displayName": "'void'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 107,
+      "symbolicName": "VOLATILE",
+      "ruleName": "VOLATILE",
+      "literalName": "'volatile'",
+      "displayName": "'volatile'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 108,
+      "symbolicName": "WHEN",
+      "ruleName": "WHEN",
+      "literalName": "'when'",
+      "displayName": "'when'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 109,
+      "symbolicName": "WHERE",
+      "ruleName": "WHERE",
+      "literalName": "'where'",
+      "displayName": "'where'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 110,
+      "symbolicName": "WHILE",
+      "ruleName": "WHILE",
+      "literalName": "'while'",
+      "displayName": "'while'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 111,
+      "symbolicName": "YIELD",
+      "ruleName": "YIELD",
+      "literalName": "'yield'",
+      "displayName": "'yield'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 112,
+      "symbolicName": "IDENTIFIER",
+      "ruleName": "IDENTIFIER",
+      "literalName": null,
+      "displayName": "IDENTIFIER",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "IDENTIFIER",
+      "confidence": "HIGH",
+      "evidence": [
+        "identifier token name"
+      ]
+    },
+    {
+      "tokenType": 113,
+      "symbolicName": "LITERAL_ACCESS",
+      "ruleName": "LITERAL_ACCESS",
+      "literalName": null,
+      "displayName": "LITERAL_ACCESS",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 114,
+      "symbolicName": "INTEGER_LITERAL",
+      "ruleName": "INTEGER_LITERAL",
+      "literalName": null,
+      "displayName": "INTEGER_LITERAL",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 115,
+      "symbolicName": "HEX_INTEGER_LITERAL",
+      "ruleName": "HEX_INTEGER_LITERAL",
+      "literalName": null,
+      "displayName": "HEX_INTEGER_LITERAL",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 116,
+      "symbolicName": "REAL_LITERAL",
+      "ruleName": "REAL_LITERAL",
+      "literalName": null,
+      "displayName": "REAL_LITERAL",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 117,
+      "symbolicName": "CHARACTER_LITERAL",
+      "ruleName": "CHARACTER_LITERAL",
+      "literalName": null,
+      "displayName": "CHARACTER_LITERAL",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 118,
+      "symbolicName": "REGULAR_STRING",
+      "ruleName": "REGULAR_STRING",
+      "literalName": null,
+      "displayName": "REGULAR_STRING",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 119,
+      "symbolicName": "VERBATIUM_STRING",
+      "ruleName": "VERBATIUM_STRING",
+      "literalName": null,
+      "displayName": "VERBATIUM_STRING",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 120,
+      "symbolicName": "INTERPOLATED_REGULAR_STRING_START",
+      "ruleName": "INTERPOLATED_REGULAR_STRING_START",
+      "literalName": null,
+      "displayName": "INTERPOLATED_REGULAR_STRING_START",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 121,
+      "symbolicName": "INTERPOLATED_VERBATIUM_STRING_START",
+      "ruleName": "INTERPOLATED_VERBATIUM_STRING_START",
+      "literalName": null,
+      "displayName": "INTERPOLATED_VERBATIUM_STRING_START",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 122,
+      "symbolicName": "OPEN_BRACE",
+      "ruleName": "OPEN_BRACE",
+      "literalName": "'{'",
+      "displayName": "'{'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 123,
+      "symbolicName": "CLOSE_BRACE",
+      "ruleName": "CLOSE_BRACE",
+      "literalName": "'}'",
+      "displayName": "'}'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 124,
+      "symbolicName": "OPEN_BRACKET",
+      "ruleName": "OPEN_BRACKET",
+      "literalName": "'['",
+      "displayName": "'['",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 125,
+      "symbolicName": "CLOSE_BRACKET",
+      "ruleName": "CLOSE_BRACKET",
+      "literalName": "']'",
+      "displayName": "']'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 126,
+      "symbolicName": "OPEN_PARENS",
+      "ruleName": "OPEN_PARENS",
+      "literalName": "'('",
+      "displayName": "'('",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 127,
+      "symbolicName": "CLOSE_PARENS",
+      "ruleName": "CLOSE_PARENS",
+      "literalName": "')'",
+      "displayName": "')'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 128,
+      "symbolicName": "DOT",
+      "ruleName": "DOT",
+      "literalName": "'.'",
+      "displayName": "'.'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 129,
+      "symbolicName": "COMMA",
+      "ruleName": "COMMA",
+      "literalName": "','",
+      "displayName": "','",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 130,
+      "symbolicName": "COLON",
+      "ruleName": "COLON",
+      "literalName": "':'",
+      "displayName": "':'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 131,
+      "symbolicName": "SEMICOLON",
+      "ruleName": "SEMICOLON",
+      "literalName": "';'",
+      "displayName": "';'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 132,
+      "symbolicName": "PLUS",
+      "ruleName": "PLUS",
+      "literalName": "'+'",
+      "displayName": "'+'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 133,
+      "symbolicName": "MINUS",
+      "ruleName": "MINUS",
+      "literalName": "'-'",
+      "displayName": "'-'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 134,
+      "symbolicName": "STAR",
+      "ruleName": "STAR",
+      "literalName": "'*'",
+      "displayName": "'*'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 135,
+      "symbolicName": "DIV",
+      "ruleName": "DIV",
+      "literalName": "'/'",
+      "displayName": "'/'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 136,
+      "symbolicName": "PERCENT",
+      "ruleName": "PERCENT",
+      "literalName": "'%'",
+      "displayName": "'%'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 137,
+      "symbolicName": "AMP",
+      "ruleName": "AMP",
+      "literalName": "'&'",
+      "displayName": "'&'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 138,
+      "symbolicName": "BITWISE_OR",
+      "ruleName": "BITWISE_OR",
+      "literalName": "'|'",
+      "displayName": "'|'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 139,
+      "symbolicName": "CARET",
+      "ruleName": "CARET",
+      "literalName": "'^'",
+      "displayName": "'^'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 140,
+      "symbolicName": "BANG",
+      "ruleName": "BANG",
+      "literalName": "'!'",
+      "displayName": "'!'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 141,
+      "symbolicName": "TILDE",
+      "ruleName": "TILDE",
+      "literalName": "'~'",
+      "displayName": "'~'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 142,
+      "symbolicName": "ASSIGNMENT",
+      "ruleName": "ASSIGNMENT",
+      "literalName": "'='",
+      "displayName": "'='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 143,
+      "symbolicName": "LT",
+      "ruleName": "LT",
+      "literalName": "'<'",
+      "displayName": "'<'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 144,
+      "symbolicName": "GT",
+      "ruleName": "GT",
+      "literalName": "'>'",
+      "displayName": "'>'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 145,
+      "symbolicName": "INTERR",
+      "ruleName": "INTERR",
+      "literalName": "'?'",
+      "displayName": "'?'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 146,
+      "symbolicName": "DOUBLE_COLON",
+      "ruleName": "DOUBLE_COLON",
+      "literalName": "'::'",
+      "displayName": "'::'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 147,
+      "symbolicName": "OP_COALESCING",
+      "ruleName": "OP_COALESCING",
+      "literalName": "'??'",
+      "displayName": "'??'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 148,
+      "symbolicName": "OP_INC",
+      "ruleName": "OP_INC",
+      "literalName": "'++'",
+      "displayName": "'++'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 149,
+      "symbolicName": "OP_DEC",
+      "ruleName": "OP_DEC",
+      "literalName": "'--'",
+      "displayName": "'--'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 150,
+      "symbolicName": "OP_AND",
+      "ruleName": "OP_AND",
+      "literalName": "'&&'",
+      "displayName": "'&&'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 151,
+      "symbolicName": "OP_OR",
+      "ruleName": "OP_OR",
+      "literalName": "'||'",
+      "displayName": "'||'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 152,
+      "symbolicName": "OP_PTR",
+      "ruleName": "OP_PTR",
+      "literalName": "'->'",
+      "displayName": "'->'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 153,
+      "symbolicName": "OP_EQ",
+      "ruleName": "OP_EQ",
+      "literalName": "'=='",
+      "displayName": "'=='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 154,
+      "symbolicName": "OP_NE",
+      "ruleName": "OP_NE",
+      "literalName": "'!='",
+      "displayName": "'!='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 155,
+      "symbolicName": "OP_LE",
+      "ruleName": "OP_LE",
+      "literalName": "'<='",
+      "displayName": "'<='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 156,
+      "symbolicName": "OP_GE",
+      "ruleName": "OP_GE",
+      "literalName": "'>='",
+      "displayName": "'>='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 157,
+      "symbolicName": "OP_ADD_ASSIGNMENT",
+      "ruleName": "OP_ADD_ASSIGNMENT",
+      "literalName": "'+='",
+      "displayName": "'+='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 158,
+      "symbolicName": "OP_SUB_ASSIGNMENT",
+      "ruleName": "OP_SUB_ASSIGNMENT",
+      "literalName": "'-='",
+      "displayName": "'-='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 159,
+      "symbolicName": "OP_MULT_ASSIGNMENT",
+      "ruleName": "OP_MULT_ASSIGNMENT",
+      "literalName": "'*='",
+      "displayName": "'*='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 160,
+      "symbolicName": "OP_DIV_ASSIGNMENT",
+      "ruleName": "OP_DIV_ASSIGNMENT",
+      "literalName": "'/='",
+      "displayName": "'/='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 161,
+      "symbolicName": "OP_MOD_ASSIGNMENT",
+      "ruleName": "OP_MOD_ASSIGNMENT",
+      "literalName": "'%='",
+      "displayName": "'%='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 162,
+      "symbolicName": "OP_AND_ASSIGNMENT",
+      "ruleName": "OP_AND_ASSIGNMENT",
+      "literalName": "'&='",
+      "displayName": "'&='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 163,
+      "symbolicName": "OP_OR_ASSIGNMENT",
+      "ruleName": "OP_OR_ASSIGNMENT",
+      "literalName": "'|='",
+      "displayName": "'|='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 164,
+      "symbolicName": "OP_XOR_ASSIGNMENT",
+      "ruleName": "OP_XOR_ASSIGNMENT",
+      "literalName": "'^='",
+      "displayName": "'^='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 165,
+      "symbolicName": "OP_LEFT_SHIFT",
+      "ruleName": "OP_LEFT_SHIFT",
+      "literalName": "'<<'",
+      "displayName": "'<<'",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 166,
+      "symbolicName": "OP_LEFT_SHIFT_ASSIGNMENT",
+      "ruleName": "OP_LEFT_SHIFT_ASSIGNMENT",
+      "literalName": "'<<='",
+      "displayName": "'<<='",
+      "channel": null,
+      "mode": "DEFAULT_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 167,
+      "symbolicName": "DOUBLE_CURLY_INSIDE",
+      "ruleName": "DOUBLE_CURLY_INSIDE",
+      "literalName": "'{{'",
+      "displayName": "'{{'",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 168,
+      "symbolicName": "OPEN_BRACE_INSIDE",
+      "ruleName": "OPEN_BRACE_INSIDE",
+      "literalName": null,
+      "displayName": "OPEN_BRACE_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 169,
+      "symbolicName": "REGULAR_CHAR_INSIDE",
+      "ruleName": "REGULAR_CHAR_INSIDE",
+      "literalName": null,
+      "displayName": "REGULAR_CHAR_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 170,
+      "symbolicName": "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "ruleName": "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "literalName": null,
+      "displayName": "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 171,
+      "symbolicName": "DOUBLE_QUOTE_INSIDE",
+      "ruleName": "DOUBLE_QUOTE_INSIDE",
+      "literalName": null,
+      "displayName": "DOUBLE_QUOTE_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 172,
+      "symbolicName": "REGULAR_STRING_INSIDE",
+      "ruleName": "REGULAR_STRING_INSIDE",
+      "literalName": null,
+      "displayName": "REGULAR_STRING_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 173,
+      "symbolicName": "VERBATIUM_INSIDE_STRING",
+      "ruleName": "VERBATIUM_INSIDE_STRING",
+      "literalName": null,
+      "displayName": "VERBATIUM_INSIDE_STRING",
+      "channel": null,
+      "mode": "INTERPOLATION_STRING",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 174,
+      "symbolicName": "CLOSE_BRACE_INSIDE",
+      "ruleName": "CLOSE_BRACE_INSIDE",
+      "literalName": null,
+      "displayName": "CLOSE_BRACE_INSIDE",
+      "channel": null,
+      "mode": "INTERPOLATION_FORMAT",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 175,
+      "symbolicName": "FORMAT_STRING",
+      "ruleName": "FORMAT_STRING",
+      "literalName": null,
+      "displayName": "FORMAT_STRING",
+      "channel": null,
+      "mode": "INTERPOLATION_FORMAT",
+      "category": "STRING",
+      "confidence": "HIGH",
+      "evidence": [
+        "symbolic or rule name identifies a string/character token"
+      ]
+    },
+    {
+      "tokenType": 176,
+      "symbolicName": "DIRECTIVE_WHITESPACES",
+      "ruleName": "DIRECTIVE_WHITESPACES",
+      "literalName": null,
+      "displayName": "DIRECTIVE_WHITESPACES",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 177,
+      "symbolicName": "DIGITS",
+      "ruleName": "DIGITS",
+      "literalName": null,
+      "displayName": "DIGITS",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "NUMBER",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "numeric token name"
+      ]
+    },
+    {
+      "tokenType": 178,
+      "symbolicName": "DEFINE",
+      "ruleName": "DEFINE",
+      "literalName": "'define'",
+      "displayName": "'define'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 179,
+      "symbolicName": "UNDEF",
+      "ruleName": "UNDEF",
+      "literalName": "'undef'",
+      "displayName": "'undef'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 180,
+      "symbolicName": "ELIF",
+      "ruleName": "ELIF",
+      "literalName": "'elif'",
+      "displayName": "'elif'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 181,
+      "symbolicName": "ENDIF",
+      "ruleName": "ENDIF",
+      "literalName": "'endif'",
+      "displayName": "'endif'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 182,
+      "symbolicName": "LINE",
+      "ruleName": "LINE",
+      "literalName": "'line'",
+      "displayName": "'line'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 183,
+      "symbolicName": "ERROR",
+      "ruleName": "ERROR",
+      "literalName": null,
+      "displayName": "ERROR",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 184,
+      "symbolicName": "WARNING",
+      "ruleName": "WARNING",
+      "literalName": null,
+      "displayName": "WARNING",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 185,
+      "symbolicName": "REGION",
+      "ruleName": "REGION",
+      "literalName": null,
+      "displayName": "REGION",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 186,
+      "symbolicName": "ENDREGION",
+      "ruleName": "ENDREGION",
+      "literalName": null,
+      "displayName": "ENDREGION",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 187,
+      "symbolicName": "PRAGMA",
+      "ruleName": "PRAGMA",
+      "literalName": null,
+      "displayName": "PRAGMA",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 188,
+      "symbolicName": "DIRECTIVE_HIDDEN",
+      "ruleName": "DIRECTIVE_HIDDEN",
+      "literalName": "'hidden'",
+      "displayName": "'hidden'",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "RESERVED",
+      "confidence": "MEDIUM",
+      "evidence": [
+        "fixed alphabetic literal",
+        "distinguished from punctuation and string rule tokens"
+      ]
+    },
+    {
+      "tokenType": 189,
+      "symbolicName": "CONDITIONAL_SYMBOL",
+      "ruleName": "CONDITIONAL_SYMBOL",
+      "literalName": null,
+      "displayName": "CONDITIONAL_SYMBOL",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 190,
+      "symbolicName": "DIRECTIVE_NEW_LINE",
+      "ruleName": "DIRECTIVE_NEW_LINE",
+      "literalName": null,
+      "displayName": "DIRECTIVE_NEW_LINE",
+      "channel": null,
+      "mode": "DIRECTIVE_MODE",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 191,
+      "symbolicName": "TEXT",
+      "ruleName": "TEXT",
+      "literalName": null,
+      "displayName": "TEXT",
+      "channel": null,
+      "mode": "DIRECTIVE_TEXT",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    },
+    {
+      "tokenType": 192,
+      "symbolicName": "DOUBLE_CURLY_CLOSE_INSIDE",
+      "ruleName": "DOUBLE_CURLY_CLOSE_INSIDE",
+      "literalName": "'}}'",
+      "displayName": "'}}'",
+      "channel": null,
+      "mode": "INTERPOLATION_FORMAT",
+      "category": "OTHER",
+      "confidence": "LOW",
+      "evidence": [
+        "token metadata does not uniquely identify COMMENT, STRING, or RESERVED"
+      ]
+    }
+  ],
+  "metrics": {
+    "COMMENT": {
+      "TP": 4,
+      "FP": 0,
+      "FN": 1,
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "unknownCount": 1
+    },
+    "STRING": {
+      "TP": 7,
+      "FP": 3,
+      "FN": 0,
+      "precision": 0.7,
+      "recall": 1.0,
+      "f1": 0.8235294117647058,
+      "unknownCount": 1
+    },
+    "RESERVED": {
+      "TP": 9,
+      "FP": 101,
+      "FN": 0,
+      "precision": 0.08181818181818182,
+      "recall": 1.0,
+      "f1": 0.15126050420168066,
+      "unknownCount": 1
+    }
+  },
+  "errors": {
+    "COMMENT": {
+      "falsePositive": [],
+      "falseNegative": [
+        "DIRECTIVE_SINGLE_LINE_COMMENT"
+      ]
+    },
+    "STRING": {
+      "falsePositive": [
+        "FORMAT_STRING",
+        "REGULAR_CHAR_INSIDE",
+        "VERBATIUM_DOUBLE_QUOTE_INSIDE"
+      ],
+      "falseNegative": []
+    },
+    "RESERVED": {
+      "falsePositive": [
+        "ADD",
+        "ALIAS",
+        "ARGLIST",
+        "AS",
+        "ASCENDING",
+        "ASYNC",
+        "AWAIT",
+        "BASE",
+        "BOOL",
+        "BREAK",
+        "BY",
+        "BYTE",
+        "CASE",
+        "CATCH",
+        "CHAR",
+        "CHECKED",
+        "CONST",
+        "CONTINUE",
+        "DECIMAL",
+        "DEFAULT",
+        "DEFINE",
+        "DELEGATE",
+        "DESCENDING",
+        "DIRECTIVE_HIDDEN",
+        "DO",
+        "DOUBLE",
+        "DYNAMIC",
+        "ELIF",
+        "ELSE",
+        "ENDIF",
+        "ENUM",
+        "EQUALS",
+        "EVENT",
+        "EXPLICIT",
+        "EXTERN",
+        "FINALLY",
+        "FIXED",
+        "FLOAT",
+        "FOR",
+        "FOREACH",
+        "FROM",
+        "GET",
+        "GOTO",
+        "GROUP",
+        "IMPLICIT",
+        "IN",
+        "INT",
+        "INTERFACE",
+        "INTERNAL",
+        "INTO",
+        "IS",
+        "JOIN",
+        "LET",
+        "LINE",
+        "LOCK",
+        "LONG",
+        "NAMEOF",
+        "NAMESPACE",
+        "NEW",
+        "OBJECT",
+        "ON",
+        "OPERATOR",
+        "ORDERBY",
+        "OUT",
+        "OVERRIDE",
+        "PARAMS",
+        "PARTIAL",
+        "PRIVATE",
+        "PROTECTED",
+        "PUBLIC",
+        "READONLY",
+        "REF",
+        "REMOVE",
+        "SBYTE",
+        "SEALED",
+        "SELECT",
+        "SET",
+        "SHORT",
+        "SIZEOF",
+        "STACKALLOC",
+        "STATIC",
+        "STRUCT",
+        "SWITCH",
+        "THIS",
+        "THROW",
+        "TRY",
+        "TYPEOF",
+        "UINT",
+        "ULONG",
+        "UNCHECKED",
+        "UNDEF",
+        "UNSAFE",
+        "USHORT",
+        "USING",
+        "VIRTUAL",
+        "VOID",
+        "VOLATILE",
+        "WHEN",
+        "WHERE",
+        "WHILE",
+        "YIELD"
+      ],
+      "falseNegative": []
+    }
+  },
+  "limitations": [
+    "Channel is represented by channel names in metadata; token emission channel requires runtime execution",
+    "Contextual keywords and action-dependent grouping are UNKNOWN or require language-specific rules",
+    "Ground truth is manually authored from the grammar and is not inferred by this script"
+  ]
+}

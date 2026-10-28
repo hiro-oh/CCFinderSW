@@ -1,0 +1,14 @@
+antlrJar=/media/workspace/master/CCFinderSW/lib/antlr-4.7.1-complete.jar
+antlrVersion=4.7.1
+javaVersion=openjdk version "17.0.20.1" 2026-08-18
+grammarSha256
+29b2348f6351995467bebc33ec162cdfdb1364c1db36fd14fd3f7ed2520aaf59  /media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/lua/Lua.g4
+3b090f1ebfaae841781c1ece2060b5b6a047655482d085f19eefa2dd2c5b2b6c  /media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/php/PhpLexer.g4
+5514f7acbe7141110860e089b6b6e8ff910a5f863782869035f15d473fd3a0c2  /media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/csharp/CSharpLexer.g4
+generatedFiles
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/csharp/CSharpLexer.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaBaseListener.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaLexer.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaListener.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/lua/LuaParser.java
+/media/workspace/master/CCFinderSW/experiments/antlr-generated-lexer/generated/php/PhpLexer.java

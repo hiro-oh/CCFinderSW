@@ -1,0 +1,1425 @@
+{
+  "grammar": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/php/PhpLexer.g4",
+  "targetMode": "SingleLineCommentMode",
+  "seedRules": [
+    "HtmlComment",
+    "MultiLineComment",
+    "SingleLineComment",
+    "ShellStyleComment",
+    "Comment",
+    "PHPEndSingleLineComment",
+    "CommentQuestionMark",
+    "CommentEnd"
+  ],
+  "sourceAcquisition": {
+    "rules": [
+      {
+        "name": "Comment",
+        "mode": "SingleLineCommentMode",
+        "fragment": false,
+        "sourceSpan": [
+          445,
+          445
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "PhpComments"
+          }
+        ],
+        "literals": [],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "CommentEnd",
+        "mode": "SingleLineCommentMode",
+        "fragment": false,
+        "sourceSpan": [
+          448,
+          449
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "SkipChannel"
+          },
+          {
+            "name": "popMode",
+            "argument": ""
+          }
+        ],
+        "literals": [],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "CommentQuestionMark",
+        "mode": "SingleLineCommentMode",
+        "fragment": false,
+        "sourceSpan": [
+          447,
+          447
+        ],
+        "references": [
+          "Comment"
+        ],
+        "commands": [
+          {
+            "name": "type",
+            "argument": "Comment"
+          },
+          {
+            "name": "channel",
+            "argument": "PhpComments"
+          }
+        ],
+        "literals": [
+          "'?'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "HtmlComment",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          138,
+          138
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "HIDDEN"
+          }
+        ],
+        "literals": [
+          "'<'",
+          "'!'",
+          "'--'",
+          "'-->'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "MultiLineComment",
+        "mode": "PHP",
+        "fragment": false,
+        "sourceSpan": [
+          225,
+          225
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "PhpComments"
+          }
+        ],
+        "literals": [
+          "'/*'",
+          "'*/'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "PHPEndSingleLineComment",
+        "mode": "SingleLineCommentMode",
+        "fragment": false,
+        "sourceSpan": [
+          446,
+          446
+        ],
+        "references": [],
+        "commands": [],
+        "literals": [
+          "'?'",
+          "'>'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "ShellStyleComment",
+        "mode": "PHP",
+        "fragment": false,
+        "sourceSpan": [
+          227,
+          228
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "SkipChannel"
+          },
+          {
+            "name": "pushMode",
+            "argument": "SingleLineCommentMode"
+          }
+        ],
+        "literals": [
+          "'#'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "SingleLineComment",
+        "mode": "PHP",
+        "fragment": false,
+        "sourceSpan": [
+          226,
+          226
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "SkipChannel"
+          },
+          {
+            "name": "pushMode",
+            "argument": "SingleLineCommentMode"
+          }
+        ],
+        "literals": [
+          "'//'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      }
+    ],
+    "modePath": {
+      "targetMode": "SingleLineCommentMode",
+      "incomingRules": [
+        {
+          "rule": "SingleLineComment",
+          "mode": "PHP",
+          "commands": [
+            {
+              "name": "channel",
+              "argument": "SkipChannel"
+            },
+            {
+              "name": "pushMode",
+              "argument": "SingleLineCommentMode"
+            }
+          ],
+          "sourceSpan": [
+            226,
+            226
+          ]
+        },
+        {
+          "rule": "ShellStyleComment",
+          "mode": "PHP",
+          "commands": [
+            {
+              "name": "channel",
+              "argument": "SkipChannel"
+            },
+            {
+              "name": "pushMode",
+              "argument": "SingleLineCommentMode"
+            }
+          ],
+          "sourceSpan": [
+            227,
+            228
+          ]
+        }
+      ],
+      "transitionSources": [
+        "PHP"
+      ],
+      "reverseModeClosure": [
+        "DEFAULT_MODE",
+        "HtmlDoubleQuoteStringMode",
+        "HtmlQuoteStringMode",
+        "INSIDE",
+        "InterpolationString",
+        "PHP",
+        "SCRIPT",
+        "SingleLineCommentMode"
+      ],
+      "forwardModeClosureFromDefault": [
+        "DEFAULT_MODE",
+        "HereDoc",
+        "HtmlDoubleQuoteStringMode",
+        "HtmlQuoteStringMode",
+        "INSIDE",
+        "InterpolationString",
+        "PHP",
+        "SCRIPT",
+        "STYLE",
+        "SingleLineCommentMode",
+        "XML"
+      ],
+      "structuralPathExists": true,
+      "entryCandidates": [
+        "PHP",
+        "SingleLineCommentMode"
+      ],
+      "popModeSemantics": "caller/previous stack mode; static graph cannot identify the concrete return mode"
+    },
+    "ruleOrderByRelevantMode": {
+      "PHP": [
+        {
+          "order": 45,
+          "rule": "PHPEnd"
+        },
+        {
+          "order": 46,
+          "rule": "Whitespace"
+        },
+        {
+          "order": 47,
+          "rule": "MultiLineComment"
+        },
+        {
+          "order": 48,
+          "rule": "SingleLineComment"
+        },
+        {
+          "order": 49,
+          "rule": "ShellStyleComment"
+        },
+        {
+          "order": 50,
+          "rule": "Abstract"
+        },
+        {
+          "order": 51,
+          "rule": "Array"
+        },
+        {
+          "order": 52,
+          "rule": "As"
+        },
+        {
+          "order": 53,
+          "rule": "BinaryCast"
+        },
+        {
+          "order": 54,
+          "rule": "BoolType"
+        },
+        {
+          "order": 55,
+          "rule": "BooleanConstant"
+        },
+        {
+          "order": 56,
+          "rule": "Break"
+        },
+        {
+          "order": 57,
+          "rule": "Callable"
+        },
+        {
+          "order": 58,
+          "rule": "Case"
+        },
+        {
+          "order": 59,
+          "rule": "Catch"
+        },
+        {
+          "order": 60,
+          "rule": "Class"
+        },
+        {
+          "order": 61,
+          "rule": "Clone"
+        },
+        {
+          "order": 62,
+          "rule": "Const"
+        },
+        {
+          "order": 63,
+          "rule": "Continue"
+        },
+        {
+          "order": 64,
+          "rule": "Declare"
+        },
+        {
+          "order": 65,
+          "rule": "Default"
+        },
+        {
+          "order": 66,
+          "rule": "Do"
+        },
+        {
+          "order": 67,
+          "rule": "DoubleCast"
+        },
+        {
+          "order": 68,
+          "rule": "DoubleType"
+        },
+        {
+          "order": 69,
+          "rule": "Echo"
+        },
+        {
+          "order": 70,
+          "rule": "Else"
+        },
+        {
+          "order": 71,
+          "rule": "ElseIf"
+        },
+        {
+          "order": 72,
+          "rule": "Empty"
+        },
+        {
+          "order": 73,
+          "rule": "EndDeclare"
+        },
+        {
+          "order": 74,
+          "rule": "EndFor"
+        },
+        {
+          "order": 75,
+          "rule": "EndForeach"
+        },
+        {
+          "order": 76,
+          "rule": "EndIf"
+        },
+        {
+          "order": 77,
+          "rule": "EndSwitch"
+        },
+        {
+          "order": 78,
+          "rule": "EndWhile"
+        },
+        {
+          "order": 79,
+          "rule": "Eval"
+        },
+        {
+          "order": 80,
+          "rule": "Exit"
+        },
+        {
+          "order": 81,
+          "rule": "Extends"
+        },
+        {
+          "order": 82,
+          "rule": "Final"
+        },
+        {
+          "order": 83,
+          "rule": "Finally"
+        },
+        {
+          "order": 84,
+          "rule": "FloatCast"
+        },
+        {
+          "order": 85,
+          "rule": "For"
+        },
+        {
+          "order": 86,
+          "rule": "Foreach"
+        },
+        {
+          "order": 87,
+          "rule": "Function"
+        },
+        {
+          "order": 88,
+          "rule": "Global"
+        },
+        {
+          "order": 89,
+          "rule": "Goto"
+        },
+        {
+          "order": 90,
+          "rule": "If"
+        },
+        {
+          "order": 91,
+          "rule": "Implements"
+        },
+        {
+          "order": 92,
+          "rule": "Import"
+        },
+        {
+          "order": 93,
+          "rule": "Include"
+        },
+        {
+          "order": 94,
+          "rule": "IncludeOnce"
+        },
+        {
+          "order": 95,
+          "rule": "InstanceOf"
+        },
+        {
+          "order": 96,
+          "rule": "InsteadOf"
+        },
+        {
+          "order": 97,
+          "rule": "Int8Cast"
+        },
+        {
+          "order": 98,
+          "rule": "Int16Cast"
+        },
+        {
+          "order": 99,
+          "rule": "Int64Type"
+        },
+        {
+          "order": 100,
+          "rule": "IntType"
+        },
+        {
+          "order": 101,
+          "rule": "Interface"
+        },
+        {
+          "order": 102,
+          "rule": "IsSet"
+        },
+        {
+          "order": 103,
+          "rule": "List"
+        },
+        {
+          "order": 104,
+          "rule": "LogicalAnd"
+        },
+        {
+          "order": 105,
+          "rule": "LogicalOr"
+        },
+        {
+          "order": 106,
+          "rule": "LogicalXor"
+        },
+        {
+          "order": 107,
+          "rule": "Namespace"
+        },
+        {
+          "order": 108,
+          "rule": "New"
+        },
+        {
+          "order": 109,
+          "rule": "Null"
+        },
+        {
+          "order": 110,
+          "rule": "ObjectType"
+        },
+        {
+          "order": 111,
+          "rule": "Parent_"
+        },
+        {
+          "order": 112,
+          "rule": "Partial"
+        },
+        {
+          "order": 113,
+          "rule": "Print"
+        },
+        {
+          "order": 114,
+          "rule": "Private"
+        },
+        {
+          "order": 115,
+          "rule": "Protected"
+        },
+        {
+          "order": 116,
+          "rule": "Public"
+        },
+        {
+          "order": 117,
+          "rule": "Require"
+        },
+        {
+          "order": 118,
+          "rule": "RequireOnce"
+        },
+        {
+          "order": 119,
+          "rule": "Resource"
+        },
+        {
+          "order": 120,
+          "rule": "Return"
+        },
+        {
+          "order": 121,
+          "rule": "Static"
+        },
+        {
+          "order": 122,
+          "rule": "StringType"
+        },
+        {
+          "order": 123,
+          "rule": "Switch"
+        },
+        {
+          "order": 124,
+          "rule": "Throw"
+        },
+        {
+          "order": 125,
+          "rule": "Trait"
+        },
+        {
+          "order": 126,
+          "rule": "Try"
+        },
+        {
+          "order": 127,
+          "rule": "Typeof"
+        },
+        {
+          "order": 128,
+          "rule": "UintCast"
+        },
+        {
+          "order": 129,
+          "rule": "UnicodeCast"
+        },
+        {
+          "order": 130,
+          "rule": "Unset"
+        },
+        {
+          "order": 131,
+          "rule": "Use"
+        },
+        {
+          "order": 132,
+          "rule": "Var"
+        },
+        {
+          "order": 133,
+          "rule": "While"
+        },
+        {
+          "order": 134,
+          "rule": "Yield"
+        },
+        {
+          "order": 135,
+          "rule": "Get"
+        },
+        {
+          "order": 136,
+          "rule": "Set"
+        },
+        {
+          "order": 137,
+          "rule": "Call"
+        },
+        {
+          "order": 138,
+          "rule": "CallStatic"
+        },
+        {
+          "order": 139,
+          "rule": "Constructor"
+        },
+        {
+          "order": 140,
+          "rule": "Destruct"
+        },
+        {
+          "order": 141,
+          "rule": "Wakeup"
+        },
+        {
+          "order": 142,
+          "rule": "Sleep"
+        },
+        {
+          "order": 143,
+          "rule": "Autoload"
+        },
+        {
+          "order": 144,
+          "rule": "IsSet__"
+        },
+        {
+          "order": 145,
+          "rule": "Unset__"
+        },
+        {
+          "order": 146,
+          "rule": "ToString__"
+        },
+        {
+          "order": 147,
+          "rule": "Invoke"
+        },
+        {
+          "order": 148,
+          "rule": "SetState"
+        },
+        {
+          "order": 149,
+          "rule": "Clone__"
+        },
+        {
+          "order": 150,
+          "rule": "DebugInfo"
+        },
+        {
+          "order": 151,
+          "rule": "Namespace__"
+        },
+        {
+          "order": 152,
+          "rule": "Class__"
+        },
+        {
+          "order": 153,
+          "rule": "Traic__"
+        },
+        {
+          "order": 154,
+          "rule": "Function__"
+        },
+        {
+          "order": 155,
+          "rule": "Method__"
+        },
+        {
+          "order": 156,
+          "rule": "Line__"
+        },
+        {
+          "order": 157,
+          "rule": "File__"
+        },
+        {
+          "order": 158,
+          "rule": "Dir__"
+        },
+        {
+          "order": 159,
+          "rule": "Lgeneric"
+        },
+        {
+          "order": 160,
+          "rule": "Rgeneric"
+        },
+        {
+          "order": 161,
+          "rule": "DoubleArrow"
+        },
+        {
+          "order": 162,
+          "rule": "Inc"
+        },
+        {
+          "order": 163,
+          "rule": "Dec"
+        },
+        {
+          "order": 164,
+          "rule": "IsIdentical"
+        },
+        {
+          "order": 165,
+          "rule": "IsNoidentical"
+        },
+        {
+          "order": 166,
+          "rule": "IsEqual"
+        },
+        {
+          "order": 167,
+          "rule": "IsNotEq"
+        },
+        {
+          "order": 168,
+          "rule": "IsSmallerOrEqual"
+        },
+        {
+          "order": 169,
+          "rule": "IsGreaterOrEqual"
+        },
+        {
+          "order": 170,
+          "rule": "PlusEqual"
+        },
+        {
+          "order": 171,
+          "rule": "MinusEqual"
+        },
+        {
+          "order": 172,
+          "rule": "MulEqual"
+        },
+        {
+          "order": 173,
+          "rule": "Pow"
+        },
+        {
+          "order": 174,
+          "rule": "PowEqual"
+        },
+        {
+          "order": 175,
+          "rule": "DivEqual"
+        },
+        {
+          "order": 176,
+          "rule": "Concaequal"
+        },
+        {
+          "order": 177,
+          "rule": "ModEqual"
+        },
+        {
+          "order": 178,
+          "rule": "ShiftLeftEqual"
+        },
+        {
+          "order": 179,
+          "rule": "ShiftRightEqual"
+        },
+        {
+          "order": 180,
+          "rule": "AndEqual"
+        },
+        {
+          "order": 181,
+          "rule": "OrEqual"
+        },
+        {
+          "order": 182,
+          "rule": "XorEqual"
+        },
+        {
+          "order": 183,
+          "rule": "BooleanOr"
+        },
+        {
+          "order": 184,
+          "rule": "BooleanAnd"
+        },
+        {
+          "order": 185,
+          "rule": "ShiftLeft"
+        },
+        {
+          "order": 186,
+          "rule": "ShiftRight"
+        },
+        {
+          "order": 187,
+          "rule": "DoubleColon"
+        },
+        {
+          "order": 188,
+          "rule": "ObjectOperator"
+        },
+        {
+          "order": 189,
+          "rule": "NamespaceSeparator"
+        },
+        {
+          "order": 190,
+          "rule": "Ellipsis"
+        },
+        {
+          "order": 191,
+          "rule": "Less"
+        },
+        {
+          "order": 192,
+          "rule": "Greater"
+        },
+        {
+          "order": 193,
+          "rule": "Ampersand"
+        },
+        {
+          "order": 194,
+          "rule": "Pipe"
+        },
+        {
+          "order": 195,
+          "rule": "Bang"
+        },
+        {
+          "order": 196,
+          "rule": "Caret"
+        },
+        {
+          "order": 197,
+          "rule": "Plus"
+        },
+        {
+          "order": 198,
+          "rule": "Minus"
+        },
+        {
+          "order": 199,
+          "rule": "Asterisk"
+        },
+        {
+          "order": 200,
+          "rule": "Percent"
+        },
+        {
+          "order": 201,
+          "rule": "Divide"
+        },
+        {
+          "order": 202,
+          "rule": "Tilde"
+        },
+        {
+          "order": 203,
+          "rule": "SuppressWarnings"
+        },
+        {
+          "order": 204,
+          "rule": "Dollar"
+        },
+        {
+          "order": 205,
+          "rule": "Dot"
+        },
+        {
+          "order": 206,
+          "rule": "QuestionMark"
+        },
+        {
+          "order": 207,
+          "rule": "OpenRoundBracket"
+        },
+        {
+          "order": 208,
+          "rule": "CloseRoundBracket"
+        },
+        {
+          "order": 209,
+          "rule": "OpenSquareBracket"
+        },
+        {
+          "order": 210,
+          "rule": "CloseSquareBracket"
+        },
+        {
+          "order": 211,
+          "rule": "OpenCurlyBracket"
+        },
+        {
+          "order": 212,
+          "rule": "CloseCurlyBracket"
+        },
+        {
+          "order": 213,
+          "rule": "Comma"
+        },
+        {
+          "order": 214,
+          "rule": "Colon"
+        },
+        {
+          "order": 215,
+          "rule": "SemiColon"
+        },
+        {
+          "order": 216,
+          "rule": "Eq"
+        },
+        {
+          "order": 217,
+          "rule": "Quote"
+        },
+        {
+          "order": 218,
+          "rule": "BackQuote"
+        },
+        {
+          "order": 219,
+          "rule": "VarName"
+        },
+        {
+          "order": 220,
+          "rule": "Label"
+        },
+        {
+          "order": 221,
+          "rule": "Octal"
+        },
+        {
+          "order": 222,
+          "rule": "Decimal"
+        },
+        {
+          "order": 223,
+          "rule": "Real"
+        },
+        {
+          "order": 224,
+          "rule": "Hex"
+        },
+        {
+          "order": 225,
+          "rule": "Binary"
+        },
+        {
+          "order": 226,
+          "rule": "BackQuoteString"
+        },
+        {
+          "order": 227,
+          "rule": "SingleQuoteString"
+        },
+        {
+          "order": 228,
+          "rule": "DoubleQuote"
+        },
+        {
+          "order": 229,
+          "rule": "StartNowDoc"
+        },
+        {
+          "order": 230,
+          "rule": "StartHereDoc"
+        },
+        {
+          "order": 231,
+          "rule": "ErrorPhp"
+        }
+      ],
+      "SingleLineCommentMode": [
+        {
+          "order": 239,
+          "rule": "Comment"
+        },
+        {
+          "order": 240,
+          "rule": "PHPEndSingleLineComment"
+        },
+        {
+          "order": 241,
+          "rule": "CommentQuestionMark"
+        },
+        {
+          "order": 242,
+          "rule": "CommentEnd"
+        }
+      ]
+    },
+    "stateAndHelperCandidates": []
+  },
+  "generatedAcquisition": {
+    "lexerClass": "PhpLexer",
+    "ruleNames": [
+      "SeaWhitespace",
+      "HtmlText",
+      "XmlStart",
+      "PHPStartEcho",
+      "PHPStart",
+      "HtmlScriptOpen",
+      "HtmlStyleOpen",
+      "HtmlComment",
+      "HtmlDtd",
+      "HtmlOpen",
+      "Shebang",
+      "NumberSign",
+      "Error",
+      "XmlText",
+      "XmlClose",
+      "XmlText2",
+      "PHPStartEchoInside",
+      "PHPStartInside",
+      "HtmlClose",
+      "HtmlSlashClose",
+      "HtmlSlash",
+      "HtmlEquals",
+      "HtmlStartQuoteString",
+      "HtmlStartDoubleQuoteString",
+      "HtmlHex",
+      "HtmlDecimal",
+      "HtmlSpace",
+      "HtmlName",
+      "ErrorInside",
+      "PHPStartEchoInsideQuoteString",
+      "PHPStartInsideQuoteString",
+      "HtmlEndQuoteString",
+      "HtmlQuoteString",
+      "ErrorHtmlQuote",
+      "PHPStartEchoDoubleQuoteString",
+      "PHPStartDoubleQuoteString",
+      "HtmlEndDoubleQuoteString",
+      "HtmlDoubleQuoteString",
+      "ErrorHtmlDoubleQuote",
+      "ScriptText",
+      "ScriptClose",
+      "PHPStartInsideScriptEcho",
+      "PHPStartInsideScript",
+      "ScriptText2",
+      "StyleBody",
+      "PHPEnd",
+      "Whitespace",
+      "MultiLineComment",
+      "SingleLineComment",
+      "ShellStyleComment",
+      "Abstract",
+      "Array",
+      "As",
+      "BinaryCast",
+      "BoolType",
+      "BooleanConstant",
+      "Break",
+      "Callable",
+      "Case",
+      "Catch",
+      "Class",
+      "Clone",
+      "Const",
+      "Continue",
+      "Declare",
+      "Default",
+      "Do",
+      "DoubleCast",
+      "DoubleType",
+      "Echo",
+      "Else",
+      "ElseIf",
+      "Empty",
+      "EndDeclare",
+      "EndFor",
+      "EndForeach",
+      "EndIf",
+      "EndSwitch",
+      "EndWhile",
+      "Eval",
+      "Exit",
+      "Extends",
+      "Final",
+      "Finally",
+      "FloatCast",
+      "For",
+      "Foreach",
+      "Function",
+      "Global",
+      "Goto",
+      "If",
+      "Implements",
+      "Import",
+      "Include",
+      "IncludeOnce",
+      "InstanceOf",
+      "InsteadOf",
+      "Int8Cast",
+      "Int16Cast",
+      "Int64Type",
+      "IntType",
+      "Interface",
+      "IsSet",
+      "List",
+      "LogicalAnd",
+      "LogicalOr",
+      "LogicalXor",
+      "Namespace",
+      "New",
+      "Null",
+      "ObjectType",
+      "Parent_",
+      "Partial",
+      "Print",
+      "Private",
+      "Protected",
+      "Public",
+      "Require",
+      "RequireOnce",
+      "Resource",
+      "Return",
+      "Static",
+      "StringType",
+      "Switch",
+      "Throw",
+      "Trait",
+      "Try",
+      "Typeof",
+      "UintCast",
+      "UnicodeCast",
+      "Unset",
+      "Use",
+      "Var",
+      "While",
+      "Yield",
+      "Get",
+      "Set",
+      "Call",
+      "CallStatic",
+      "Constructor",
+      "Destruct",
+      "Wakeup",
+      "Sleep",
+      "Autoload",
+      "IsSet__",
+      "Unset__",
+      "ToString__",
+      "Invoke",
+      "SetState",
+      "Clone__",
+      "DebugInfo",
+      "Namespace__",
+      "Class__",
+      "Traic__",
+      "Function__",
+      "Method__",
+      "Line__",
+      "File__",
+      "Dir__",
+      "Lgeneric",
+      "Rgeneric",
+      "DoubleArrow",
+      "Inc",
+      "Dec",
+      "IsIdentical",
+      "IsNoidentical",
+      "IsEqual",
+      "IsNotEq",
+      "IsSmallerOrEqual",
+      "IsGreaterOrEqual",
+      "PlusEqual",
+      "MinusEqual",
+      "MulEqual",
+      "Pow",
+      "PowEqual",
+      "DivEqual",
+      "Concaequal",
+      "ModEqual",
+      "ShiftLeftEqual",
+      "ShiftRightEqual",
+      "AndEqual",
+      "OrEqual",
+      "XorEqual",
+      "BooleanOr",
+      "BooleanAnd",
+      "ShiftLeft",
+      "ShiftRight",
+      "DoubleColon",
+      "ObjectOperator",
+      "NamespaceSeparator",
+      "Ellipsis",
+      "Less",
+      "Greater",
+      "Ampersand",
+      "Pipe",
+      "Bang",
+      "Caret",
+      "Plus",
+      "Minus",
+      "Asterisk",
+      "Percent",
+      "Divide",
+      "Tilde",
+      "SuppressWarnings",
+      "Dollar",
+      "Dot",
+      "QuestionMark",
+      "OpenRoundBracket",
+      "CloseRoundBracket",
+      "OpenSquareBracket",
+      "CloseSquareBracket",
+      "OpenCurlyBracket",
+      "CloseCurlyBracket",
+      "Comma",
+      "Colon",
+      "SemiColon",
+      "Eq",
+      "Quote",
+      "BackQuote",
+      "VarName",
+      "Label",
+      "Octal",
+      "Decimal",
+      "Real",
+      "Hex",
+      "Binary",
+      "BackQuoteString",
+      "SingleQuoteString",
+      "DoubleQuote",
+      "StartNowDoc",
+      "StartHereDoc",
+      "ErrorPhp",
+      "VarNameInInterpolation",
+      "DollarString",
+      "CurlyDollar",
+      "CurlyString",
+      "EscapedChar",
+      "DoubleQuoteInInterpolation",
+      "StringPart",
+      "Comment",
+      "PHPEndSingleLineComment",
+      "CommentQuestionMark",
+      "CommentEnd",
+      "HereDocText",
+      "PhpStartEchoFragment",
+      "PhpStartFragment",
+      "NameChar",
+      "NameStartChar",
+      "ExponentPart",
+      "Digit",
+      "HexDigit"
+    ],
+    "modeNames": [
+      "DEFAULT_MODE",
+      "XML",
+      "INSIDE",
+      "HtmlQuoteStringMode",
+      "HtmlDoubleQuoteStringMode",
+      "SCRIPT",
+      "STYLE",
+      "PHP",
+      "InterpolationString",
+      "SingleLineCommentMode",
+      "HereDoc"
+    ],
+    "channelNames": [
+      "DEFAULT_TOKEN_CHANNEL",
+      "HIDDEN",
+      "PhpComments",
+      "ErrorLexem",
+      "SkipChannel"
+    ],
+    "atn": {
+      "ruleCount": 251,
+      "modeCount": 11,
+      "stateCount": 2118
+    },
+    "tokenMappings": [
+      {
+        "rule": "Comment",
+        "sourceMode": "SingleLineCommentMode",
+        "sourceSpan": [
+          445,
+          445
+        ],
+        "generatedTokenType": 227,
+        "generatedMode": "SingleLineCommentMode",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "CommentEnd",
+        "sourceMode": "SingleLineCommentMode",
+        "sourceSpan": [
+          448,
+          449
+        ],
+        "generatedTokenType": 229,
+        "generatedMode": "SingleLineCommentMode",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "CommentQuestionMark",
+        "sourceMode": "SingleLineCommentMode",
+        "sourceSpan": [
+          447,
+          447
+        ],
+        "generatedTokenType": null,
+        "generatedMode": null,
+        "mapping": "no token mapping (fragment or non-token rule)"
+      },
+      {
+        "rule": "HtmlComment",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          138,
+          138
+        ],
+        "generatedTokenType": 7,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "MultiLineComment",
+        "sourceMode": "PHP",
+        "sourceSpan": [
+          225,
+          225
+        ],
+        "generatedTokenType": 40,
+        "generatedMode": "PHP",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "PHPEndSingleLineComment",
+        "sourceMode": "SingleLineCommentMode",
+        "sourceSpan": [
+          446,
+          446
+        ],
+        "generatedTokenType": 228,
+        "generatedMode": "SingleLineCommentMode",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "ShellStyleComment",
+        "sourceMode": "PHP",
+        "sourceSpan": [
+          227,
+          228
+        ],
+        "generatedTokenType": 42,
+        "generatedMode": "PHP",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "SingleLineComment",
+        "sourceMode": "PHP",
+        "sourceSpan": [
+          226,
+          226
+        ],
+        "generatedTokenType": 41,
+        "generatedMode": "PHP",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      }
+    ],
+    "limitations": [
+      "Action and semantic predicate source is not reconstructed from the ATN",
+      "skip/more effects and contextual keyword meaning require lexer execution or grammar-source inspection",
+      "Implicit literal token types may not have a lexer rule name"
+    ]
+  },
+  "interpretation": {
+    "staticModePathsAreCandidates": true,
+    "runtimeModeStackAndActionsObservedElsewhere": true,
+    "ruleOrderIsRecordedButLongestMatchStillRequiresLexerSemantics": true
+  }
+}

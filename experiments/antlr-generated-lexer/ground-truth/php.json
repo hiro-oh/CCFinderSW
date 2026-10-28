@@ -1,0 +1,29 @@
+{
+  "language": "php",
+  "grammar": "CCFinderSW-1.0/grammarsv4/php/PhpLexer.g4",
+  "commentChannels": ["PhpComments", "HIDDEN"],
+  "comment": [
+    {"ruleName": "Comment", "evidence": "PhpLexer.g4:mode PHP section; PHP block/line comment rules emit PhpComments"},
+    {"ruleName": "SingleLineComment", "evidence": "PhpLexer.g4 PHP comment modes; line comment rule"},
+    {"ruleName": "HtmlComment", "evidence": "PhpLexer.g4:HtmlComment; HTML comment emits HIDDEN"}
+  ],
+  "string": [
+    {"ruleName": "DoubleQuote", "evidence": "PhpLexer.g4 PHP mode; quote delimiter"},
+    {"ruleName": "StringPart", "evidence": "PhpLexer.g4 PHP mode; string content"},
+    {"ruleName": "SingleQuote", "evidence": "PhpLexer.g4 PHP mode; quote delimiter"},
+    {"ruleName": "StartHereDoc", "evidence": "PhpLexer.g4 PHP mode; mode-dependent heredoc start"},
+    {"ruleName": "StartNowDoc", "evidence": "PhpLexer.g4 PHP mode; mode-dependent nowdoc start"},
+    {"ruleName": "HereDocText", "evidence": "PhpLexer.g4 PHP mode; _heredocIdentifier checked in Java action"}
+  ],
+  "reserved": [
+    {"symbolicName": "If", "evidence": "PhpLexer.g4 PHP mode fixed keyword rule"},
+    {"symbolicName": "Else", "evidence": "PhpLexer.g4 PHP mode fixed keyword rule"},
+    {"symbolicName": "Echo", "evidence": "PhpLexer.g4 PHP mode fixed keyword rule"},
+    {"symbolicName": "Function", "evidence": "PhpLexer.g4 PHP mode fixed keyword rule"},
+    {"symbolicName": "Class", "evidence": "PhpLexer.g4 PHP mode fixed keyword rule"}
+  ],
+  "identifier": [{"ruleName": "Label", "evidence": "PhpLexer.g4 PHP mode identifier/label rule; exact name varies by grammar section"}],
+  "number": [],
+  "contextualOrUnknown": [{"ruleName": "HereDocText", "reason": "end depends on _heredocIdentifier and Java action"}],
+  "grouping": [{"name": "PHP strings", "members": ["DoubleQuote", "StringPart", "SingleQuote"]}, {"name": "heredoc", "members": ["StartHereDoc", "HereDocText"]}]
+}

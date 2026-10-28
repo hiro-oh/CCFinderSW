@@ -1,0 +1,5207 @@
+{
+  "path": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/php/PhpLexer.g4",
+  "modes": [
+    "DEFAULT_MODE",
+    "XML",
+    "INSIDE",
+    "HtmlQuoteStringMode",
+    "HtmlDoubleQuoteStringMode",
+    "SCRIPT",
+    "STYLE",
+    "PHP",
+    "InterpolationString",
+    "SingleLineCommentMode",
+    "HereDoc"
+  ],
+  "rules": [
+    {
+      "name": "SeaWhitespace",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 131,
+      "text": "  [ \\t\\r\\n]+ -> channel(HIDDEN);",
+      "endLine": 131,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlText",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 132,
+      "text": "       ~[<#]+;",
+      "endLine": 132,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "XmlStart",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 133,
+      "text": "       '<' '?' 'xml' -> pushMode(XML);",
+      "endLine": 133,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "XML"
+        }
+      ],
+      "literals": [
+        "'<'",
+        "'?'",
+        "'xml'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartEcho",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 134,
+      "text": "   PhpStartEchoFragment -> type(Echo), pushMode(PHP);",
+      "endLine": 134,
+      "references": [
+        "Echo",
+        "PhpStartEchoFragment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Echo"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStart",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 135,
+      "text": "       PhpStartFragment -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 135,
+      "references": [
+        "PhpStartFragment"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlScriptOpen",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 136,
+      "text": " '<' 'script' { _scriptTag = true; } -> pushMode(INSIDE);",
+      "endLine": 136,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "INSIDE"
+        }
+      ],
+      "literals": [
+        "'<'",
+        "'script'"
+      ],
+      "actionIdentifiers": [
+        "INSIDE",
+        "_scriptTag",
+        "script"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "HtmlStyleOpen",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 137,
+      "text": "  '<' 'style' { _styleTag = true; } -> pushMode(INSIDE);",
+      "endLine": 137,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "INSIDE"
+        }
+      ],
+      "literals": [
+        "'<'",
+        "'style'"
+      ],
+      "actionIdentifiers": [
+        "INSIDE",
+        "_styleTag",
+        "style"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "HtmlComment",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 138,
+      "text": "    '<' '!' '--' .*? '-->' -> channel(HIDDEN);",
+      "endLine": 138,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [
+        "'<'",
+        "'!'",
+        "'--'",
+        "'-->'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlDtd",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 139,
+      "text": "        '<' '!' .*? '>';",
+      "endLine": 139,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<'",
+        "'!'",
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlOpen",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 140,
+      "text": "       '<' -> pushMode(INSIDE);",
+      "endLine": 141,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "INSIDE"
+        }
+      ],
+      "literals": [
+        "'<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Shebang",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 141,
+      "text": " { _input.LA(-1) <= 0 || _input.LA(-1) == '\\r' || _input.LA(-1) == '\\n' }? '#' '!' ~[\\r\\n]*\n    ;",
+      "endLine": 143,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\r'",
+        "'\\n'",
+        "'#'",
+        "'!'"
+      ],
+      "actionIdentifiers": [
+        "LA",
+        "_input",
+        "n",
+        "r"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "NumberSign",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 144,
+      "text": "     '#' ~[<]* -> more;",
+      "endLine": 144,
+      "references": [],
+      "commands": [
+        {
+          "name": "more",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'#'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Error",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 145,
+      "text": "          .         -> channel(ErrorLexem);\n\n// TODO: parse xml attributes.",
+      "endLine": 147,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "ErrorLexem"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "XmlText",
+      "fragment": false,
+      "mode": "XML",
+      "startLine": 150,
+      "text": "                  ~[?]+;",
+      "endLine": 150,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "XmlClose",
+      "fragment": false,
+      "mode": "XML",
+      "startLine": 151,
+      "text": "                 '?' '>' -> popMode;",
+      "endLine": 151,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'?'",
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "XmlText2",
+      "fragment": false,
+      "mode": "XML",
+      "startLine": 152,
+      "text": "                 '?' -> type(XmlText);\n",
+      "endLine": 153,
+      "references": [
+        "XmlText"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "XmlText"
+        }
+      ],
+      "literals": [
+        "'?'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartEchoInside",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 156,
+      "text": " PhpStartEchoFragment -> type(Echo), pushMode(PHP);",
+      "endLine": 156,
+      "references": [
+        "Echo",
+        "PhpStartEchoFragment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Echo"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartInside",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 157,
+      "text": "     PhpStartFragment -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 157,
+      "references": [
+        "PhpStartFragment"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlClose",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 158,
+      "text": " '>' {\npopMode();\nif (_scriptTag)\n{\n    if (!_phpScript)\n    {\n        pushMode(SCRIPT);\n    }\n    else\n    {\n        pushMode(PHP);\n    }\n    _scriptTag = false;\n}\nelse if (_styleTag)\n{\n    pushMode(STYLE);\n    _styleTag = false;\n}\n};",
+      "endLine": 177,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        },
+        {
+          "name": "pushMode",
+          "argument": "SCRIPT"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        },
+        {
+          "name": "pushMode",
+          "argument": "STYLE"
+        }
+      ],
+      "literals": [
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "HtmlSlashClose",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 178,
+      "text": " '/>' -> popMode;",
+      "endLine": 178,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'/>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlSlash",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 179,
+      "text": "      '/';",
+      "endLine": 179,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlEquals",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 180,
+      "text": "     '=';\n",
+      "endLine": 181,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlStartQuoteString",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 182,
+      "text": "       '\\\\'? '\\'' -> pushMode(HtmlQuoteStringMode);",
+      "endLine": 182,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "HtmlQuoteStringMode"
+        }
+      ],
+      "literals": [
+        "'\\\\'",
+        "'\\''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlStartDoubleQuoteString",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 183,
+      "text": " '\\\\'? '\"'  -> pushMode(HtmlDoubleQuoteStringMode);",
+      "endLine": 183,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "HtmlDoubleQuoteStringMode"
+        }
+      ],
+      "literals": [
+        "'\\\\'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlHex",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 184,
+      "text": "                    '#' HexDigit+ ;",
+      "endLine": 184,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'#'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlDecimal",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 185,
+      "text": "                Digit+;",
+      "endLine": 185,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlSpace",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 186,
+      "text": "                  [ \\t\\r\\n]+ -> channel(HIDDEN);",
+      "endLine": 186,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlName",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 187,
+      "text": "                   NameStartChar NameChar*;",
+      "endLine": 187,
+      "references": [
+        "NameChar",
+        "NameStartChar"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ErrorInside",
+      "fragment": false,
+      "mode": "INSIDE",
+      "startLine": 188,
+      "text": "                .          -> channel(ErrorLexem);\n",
+      "endLine": 189,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "ErrorLexem"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartEchoInsideQuoteString",
+      "fragment": false,
+      "mode": "HtmlQuoteStringMode",
+      "startLine": 192,
+      "text": " PhpStartEchoFragment -> type(Echo), pushMode(PHP);",
+      "endLine": 192,
+      "references": [
+        "Echo",
+        "PhpStartEchoFragment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Echo"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartInsideQuoteString",
+      "fragment": false,
+      "mode": "HtmlQuoteStringMode",
+      "startLine": 193,
+      "text": "     PhpStartFragment -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 193,
+      "references": [
+        "PhpStartFragment"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlEndQuoteString",
+      "fragment": false,
+      "mode": "HtmlQuoteStringMode",
+      "startLine": 194,
+      "text": "            '\\'' '\\''? -> popMode;",
+      "endLine": 194,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'\\''",
+        "'\\''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlQuoteString",
+      "fragment": false,
+      "mode": "HtmlQuoteStringMode",
+      "startLine": 195,
+      "text": "               ~[<']+;",
+      "endLine": 195,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ErrorHtmlQuote",
+      "fragment": false,
+      "mode": "HtmlQuoteStringMode",
+      "startLine": 196,
+      "text": "                .          -> channel(ErrorLexem);\n",
+      "endLine": 197,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "ErrorLexem"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartEchoDoubleQuoteString",
+      "fragment": false,
+      "mode": "HtmlDoubleQuoteStringMode",
+      "startLine": 200,
+      "text": " PhpStartEchoFragment -> type(Echo), pushMode(PHP);",
+      "endLine": 200,
+      "references": [
+        "Echo",
+        "PhpStartEchoFragment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Echo"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartDoubleQuoteString",
+      "fragment": false,
+      "mode": "HtmlDoubleQuoteStringMode",
+      "startLine": 201,
+      "text": "     PhpStartFragment -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 201,
+      "references": [
+        "PhpStartFragment"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlEndDoubleQuoteString",
+      "fragment": false,
+      "mode": "HtmlDoubleQuoteStringMode",
+      "startLine": 202,
+      "text": "      '\"' '\"'? -> popMode;",
+      "endLine": 202,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'\"'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HtmlDoubleQuoteString",
+      "fragment": false,
+      "mode": "HtmlDoubleQuoteStringMode",
+      "startLine": 203,
+      "text": "         ~[<\"]+;",
+      "endLine": 203,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ErrorHtmlDoubleQuote",
+      "fragment": false,
+      "mode": "HtmlDoubleQuoteStringMode",
+      "startLine": 204,
+      "text": "          .          -> channel(ErrorLexem);\n\n// Parse JavaScript with https://github.com/antlr/grammars-v4/tree/master/ecmascript if necessary.\n// Php blocks can exist inside Script blocks too.",
+      "endLine": 207,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "ErrorLexem"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ScriptText",
+      "fragment": false,
+      "mode": "SCRIPT",
+      "startLine": 210,
+      "text": "               ~[<]+;",
+      "endLine": 210,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ScriptClose",
+      "fragment": false,
+      "mode": "SCRIPT",
+      "startLine": 211,
+      "text": "             '<' '/' 'script'? '>' -> popMode;",
+      "endLine": 211,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'<'",
+        "'/'",
+        "'script'",
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartInsideScriptEcho",
+      "fragment": false,
+      "mode": "SCRIPT",
+      "startLine": 212,
+      "text": " PhpStartEchoFragment -> type(Echo), pushMode(PHP);",
+      "endLine": 212,
+      "references": [
+        "Echo",
+        "PhpStartEchoFragment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Echo"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPStartInsideScript",
+      "fragment": false,
+      "mode": "SCRIPT",
+      "startLine": 213,
+      "text": "     PhpStartFragment -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 213,
+      "references": [
+        "PhpStartFragment"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ScriptText2",
+      "fragment": false,
+      "mode": "SCRIPT",
+      "startLine": 214,
+      "text": "              '<' -> type(ScriptText);\n",
+      "endLine": 215,
+      "references": [
+        "ScriptText"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "ScriptText"
+        }
+      ],
+      "literals": [
+        "'<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "StyleBody",
+      "fragment": false,
+      "mode": "STYLE",
+      "startLine": 218,
+      "text": " .*? '</' 'style'? '>' -> popMode;\n",
+      "endLine": 219,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'</'",
+        "'style'",
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPEnd",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 222,
+      "text": "             (('?' | {AspTags}? '%') '>') | {_phpScript}? '</script>'\n      |             {_phpScript}? '</script>';",
+      "endLine": 223,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'?'",
+        "'%'",
+        "'>'",
+        "'</script>'",
+        "'</script>'"
+      ],
+      "actionIdentifiers": [
+        "AspTags",
+        "_phpScript",
+        "script"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "Whitespace",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 224,
+      "text": "         [ \\t\\r\\n]+ -> channel(SkipChannel);",
+      "endLine": 224,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "MultiLineComment",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 225,
+      "text": "   '/*' .*? '*/' -> channel(PhpComments);",
+      "endLine": 225,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "PhpComments"
+        }
+      ],
+      "literals": [
+        "'/*'",
+        "'*/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SingleLineComment",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 226,
+      "text": "  '//' -> channel(SkipChannel), pushMode(SingleLineCommentMode);",
+      "endLine": 226,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "SingleLineCommentMode"
+        }
+      ],
+      "literals": [
+        "'//'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ShellStyleComment",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 227,
+      "text": "  '#' -> channel(SkipChannel), pushMode(SingleLineCommentMode);\n",
+      "endLine": 228,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "SingleLineCommentMode"
+        }
+      ],
+      "literals": [
+        "'#'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Abstract",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 229,
+      "text": "           'abstract';",
+      "endLine": 229,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'abstract'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Array",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 230,
+      "text": "              'array';",
+      "endLine": 230,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'array'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "As",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 231,
+      "text": "                 'as';",
+      "endLine": 231,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'as'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BinaryCast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 232,
+      "text": "         'binary';",
+      "endLine": 232,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'binary'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BoolType",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 233,
+      "text": "           'bool' 'ean'?;",
+      "endLine": 233,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'bool'",
+        "'ean'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BooleanConstant",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 234,
+      "text": "    'true'\n               |    'false';",
+      "endLine": 235,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'true'",
+        "'false'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Break",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 236,
+      "text": "              'break';",
+      "endLine": 236,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'break'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Callable",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 237,
+      "text": "           'callable';",
+      "endLine": 237,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'callable'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Case",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 238,
+      "text": "               'case';",
+      "endLine": 238,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'case'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Catch",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 239,
+      "text": "              'catch';",
+      "endLine": 239,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'catch'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Class",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 240,
+      "text": "              'class';",
+      "endLine": 240,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'class'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Clone",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 241,
+      "text": "              'clone';",
+      "endLine": 241,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'clone'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Const",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 242,
+      "text": "              'const';",
+      "endLine": 242,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'const'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Continue",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 243,
+      "text": "           'continue';",
+      "endLine": 243,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'continue'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Declare",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 244,
+      "text": "            'declare';",
+      "endLine": 244,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'declare'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Default",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 245,
+      "text": "            'default';",
+      "endLine": 245,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'default'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Do",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 246,
+      "text": "                 'do';",
+      "endLine": 246,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'do'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleCast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 247,
+      "text": "         'real';",
+      "endLine": 247,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'real'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleType",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 248,
+      "text": "         'double';",
+      "endLine": 248,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'double'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Echo",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 249,
+      "text": "               'echo';",
+      "endLine": 249,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'echo'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Else",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 250,
+      "text": "               'else';",
+      "endLine": 250,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'else'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ElseIf",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 251,
+      "text": "             'elseif';",
+      "endLine": 251,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'elseif'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Empty",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 252,
+      "text": "              'empty';\n",
+      "endLine": 253,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'empty'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndDeclare",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 254,
+      "text": "         'enddeclare';",
+      "endLine": 254,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'enddeclare'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndFor",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 255,
+      "text": "             'endfor';",
+      "endLine": 255,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'endfor'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndForeach",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 256,
+      "text": "         'endforeach';",
+      "endLine": 256,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'endforeach'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndIf",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 257,
+      "text": "              'endif';",
+      "endLine": 257,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'endif'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndSwitch",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 258,
+      "text": "          'endswitch';",
+      "endLine": 258,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'endswitch'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EndWhile",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 259,
+      "text": "           'endwhile';\n",
+      "endLine": 260,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'endwhile'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Eval",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 261,
+      "text": "               'eval';",
+      "endLine": 261,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'eval'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Exit",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 262,
+      "text": "               'die';",
+      "endLine": 262,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'die'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Extends",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 263,
+      "text": "            'extends';",
+      "endLine": 263,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'extends'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Final",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 264,
+      "text": "              'final';",
+      "endLine": 264,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'final'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Finally",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 265,
+      "text": "            'finally';",
+      "endLine": 265,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'finally'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FloatCast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 266,
+      "text": "          'float';",
+      "endLine": 266,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'float'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "For",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 267,
+      "text": "                'for';",
+      "endLine": 267,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'for'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Foreach",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 268,
+      "text": "            'foreach';",
+      "endLine": 268,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'foreach'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Function",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 269,
+      "text": "           'function';",
+      "endLine": 269,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'function'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Global",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 270,
+      "text": "             'global';",
+      "endLine": 270,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'global'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Goto",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 271,
+      "text": "               'goto';",
+      "endLine": 271,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'goto'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "If",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 272,
+      "text": "                 'if';",
+      "endLine": 272,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'if'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Implements",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 273,
+      "text": "         'implements';",
+      "endLine": 273,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'implements'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Import",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 274,
+      "text": "             'import';",
+      "endLine": 274,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'import'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Include",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 275,
+      "text": "            'include';",
+      "endLine": 275,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'include'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IncludeOnce",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 276,
+      "text": "        'include_once';",
+      "endLine": 276,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'include_once'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "InstanceOf",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 277,
+      "text": "         'instanceof';",
+      "endLine": 277,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'instanceof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "InsteadOf",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 278,
+      "text": "          'insteadof';",
+      "endLine": 278,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'insteadof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Int8Cast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 279,
+      "text": "           'int8';",
+      "endLine": 279,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'int8'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Int16Cast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 280,
+      "text": "          'int16';",
+      "endLine": 280,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'int16'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Int64Type",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 281,
+      "text": "          'int64';",
+      "endLine": 281,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'int64'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IntType",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 282,
+      "text": "            'int' 'eger'?;",
+      "endLine": 282,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'int'",
+        "'eger'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Interface",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 283,
+      "text": "          'interface';",
+      "endLine": 283,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'interface'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsSet",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 284,
+      "text": "              'isset';",
+      "endLine": 284,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'isset'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "List",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 285,
+      "text": "               'list';",
+      "endLine": 285,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'list'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LogicalAnd",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 286,
+      "text": "         'and';",
+      "endLine": 286,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'and'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LogicalOr",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 287,
+      "text": "          'or';",
+      "endLine": 287,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'or'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LogicalXor",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 288,
+      "text": "         'xor';",
+      "endLine": 288,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'xor'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Namespace",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 289,
+      "text": "          'namespace';",
+      "endLine": 289,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'namespace'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "New",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 290,
+      "text": "                'new';",
+      "endLine": 290,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'new'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Null",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 291,
+      "text": "               'null';",
+      "endLine": 291,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'null'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ObjectType",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 292,
+      "text": "         'object';",
+      "endLine": 292,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'object'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Parent_",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 293,
+      "text": "            'parent';",
+      "endLine": 293,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'parent'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Partial",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 294,
+      "text": "            'partial';",
+      "endLine": 294,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'partial'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Print",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 295,
+      "text": "              'print';",
+      "endLine": 295,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'print'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Private",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 296,
+      "text": "            'private';",
+      "endLine": 296,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'private'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Protected",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 297,
+      "text": "          'protected';",
+      "endLine": 297,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'protected'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Public",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 298,
+      "text": "             'public';",
+      "endLine": 298,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'public'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Require",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 299,
+      "text": "            'require';",
+      "endLine": 299,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'require'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "RequireOnce",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 300,
+      "text": "        'require_once';",
+      "endLine": 300,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'require_once'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Resource",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 301,
+      "text": "           'resource';",
+      "endLine": 301,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'resource'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Return",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 302,
+      "text": "             'return';",
+      "endLine": 302,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'return'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Static",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 303,
+      "text": "             'static';",
+      "endLine": 303,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'static'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "StringType",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 304,
+      "text": "         'string';",
+      "endLine": 304,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'string'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Switch",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 305,
+      "text": "             'switch';",
+      "endLine": 305,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'switch'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Throw",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 306,
+      "text": "              'throw';",
+      "endLine": 306,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'throw'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Trait",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 307,
+      "text": "              'trait';",
+      "endLine": 307,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'trait'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Try",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 308,
+      "text": "                'try';",
+      "endLine": 308,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'try'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Typeof",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 309,
+      "text": "             'clrtypeof';",
+      "endLine": 309,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'clrtypeof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UintCast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 310,
+      "text": "           'uint' ('8' | '16' | '64')?;",
+      "endLine": 310,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'uint'",
+        "'8'",
+        "'16'",
+        "'64'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeCast",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 311,
+      "text": "        'unicode';",
+      "endLine": 311,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'unicode'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Unset",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 312,
+      "text": "              'unset';",
+      "endLine": 312,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'unset'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Use",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 313,
+      "text": "                'use';",
+      "endLine": 313,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'use'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Var",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 314,
+      "text": "                'var';",
+      "endLine": 314,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'var'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "While",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 315,
+      "text": "              'while';",
+      "endLine": 315,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'while'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Yield",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 316,
+      "text": "              'yield';\n",
+      "endLine": 317,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'yield'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Get",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 318,
+      "text": "                '__get';",
+      "endLine": 318,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__get'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Set",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 319,
+      "text": "                '__set';",
+      "endLine": 319,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__set'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Call",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 320,
+      "text": "               '__call';",
+      "endLine": 320,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__call'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CallStatic",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 321,
+      "text": "         '__callstatic';",
+      "endLine": 321,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__callstatic'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Constructor",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 322,
+      "text": "        '__construct';",
+      "endLine": 322,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__construct'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Destruct",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 323,
+      "text": "           '__destruct';",
+      "endLine": 323,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__destruct'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Wakeup",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 324,
+      "text": "             '__wakeup';",
+      "endLine": 324,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__wakeup'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Sleep",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 325,
+      "text": "              '__sleep';",
+      "endLine": 325,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__sleep'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Autoload",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 326,
+      "text": "           '__autoload';",
+      "endLine": 326,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__autoload'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsSet__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 327,
+      "text": "            '__isset';",
+      "endLine": 327,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__isset'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Unset__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 328,
+      "text": "            '__unset';",
+      "endLine": 328,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__unset'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ToString__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 329,
+      "text": "         '__tostring';",
+      "endLine": 329,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__tostring'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Invoke",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 330,
+      "text": "             '__invoke';",
+      "endLine": 330,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__invoke'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SetState",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 331,
+      "text": "           '__set_state';",
+      "endLine": 331,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__set_state'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Clone__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 332,
+      "text": "            '__clone';",
+      "endLine": 332,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__clone'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DebugInfo",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 333,
+      "text": "          '__debuginfo';",
+      "endLine": 333,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__debuginfo'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Namespace__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 334,
+      "text": "        '__namespace__';",
+      "endLine": 334,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__namespace__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Class__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 335,
+      "text": "            '__class__';",
+      "endLine": 335,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__class__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Traic__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 336,
+      "text": "            '__trait__';",
+      "endLine": 336,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__trait__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Function__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 337,
+      "text": "         '__function__';",
+      "endLine": 337,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__function__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Method__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 338,
+      "text": "           '__method__';",
+      "endLine": 338,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__method__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Line__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 339,
+      "text": "             '__line__';",
+      "endLine": 339,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__line__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "File__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 340,
+      "text": "             '__file__';",
+      "endLine": 340,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__file__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Dir__",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 341,
+      "text": "              '__dir__';\n",
+      "endLine": 342,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__dir__'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Lgeneric",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 343,
+      "text": "           '<:';",
+      "endLine": 343,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<:'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Rgeneric",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 344,
+      "text": "           ':>';",
+      "endLine": 344,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "':>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleArrow",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 345,
+      "text": "        '=>';",
+      "endLine": 345,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'=>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Inc",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 346,
+      "text": "                '++';",
+      "endLine": 346,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'++'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Dec",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 347,
+      "text": "                '--';",
+      "endLine": 347,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'--'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsIdentical",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 348,
+      "text": "        '===';",
+      "endLine": 348,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'==='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsNoidentical",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 349,
+      "text": "      '!==';",
+      "endLine": 349,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'!=='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 350,
+      "text": "            '==';",
+      "endLine": 350,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'=='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsNotEq",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 351,
+      "text": "            '<>'\n       |            '!=';",
+      "endLine": 352,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<>'",
+        "'!='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsSmallerOrEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 353,
+      "text": "   '<=';",
+      "endLine": 353,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IsGreaterOrEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 354,
+      "text": "   '>=';",
+      "endLine": 354,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PlusEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 355,
+      "text": "          '+=';",
+      "endLine": 355,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'+='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "MinusEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 356,
+      "text": "         '-=';",
+      "endLine": 356,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'-='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "MulEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 357,
+      "text": "           '*=';",
+      "endLine": 357,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'*='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Pow",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 358,
+      "text": "                '**';",
+      "endLine": 358,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'**'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PowEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 359,
+      "text": "           '**=';",
+      "endLine": 359,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'**='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DivEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 360,
+      "text": "           '/=';",
+      "endLine": 360,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'/='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Concaequal",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 361,
+      "text": "         '.=';",
+      "endLine": 361,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'.='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ModEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 362,
+      "text": "           '%=';",
+      "endLine": 362,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'%='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ShiftLeftEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 363,
+      "text": "     '<<=';",
+      "endLine": 363,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<<='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ShiftRightEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 364,
+      "text": "    '>>=';",
+      "endLine": 364,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>>='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "AndEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 365,
+      "text": "           '&=';",
+      "endLine": 365,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OrEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 366,
+      "text": "            '|=';",
+      "endLine": 366,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'|='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "XorEqual",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 367,
+      "text": "           '^=';",
+      "endLine": 367,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'^='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BooleanOr",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 368,
+      "text": "          '||';",
+      "endLine": 368,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'||'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BooleanAnd",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 369,
+      "text": "         '&&';",
+      "endLine": 369,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&&'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ShiftLeft",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 370,
+      "text": "          '<<';",
+      "endLine": 370,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ShiftRight",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 371,
+      "text": "         '>>';",
+      "endLine": 371,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleColon",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 372,
+      "text": "        '::';",
+      "endLine": 372,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'::'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ObjectOperator",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 373,
+      "text": "     '->';",
+      "endLine": 373,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'->'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NamespaceSeparator",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 374,
+      "text": " '\\\\';",
+      "endLine": 374,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\\\'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Ellipsis",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 375,
+      "text": "           '...';",
+      "endLine": 375,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'...'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Less",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 376,
+      "text": "               '<';",
+      "endLine": 376,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Greater",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 377,
+      "text": "            '>';",
+      "endLine": 377,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Ampersand",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 378,
+      "text": "          '&';",
+      "endLine": 378,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Pipe",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 379,
+      "text": "               '|';",
+      "endLine": 379,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'|'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Bang",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 380,
+      "text": "               '!';",
+      "endLine": 380,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'!'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Caret",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 381,
+      "text": "              '^';",
+      "endLine": 381,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'^'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Plus",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 382,
+      "text": "               '+';",
+      "endLine": 382,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'+'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Minus",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 383,
+      "text": "              '-';",
+      "endLine": 383,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'-'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Asterisk",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 384,
+      "text": "           '*';",
+      "endLine": 384,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'*'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Percent",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 385,
+      "text": "            '%';",
+      "endLine": 385,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'%'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Divide",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 386,
+      "text": "             '/';",
+      "endLine": 386,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Tilde",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 387,
+      "text": "              '~';",
+      "endLine": 387,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'~'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SuppressWarnings",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 388,
+      "text": "   '@';",
+      "endLine": 388,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'@'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Dollar",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 389,
+      "text": "             '$';",
+      "endLine": 389,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'$'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Dot",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 390,
+      "text": "                '.';",
+      "endLine": 390,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'.'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "QuestionMark",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 391,
+      "text": "       '?';",
+      "endLine": 391,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'?'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OpenRoundBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 392,
+      "text": "   '(';",
+      "endLine": 392,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'('"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CloseRoundBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 393,
+      "text": "  ')';",
+      "endLine": 393,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "')'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OpenSquareBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 394,
+      "text": "  '[';",
+      "endLine": 394,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'['"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CloseSquareBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 395,
+      "text": " ']';",
+      "endLine": 395,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "']'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OpenCurlyBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 396,
+      "text": "   '{';",
+      "endLine": 396,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'{'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "CloseCurlyBracket",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 397,
+      "text": "  '}'\n{\nif (_insideString)\n{\n    _insideString = false;\n    setChannel(SkipChannel);\n    popMode();\n}\n};",
+      "endLine": 405,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'}'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "Comma",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 406,
+      "text": "              ',';",
+      "endLine": 406,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "','"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Colon",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 407,
+      "text": "              ':';",
+      "endLine": 407,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "':'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SemiColon",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 408,
+      "text": "          ';';",
+      "endLine": 408,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "';'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Eq",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 409,
+      "text": "                 '=';",
+      "endLine": 409,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Quote",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 410,
+      "text": "              '\\'';",
+      "endLine": 410,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BackQuote",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 411,
+      "text": "          '`';\n",
+      "endLine": 412,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'`'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VarName",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 413,
+      "text": "            '$' [a-zA-Z_][a-zA-Z_0-9]*;",
+      "endLine": 413,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'$'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Label",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 414,
+      "text": "              [a-zA-Z_][a-zA-Z_0-9]*;",
+      "endLine": 414,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Octal",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 415,
+      "text": "              '0' [0-7]+;",
+      "endLine": 415,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'0'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Decimal",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 416,
+      "text": "            Digit+;",
+      "endLine": 416,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Real",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 417,
+      "text": "               (Digit+ '.' Digit* | '.' Digit+) ExponentPart? | Digit+ ExponentPart;",
+      "endLine": 417,
+      "references": [
+        "Digit",
+        "ExponentPart"
+      ],
+      "commands": [],
+      "literals": [
+        "'.'",
+        "'.'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Hex",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 418,
+      "text": "                '0x' HexDigit+;",
+      "endLine": 418,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'0x'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Binary",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 419,
+      "text": "             '0b' [01]+;\n",
+      "endLine": 420,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'0b'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BackQuoteString",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 421,
+      "text": "   '`' ~'`'* '`';",
+      "endLine": 421,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'`'",
+        "'`'",
+        "'`'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SingleQuoteString",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 422,
+      "text": " '\\'' (~('\\'' | '\\\\') | '\\\\' . )* '\\'';",
+      "endLine": 422,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\''",
+        "'\\''",
+        "'\\\\'",
+        "'\\\\'",
+        "'\\''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleQuote",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 423,
+      "text": "       '\"' -> pushMode(InterpolationString);\n",
+      "endLine": 425,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "InterpolationString"
+        }
+      ],
+      "literals": [
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "StartNowDoc",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 425,
+      "text": " '<<<' [ \\t]* '\\'' [a-zA-Z_][a-zA-Z_0-9]* '\\''  { _input.LA(1) == '\\r' || _input.LA(1) == '\\n' }? -> pushMode(HereDoc)\n    ;",
+      "endLine": 428,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "HereDoc"
+        }
+      ],
+      "literals": [
+        "'<<<'",
+        "'\\''",
+        "'\\''",
+        "'\\r'",
+        "'\\n'"
+      ],
+      "actionIdentifiers": [
+        "HereDoc",
+        "LA",
+        "Z_",
+        "Z_0",
+        "_input",
+        "a",
+        "n",
+        "r",
+        "t",
+        "zA"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "StartHereDoc",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 428,
+      "text": " '<<<' [ \\t]* [a-zA-Z_][a-zA-Z_0-9]* { _input.LA(1) == '\\r' || _input.LA(1) == '\\n' }? -> pushMode(HereDoc)\n    ;",
+      "endLine": 430,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "HereDoc"
+        }
+      ],
+      "literals": [
+        "'<<<'",
+        "'\\r'",
+        "'\\n'"
+      ],
+      "actionIdentifiers": [
+        "HereDoc",
+        "LA",
+        "Z_",
+        "Z_0",
+        "_input",
+        "a",
+        "n",
+        "r",
+        "t",
+        "zA"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "ErrorPhp",
+      "fragment": false,
+      "mode": "PHP",
+      "startLine": 431,
+      "text": "                   .          -> channel(ErrorLexem);\n",
+      "endLine": 432,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "ErrorLexem"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VarNameInInterpolation",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 435,
+      "text": "     '$' [a-zA-Z_][a-zA-Z_0-9]*                          -> type(VarName); // TODO: fix such cases: \"$people->john\"",
+      "endLine": 435,
+      "references": [
+        "VarName"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "VarName"
+        }
+      ],
+      "literals": [
+        "'$'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DollarString",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 436,
+      "text": "               '$'                                                 -> type(StringPart);",
+      "endLine": 436,
+      "references": [
+        "StringPart"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "StringPart"
+        }
+      ],
+      "literals": [
+        "'$'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CurlyDollar",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 437,
+      "text": "                '{' {_input.LA(1) == '$'}? {_insideString = true;}  -> channel(SkipChannel), pushMode(PHP);",
+      "endLine": 437,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "pushMode",
+          "argument": "PHP"
+        }
+      ],
+      "literals": [
+        "'{'",
+        "'$'"
+      ],
+      "actionIdentifiers": [
+        "LA",
+        "PHP",
+        "SkipChannel",
+        "_input",
+        "_insideString"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "CurlyString",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 438,
+      "text": "                '{'                                                 -> type(StringPart);",
+      "endLine": 438,
+      "references": [
+        "StringPart"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "StringPart"
+        }
+      ],
+      "literals": [
+        "'{'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "EscapedChar",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 439,
+      "text": "                '\\\\' .                                              -> type(StringPart);",
+      "endLine": 439,
+      "references": [
+        "StringPart"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "StringPart"
+        }
+      ],
+      "literals": [
+        "'\\\\'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DoubleQuoteInInterpolation",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 440,
+      "text": " '\"'                                                 -> type(DoubleQuote), popMode;",
+      "endLine": 440,
+      "references": [
+        "DoubleQuote"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "DoubleQuote"
+        },
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "StringPart",
+      "fragment": false,
+      "mode": "InterpolationString",
+      "startLine": 441,
+      "text": "                 ~[${\\\\\"]+;\n",
+      "endLine": 442,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "Comment",
+      "fragment": false,
+      "mode": "SingleLineCommentMode",
+      "startLine": 445,
+      "text": "                 ~[\\r\\n?]+ -> channel(PhpComments);",
+      "endLine": 445,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "PhpComments"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PHPEndSingleLineComment",
+      "fragment": false,
+      "mode": "SingleLineCommentMode",
+      "startLine": 446,
+      "text": " '?' '>';",
+      "endLine": 446,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'?'",
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CommentQuestionMark",
+      "fragment": false,
+      "mode": "SingleLineCommentMode",
+      "startLine": 447,
+      "text": "     '?' -> type(Comment), channel(PhpComments);",
+      "endLine": 447,
+      "references": [
+        "Comment"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "Comment"
+        },
+        {
+          "name": "channel",
+          "argument": "PhpComments"
+        }
+      ],
+      "literals": [
+        "'?'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CommentEnd",
+      "fragment": false,
+      "mode": "SingleLineCommentMode",
+      "startLine": 448,
+      "text": "              [\\r\\n] -> channel(SkipChannel), popMode; // exit from comment.\n",
+      "endLine": 449,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "SkipChannel"
+        },
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HereDocText",
+      "fragment": false,
+      "mode": "HereDoc",
+      "startLine": 452,
+      "text": " ~[\\r\\n]*? ('\\r'? '\\n' | '\\r');\n\n// fragments.\n// '<?=' will be transformed to 'echo' token.\n// '<?= \"Hello world\"; ?>' will be transformed to '<?php echo \"Hello world\"; ?>'",
+      "endLine": 456,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\r'",
+        "'\\n'",
+        "'\\r'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PhpStartEchoFragment",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 457,
+      "text": " '<' ('?' '=' | {AspTags}? '%' '=');",
+      "endLine": 457,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<'",
+        "'?'",
+        "'='",
+        "'%'",
+        "'='"
+      ],
+      "actionIdentifiers": [
+        "AspTags"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "PhpStartFragment",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 458,
+      "text": "     '<' ('?' 'php'? | {AspTags}? '%');",
+      "endLine": 459,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<'",
+        "'?'",
+        "'php'",
+        "'%'"
+      ],
+      "actionIdentifiers": [
+        "AspTags",
+        "php"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "NameChar",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 459,
+      "text": " NameStartChar\n    | '-'\n    | '_'\n    | '.'\n    | Digit\n    | '\\u00B7'\n    | '\\u0300'..'\\u036F'\n    | '\\u203F'..'\\u2040'\n    ;",
+      "endLine": 469,
+      "references": [
+        "Digit",
+        "NameStartChar"
+      ],
+      "commands": [],
+      "literals": [
+        "'-'",
+        "'_'",
+        "'.'",
+        "'\\u00B7'",
+        "'\\u0300'",
+        "'\\u036F'",
+        "'\\u203F'",
+        "'\\u2040'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NameStartChar",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 469,
+      "text": " [:a-zA-Z]\n    | '\\u2070'..'\\u218F'\n    | '\\u2C00'..'\\u2FEF'\n    | '\\u3001'..'\\uD7FF'\n    | '\\uF900'..'\\uFDCF'\n    | '\\uFDF0'..'\\uFFFD'\n    ;",
+      "endLine": 476,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u2070'",
+        "'\\u218F'",
+        "'\\u2C00'",
+        "'\\u2FEF'",
+        "'\\u3001'",
+        "'\\uD7FF'",
+        "'\\uF900'",
+        "'\\uFDCF'",
+        "'\\uFDF0'",
+        "'\\uFFFD'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ExponentPart",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 477,
+      "text": "         'e' [+-]? Digit+;",
+      "endLine": 477,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [
+        "'e'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Digit",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 478,
+      "text": "                [0-9];",
+      "endLine": 478,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexDigit",
+      "fragment": true,
+      "mode": "HereDoc",
+      "startLine": 479,
+      "text": "             [a-fA-F0-9];",
+      "endLine": 479,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    }
+  ],
+  "analysis": {
+    "seedSelection": {
+      "HtmlComment": [
+        "rule name/body contains comment"
+      ],
+      "MultiLineComment": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "SingleLineComment": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ],
+      "ShellStyleComment": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ],
+      "Comment": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "PHPEndSingleLineComment": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ],
+      "CommentQuestionMark": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "CommentEnd": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ]
+    },
+    "seedRules": [
+      "HtmlComment",
+      "MultiLineComment",
+      "SingleLineComment",
+      "ShellStyleComment",
+      "Comment",
+      "PHPEndSingleLineComment",
+      "CommentQuestionMark",
+      "CommentEnd"
+    ],
+    "directReferenceClosure": [
+      "Comment",
+      "CommentEnd",
+      "CommentQuestionMark",
+      "HtmlComment",
+      "MultiLineComment",
+      "PHPEndSingleLineComment",
+      "ShellStyleComment",
+      "SingleLineComment"
+    ],
+    "ruleReferenceEdges": [
+      {
+        "from": "PHPStartEcho",
+        "to": "Echo",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEcho",
+        "to": "PhpStartEchoFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStart",
+        "to": "PhpStartFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "XmlText2",
+        "to": "XmlText",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoInside",
+        "to": "Echo",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoInside",
+        "to": "PhpStartEchoFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartInside",
+        "to": "PhpStartFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HtmlHex",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HtmlDecimal",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HtmlName",
+        "to": "NameChar",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HtmlName",
+        "to": "NameStartChar",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoInsideQuoteString",
+        "to": "Echo",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoInsideQuoteString",
+        "to": "PhpStartEchoFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartInsideQuoteString",
+        "to": "PhpStartFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoDoubleQuoteString",
+        "to": "Echo",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartEchoDoubleQuoteString",
+        "to": "PhpStartEchoFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartDoubleQuoteString",
+        "to": "PhpStartFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartInsideScriptEcho",
+        "to": "Echo",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartInsideScriptEcho",
+        "to": "PhpStartEchoFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PHPStartInsideScript",
+        "to": "PhpStartFragment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ScriptText2",
+        "to": "ScriptText",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "Decimal",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "Real",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "Real",
+        "to": "ExponentPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "Hex",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "VarNameInInterpolation",
+        "to": "VarName",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DollarString",
+        "to": "StringPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CurlyString",
+        "to": "StringPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "EscapedChar",
+        "to": "StringPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DoubleQuoteInInterpolation",
+        "to": "DoubleQuote",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CommentQuestionMark",
+        "to": "Comment",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "NameChar",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "NameChar",
+        "to": "NameStartChar",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ExponentPart",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      }
+    ],
+    "modeEdges": [
+      {
+        "fromRule": "XmlStart",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "XML",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartEcho",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStart",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlScriptOpen",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INSIDE",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlStyleOpen",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INSIDE",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlOpen",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INSIDE",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "XmlClose",
+        "fromMode": "XML",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartEchoInside",
+        "fromMode": "INSIDE",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartInside",
+        "fromMode": "INSIDE",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlClose",
+        "fromMode": "INSIDE",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlClose",
+        "fromMode": "INSIDE",
+        "toMode": "SCRIPT",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlClose",
+        "fromMode": "INSIDE",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlClose",
+        "fromMode": "INSIDE",
+        "toMode": "STYLE",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlSlashClose",
+        "fromMode": "INSIDE",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlStartQuoteString",
+        "fromMode": "INSIDE",
+        "toMode": "HtmlQuoteStringMode",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlStartDoubleQuoteString",
+        "fromMode": "INSIDE",
+        "toMode": "HtmlDoubleQuoteStringMode",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartEchoInsideQuoteString",
+        "fromMode": "HtmlQuoteStringMode",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartInsideQuoteString",
+        "fromMode": "HtmlQuoteStringMode",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlEndQuoteString",
+        "fromMode": "HtmlQuoteStringMode",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartEchoDoubleQuoteString",
+        "fromMode": "HtmlDoubleQuoteStringMode",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartDoubleQuoteString",
+        "fromMode": "HtmlDoubleQuoteStringMode",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "HtmlEndDoubleQuoteString",
+        "fromMode": "HtmlDoubleQuoteStringMode",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "ScriptClose",
+        "fromMode": "SCRIPT",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartInsideScriptEcho",
+        "fromMode": "SCRIPT",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PHPStartInsideScript",
+        "fromMode": "SCRIPT",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "StyleBody",
+        "fromMode": "STYLE",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "SingleLineComment",
+        "fromMode": "PHP",
+        "toMode": "SingleLineCommentMode",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "ShellStyleComment",
+        "fromMode": "PHP",
+        "toMode": "SingleLineCommentMode",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "CloseCurlyBracket",
+        "fromMode": "PHP",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "DoubleQuote",
+        "fromMode": "PHP",
+        "toMode": "InterpolationString",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "StartNowDoc",
+        "fromMode": "PHP",
+        "toMode": "HereDoc",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "StartHereDoc",
+        "fromMode": "PHP",
+        "toMode": "HereDoc",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "CurlyDollar",
+        "fromMode": "InterpolationString",
+        "toMode": "PHP",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "DoubleQuoteInInterpolation",
+        "fromMode": "InterpolationString",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "CommentEnd",
+        "fromMode": "SingleLineCommentMode",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      }
+    ],
+    "seedModes": [
+      "DEFAULT_MODE",
+      "PHP",
+      "SingleLineCommentMode"
+    ],
+    "relatedModesByModeEdges": [
+      "DEFAULT_MODE",
+      "HereDoc",
+      "HtmlDoubleQuoteStringMode",
+      "HtmlQuoteStringMode",
+      "INSIDE",
+      "InterpolationString",
+      "PHP",
+      "SCRIPT",
+      "SingleLineCommentMode",
+      "XML"
+    ],
+    "rulesInRelatedModes": [
+      "Abstract",
+      "Ampersand",
+      "AndEqual",
+      "Array",
+      "As",
+      "Asterisk",
+      "Autoload",
+      "BackQuote",
+      "BackQuoteString",
+      "Bang",
+      "Binary",
+      "BinaryCast",
+      "BoolType",
+      "BooleanAnd",
+      "BooleanConstant",
+      "BooleanOr",
+      "Break",
+      "Call",
+      "CallStatic",
+      "Callable",
+      "Caret",
+      "Case",
+      "Catch",
+      "Class",
+      "Class__",
+      "Clone",
+      "Clone__",
+      "CloseCurlyBracket",
+      "CloseRoundBracket",
+      "CloseSquareBracket",
+      "Colon",
+      "Comma",
+      "Comment",
+      "CommentEnd",
+      "CommentQuestionMark",
+      "Concaequal",
+      "Const",
+      "Constructor",
+      "Continue",
+      "CurlyDollar",
+      "CurlyString",
+      "DebugInfo",
+      "Dec",
+      "Decimal",
+      "Declare",
+      "Default",
+      "Destruct",
+      "Digit",
+      "Dir__",
+      "DivEqual",
+      "Divide",
+      "Do",
+      "Dollar",
+      "DollarString",
+      "Dot",
+      "DoubleArrow",
+      "DoubleCast",
+      "DoubleColon",
+      "DoubleQuote",
+      "DoubleQuoteInInterpolation",
+      "DoubleType",
+      "Echo",
+      "Ellipsis",
+      "Else",
+      "ElseIf",
+      "Empty",
+      "EndDeclare",
+      "EndFor",
+      "EndForeach",
+      "EndIf",
+      "EndSwitch",
+      "EndWhile",
+      "Eq",
+      "Error",
+      "ErrorHtmlDoubleQuote",
+      "ErrorHtmlQuote",
+      "ErrorInside",
+      "ErrorPhp",
+      "EscapedChar",
+      "Eval",
+      "Exit",
+      "ExponentPart",
+      "Extends",
+      "File__",
+      "Final",
+      "Finally",
+      "FloatCast",
+      "For",
+      "Foreach",
+      "Function",
+      "Function__",
+      "Get",
+      "Global",
+      "Goto",
+      "Greater",
+      "HereDocText",
+      "Hex",
+      "HexDigit",
+      "HtmlClose",
+      "HtmlComment",
+      "HtmlDecimal",
+      "HtmlDoubleQuoteString",
+      "HtmlDtd",
+      "HtmlEndDoubleQuoteString",
+      "HtmlEndQuoteString",
+      "HtmlEquals",
+      "HtmlHex",
+      "HtmlName",
+      "HtmlOpen",
+      "HtmlQuoteString",
+      "HtmlScriptOpen",
+      "HtmlSlash",
+      "HtmlSlashClose",
+      "HtmlSpace",
+      "HtmlStartDoubleQuoteString",
+      "HtmlStartQuoteString",
+      "HtmlStyleOpen",
+      "HtmlText",
+      "If",
+      "Implements",
+      "Import",
+      "Inc",
+      "Include",
+      "IncludeOnce",
+      "InstanceOf",
+      "InsteadOf",
+      "Int16Cast",
+      "Int64Type",
+      "Int8Cast",
+      "IntType",
+      "Interface",
+      "Invoke",
+      "IsEqual",
+      "IsGreaterOrEqual",
+      "IsIdentical",
+      "IsNoidentical",
+      "IsNotEq",
+      "IsSet",
+      "IsSet__",
+      "IsSmallerOrEqual",
+      "Label",
+      "Less",
+      "Lgeneric",
+      "Line__",
+      "List",
+      "LogicalAnd",
+      "LogicalOr",
+      "LogicalXor",
+      "Method__",
+      "Minus",
+      "MinusEqual",
+      "ModEqual",
+      "MulEqual",
+      "MultiLineComment",
+      "NameChar",
+      "NameStartChar",
+      "Namespace",
+      "NamespaceSeparator",
+      "Namespace__",
+      "New",
+      "Null",
+      "NumberSign",
+      "ObjectOperator",
+      "ObjectType",
+      "Octal",
+      "OpenCurlyBracket",
+      "OpenRoundBracket",
+      "OpenSquareBracket",
+      "OrEqual",
+      "PHPEnd",
+      "PHPEndSingleLineComment",
+      "PHPStart",
+      "PHPStartDoubleQuoteString",
+      "PHPStartEcho",
+      "PHPStartEchoDoubleQuoteString",
+      "PHPStartEchoInside",
+      "PHPStartEchoInsideQuoteString",
+      "PHPStartInside",
+      "PHPStartInsideQuoteString",
+      "PHPStartInsideScript",
+      "PHPStartInsideScriptEcho",
+      "Parent_",
+      "Partial",
+      "Percent",
+      "PhpStartEchoFragment",
+      "PhpStartFragment",
+      "Pipe",
+      "Plus",
+      "PlusEqual",
+      "Pow",
+      "PowEqual",
+      "Print",
+      "Private",
+      "Protected",
+      "Public",
+      "QuestionMark",
+      "Quote",
+      "Real",
+      "Require",
+      "RequireOnce",
+      "Resource",
+      "Return",
+      "Rgeneric",
+      "ScriptClose",
+      "ScriptText",
+      "ScriptText2",
+      "SeaWhitespace",
+      "SemiColon",
+      "Set",
+      "SetState",
+      "Shebang",
+      "ShellStyleComment",
+      "ShiftLeft",
+      "ShiftLeftEqual",
+      "ShiftRight",
+      "ShiftRightEqual",
+      "SingleLineComment",
+      "SingleQuoteString",
+      "Sleep",
+      "StartHereDoc",
+      "StartNowDoc",
+      "Static",
+      "StringPart",
+      "StringType",
+      "SuppressWarnings",
+      "Switch",
+      "Throw",
+      "Tilde",
+      "ToString__",
+      "Traic__",
+      "Trait",
+      "Try",
+      "Typeof",
+      "UintCast",
+      "UnicodeCast",
+      "Unset",
+      "Unset__",
+      "Use",
+      "Var",
+      "VarName",
+      "VarNameInInterpolation",
+      "Wakeup",
+      "While",
+      "Whitespace",
+      "XmlClose",
+      "XmlStart",
+      "XmlText",
+      "XmlText2",
+      "XorEqual",
+      "Yield"
+    ],
+    "actionOrPredicateRules": [
+      "CloseCurlyBracket",
+      "CurlyDollar",
+      "CurlyString",
+      "HtmlClose",
+      "HtmlScriptOpen",
+      "HtmlStyleOpen",
+      "OpenCurlyBracket",
+      "PHPEnd",
+      "PhpStartEchoFragment",
+      "PhpStartFragment",
+      "Shebang",
+      "StartHereDoc",
+      "StartNowDoc",
+      "StringPart"
+    ],
+    "stateOrHelperIdentifiersReached": [],
+    "literalEvidenceInClosure": [
+      "'!'",
+      "'#'",
+      "'*/'",
+      "'--'",
+      "'-->'",
+      "'/*'",
+      "'//'",
+      "'<'",
+      "'>'",
+      "'?'"
+    ],
+    "identifierLikeRules": [],
+    "keywordLikeRules": [
+      "XmlStart",
+      "HtmlScriptOpen",
+      "HtmlStyleOpen",
+      "ScriptClose",
+      "StyleBody",
+      "Abstract",
+      "Array",
+      "As",
+      "BinaryCast",
+      "BoolType",
+      "BooleanConstant",
+      "Break",
+      "Callable",
+      "Case",
+      "Catch",
+      "Class",
+      "Clone",
+      "Const",
+      "Continue",
+      "Declare",
+      "Default",
+      "Do",
+      "DoubleCast",
+      "DoubleType",
+      "Echo",
+      "Else",
+      "ElseIf",
+      "Empty",
+      "EndDeclare",
+      "EndFor",
+      "EndForeach",
+      "EndIf",
+      "EndSwitch",
+      "EndWhile",
+      "Eval",
+      "Exit",
+      "Extends",
+      "Final",
+      "Finally",
+      "FloatCast",
+      "For",
+      "Foreach",
+      "Function",
+      "Global",
+      "Goto",
+      "If",
+      "Implements",
+      "Import",
+      "Include",
+      "IncludeOnce",
+      "InstanceOf",
+      "InsteadOf",
+      "Int8Cast",
+      "Int16Cast",
+      "Int64Type",
+      "IntType",
+      "Interface",
+      "IsSet",
+      "List",
+      "LogicalAnd",
+      "LogicalOr",
+      "LogicalXor",
+      "Namespace",
+      "New",
+      "Null",
+      "ObjectType",
+      "Parent_",
+      "Partial",
+      "Print",
+      "Private",
+      "Protected",
+      "Public",
+      "Require",
+      "RequireOnce",
+      "Resource",
+      "Return",
+      "Static",
+      "StringType",
+      "Switch",
+      "Throw",
+      "Trait",
+      "Try",
+      "Typeof",
+      "UintCast",
+      "UnicodeCast",
+      "Unset",
+      "Use",
+      "Var",
+      "While",
+      "Yield",
+      "Get",
+      "Set",
+      "Call",
+      "CallStatic",
+      "Constructor",
+      "Destruct",
+      "Wakeup",
+      "Sleep",
+      "Autoload",
+      "IsSet__",
+      "Unset__",
+      "ToString__",
+      "Invoke",
+      "SetState",
+      "Clone__",
+      "DebugInfo",
+      "Namespace__",
+      "Class__",
+      "Traic__",
+      "Function__",
+      "Method__",
+      "Line__",
+      "File__",
+      "Dir__",
+      "PhpStartFragment",
+      "NameChar",
+      "ExponentPart"
+    ],
+    "cannotInferAutomatically": [
+      "Whether a channel or skip command semantically means comment",
+      "Whether a literal keyword is reserved in the language or contextual",
+      "Java action/predicate semantics, helper methods, and base-class behavior",
+      "Whether longest-match/rule-order competition changes the desired category",
+      "A complete entry path for every mode without analyzing the whole lexer"
+    ],
+    "humanSuppliedSeeds": [
+      "MultiLineComment",
+      "SingleLineComment",
+      "ShellStyleComment",
+      "Comment",
+      "PHPEndSingleLineComment",
+      "CommentQuestionMark",
+      "CommentEnd"
+    ]
+  }
+}

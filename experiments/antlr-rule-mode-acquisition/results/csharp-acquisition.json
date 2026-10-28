@@ -1,0 +1,1239 @@
+{
+  "grammar": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/csharp/CSharpLexer.g4",
+  "targetMode": "INTERPOLATION_STRING",
+  "seedRules": [
+    "SINGLE_LINE_DOC_COMMENT",
+    "DELIMITED_DOC_COMMENT",
+    "SINGLE_LINE_COMMENT",
+    "DELIMITED_COMMENT",
+    "DIRECTIVE_SINGLE_LINE_COMMENT"
+  ],
+  "sourceAcquisition": {
+    "rules": [
+      {
+        "name": "DELIMITED_COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          24,
+          25
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "COMMENTS_CHANNEL"
+          }
+        ],
+        "literals": [
+          "'/*'",
+          "'*/'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "DELIMITED_DOC_COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          22,
+          22
+        ],
+        "references": [],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "COMMENTS_CHANNEL"
+          }
+        ],
+        "literals": [
+          "'/**'",
+          "'*/'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "DIRECTIVE_SINGLE_LINE_COMMENT",
+        "mode": "DIRECTIVE_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          285,
+          285
+        ],
+        "references": [
+          "SINGLE_LINE_COMMENT"
+        ],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "COMMENTS_CHANNEL"
+          },
+          {
+            "name": "type",
+            "argument": "SINGLE_LINE_COMMENT"
+          }
+        ],
+        "literals": [
+          "'//'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "InputCharacter",
+        "mode": "DIRECTIVE_TEXT",
+        "fragment": true,
+        "sourceSpan": [
+          295,
+          297
+        ],
+        "references": [],
+        "commands": [],
+        "literals": [],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "SINGLE_LINE_COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          23,
+          23
+        ],
+        "references": [
+          "InputCharacter"
+        ],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "COMMENTS_CHANNEL"
+          }
+        ],
+        "literals": [
+          "'//'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      },
+      {
+        "name": "SINGLE_LINE_DOC_COMMENT",
+        "mode": "DEFAULT_MODE",
+        "fragment": false,
+        "sourceSpan": [
+          21,
+          21
+        ],
+        "references": [
+          "InputCharacter"
+        ],
+        "commands": [
+          {
+            "name": "channel",
+            "argument": "COMMENTS_CHANNEL"
+          }
+        ],
+        "literals": [
+          "'///'"
+        ],
+        "actionIdentifiers": [],
+        "uncertainty": []
+      }
+    ],
+    "modePath": {
+      "targetMode": "INTERPOLATION_STRING",
+      "incomingRules": [
+        {
+          "rule": "INTERPOLATED_REGULAR_STRING_START",
+          "mode": "DEFAULT_MODE",
+          "commands": [
+            {
+              "name": "pushMode",
+              "argument": "INTERPOLATION_STRING"
+            }
+          ],
+          "sourceSpan": [
+            149,
+            150
+          ]
+        },
+        {
+          "rule": "INTERPOLATED_VERBATIUM_STRING_START",
+          "mode": "DEFAULT_MODE",
+          "commands": [
+            {
+              "name": "pushMode",
+              "argument": "INTERPOLATION_STRING"
+            }
+          ],
+          "sourceSpan": [
+            151,
+            154
+          ]
+        }
+      ],
+      "transitionSources": [
+        "DEFAULT_MODE"
+      ],
+      "reverseModeClosure": [
+        "DEFAULT_MODE",
+        "DIRECTIVE_MODE",
+        "DIRECTIVE_TEXT",
+        "INTERPOLATION_STRING"
+      ],
+      "forwardModeClosureFromDefault": [
+        "DEFAULT_MODE",
+        "DIRECTIVE_MODE",
+        "DIRECTIVE_TEXT",
+        "INTERPOLATION_FORMAT",
+        "INTERPOLATION_STRING"
+      ],
+      "structuralPathExists": true,
+      "entryCandidates": [
+        "DEFAULT_MODE",
+        "INTERPOLATION_STRING"
+      ],
+      "popModeSemantics": "caller/previous stack mode; static graph cannot identify the concrete return mode"
+    },
+    "ruleOrderByRelevantMode": {
+      "DEFAULT_MODE": [
+        {
+          "order": 0,
+          "rule": "BYTE_ORDER_MARK"
+        },
+        {
+          "order": 1,
+          "rule": "SINGLE_LINE_DOC_COMMENT"
+        },
+        {
+          "order": 2,
+          "rule": "DELIMITED_DOC_COMMENT"
+        },
+        {
+          "order": 3,
+          "rule": "SINGLE_LINE_COMMENT"
+        },
+        {
+          "order": 4,
+          "rule": "DELIMITED_COMMENT"
+        },
+        {
+          "order": 5,
+          "rule": "WHITESPACES"
+        },
+        {
+          "order": 6,
+          "rule": "SHARP"
+        },
+        {
+          "order": 7,
+          "rule": "ABSTRACT"
+        },
+        {
+          "order": 8,
+          "rule": "ADD"
+        },
+        {
+          "order": 9,
+          "rule": "ALIAS"
+        },
+        {
+          "order": 10,
+          "rule": "ARGLIST"
+        },
+        {
+          "order": 11,
+          "rule": "AS"
+        },
+        {
+          "order": 12,
+          "rule": "ASCENDING"
+        },
+        {
+          "order": 13,
+          "rule": "ASYNC"
+        },
+        {
+          "order": 14,
+          "rule": "AWAIT"
+        },
+        {
+          "order": 15,
+          "rule": "BASE"
+        },
+        {
+          "order": 16,
+          "rule": "BOOL"
+        },
+        {
+          "order": 17,
+          "rule": "BREAK"
+        },
+        {
+          "order": 18,
+          "rule": "BY"
+        },
+        {
+          "order": 19,
+          "rule": "BYTE"
+        },
+        {
+          "order": 20,
+          "rule": "CASE"
+        },
+        {
+          "order": 21,
+          "rule": "CATCH"
+        },
+        {
+          "order": 22,
+          "rule": "CHAR"
+        },
+        {
+          "order": 23,
+          "rule": "CHECKED"
+        },
+        {
+          "order": 24,
+          "rule": "CLASS"
+        },
+        {
+          "order": 25,
+          "rule": "CONST"
+        },
+        {
+          "order": 26,
+          "rule": "CONTINUE"
+        },
+        {
+          "order": 27,
+          "rule": "DECIMAL"
+        },
+        {
+          "order": 28,
+          "rule": "DEFAULT"
+        },
+        {
+          "order": 29,
+          "rule": "DELEGATE"
+        },
+        {
+          "order": 30,
+          "rule": "DESCENDING"
+        },
+        {
+          "order": 31,
+          "rule": "DO"
+        },
+        {
+          "order": 32,
+          "rule": "DOUBLE"
+        },
+        {
+          "order": 33,
+          "rule": "DYNAMIC"
+        },
+        {
+          "order": 34,
+          "rule": "ELSE"
+        },
+        {
+          "order": 35,
+          "rule": "ENUM"
+        },
+        {
+          "order": 36,
+          "rule": "EQUALS"
+        },
+        {
+          "order": 37,
+          "rule": "EVENT"
+        },
+        {
+          "order": 38,
+          "rule": "EXPLICIT"
+        },
+        {
+          "order": 39,
+          "rule": "EXTERN"
+        },
+        {
+          "order": 40,
+          "rule": "FALSE"
+        },
+        {
+          "order": 41,
+          "rule": "FINALLY"
+        },
+        {
+          "order": 42,
+          "rule": "FIXED"
+        },
+        {
+          "order": 43,
+          "rule": "FLOAT"
+        },
+        {
+          "order": 44,
+          "rule": "FOR"
+        },
+        {
+          "order": 45,
+          "rule": "FOREACH"
+        },
+        {
+          "order": 46,
+          "rule": "FROM"
+        },
+        {
+          "order": 47,
+          "rule": "GET"
+        },
+        {
+          "order": 48,
+          "rule": "GOTO"
+        },
+        {
+          "order": 49,
+          "rule": "GROUP"
+        },
+        {
+          "order": 50,
+          "rule": "IF"
+        },
+        {
+          "order": 51,
+          "rule": "IMPLICIT"
+        },
+        {
+          "order": 52,
+          "rule": "IN"
+        },
+        {
+          "order": 53,
+          "rule": "INT"
+        },
+        {
+          "order": 54,
+          "rule": "INTERFACE"
+        },
+        {
+          "order": 55,
+          "rule": "INTERNAL"
+        },
+        {
+          "order": 56,
+          "rule": "INTO"
+        },
+        {
+          "order": 57,
+          "rule": "IS"
+        },
+        {
+          "order": 58,
+          "rule": "JOIN"
+        },
+        {
+          "order": 59,
+          "rule": "LET"
+        },
+        {
+          "order": 60,
+          "rule": "LOCK"
+        },
+        {
+          "order": 61,
+          "rule": "LONG"
+        },
+        {
+          "order": 62,
+          "rule": "NAMEOF"
+        },
+        {
+          "order": 63,
+          "rule": "NAMESPACE"
+        },
+        {
+          "order": 64,
+          "rule": "NEW"
+        },
+        {
+          "order": 65,
+          "rule": "NULL"
+        },
+        {
+          "order": 66,
+          "rule": "OBJECT"
+        },
+        {
+          "order": 67,
+          "rule": "ON"
+        },
+        {
+          "order": 68,
+          "rule": "OPERATOR"
+        },
+        {
+          "order": 69,
+          "rule": "ORDERBY"
+        },
+        {
+          "order": 70,
+          "rule": "OUT"
+        },
+        {
+          "order": 71,
+          "rule": "OVERRIDE"
+        },
+        {
+          "order": 72,
+          "rule": "PARAMS"
+        },
+        {
+          "order": 73,
+          "rule": "PARTIAL"
+        },
+        {
+          "order": 74,
+          "rule": "PRIVATE"
+        },
+        {
+          "order": 75,
+          "rule": "PROTECTED"
+        },
+        {
+          "order": 76,
+          "rule": "PUBLIC"
+        },
+        {
+          "order": 77,
+          "rule": "READONLY"
+        },
+        {
+          "order": 78,
+          "rule": "REF"
+        },
+        {
+          "order": 79,
+          "rule": "REMOVE"
+        },
+        {
+          "order": 80,
+          "rule": "RETURN"
+        },
+        {
+          "order": 81,
+          "rule": "SBYTE"
+        },
+        {
+          "order": 82,
+          "rule": "SEALED"
+        },
+        {
+          "order": 83,
+          "rule": "SELECT"
+        },
+        {
+          "order": 84,
+          "rule": "SET"
+        },
+        {
+          "order": 85,
+          "rule": "SHORT"
+        },
+        {
+          "order": 86,
+          "rule": "SIZEOF"
+        },
+        {
+          "order": 87,
+          "rule": "STACKALLOC"
+        },
+        {
+          "order": 88,
+          "rule": "STATIC"
+        },
+        {
+          "order": 89,
+          "rule": "STRING"
+        },
+        {
+          "order": 90,
+          "rule": "STRUCT"
+        },
+        {
+          "order": 91,
+          "rule": "SWITCH"
+        },
+        {
+          "order": 92,
+          "rule": "THIS"
+        },
+        {
+          "order": 93,
+          "rule": "THROW"
+        },
+        {
+          "order": 94,
+          "rule": "TRUE"
+        },
+        {
+          "order": 95,
+          "rule": "TRY"
+        },
+        {
+          "order": 96,
+          "rule": "TYPEOF"
+        },
+        {
+          "order": 97,
+          "rule": "UINT"
+        },
+        {
+          "order": 98,
+          "rule": "ULONG"
+        },
+        {
+          "order": 99,
+          "rule": "UNCHECKED"
+        },
+        {
+          "order": 100,
+          "rule": "UNSAFE"
+        },
+        {
+          "order": 101,
+          "rule": "USHORT"
+        },
+        {
+          "order": 102,
+          "rule": "USING"
+        },
+        {
+          "order": 103,
+          "rule": "VAR"
+        },
+        {
+          "order": 104,
+          "rule": "VIRTUAL"
+        },
+        {
+          "order": 105,
+          "rule": "VOID"
+        },
+        {
+          "order": 106,
+          "rule": "VOLATILE"
+        },
+        {
+          "order": 107,
+          "rule": "WHEN"
+        },
+        {
+          "order": 108,
+          "rule": "WHERE"
+        },
+        {
+          "order": 109,
+          "rule": "WHILE"
+        },
+        {
+          "order": 110,
+          "rule": "YIELD"
+        },
+        {
+          "order": 111,
+          "rule": "IDENTIFIER"
+        },
+        {
+          "order": 112,
+          "rule": "LITERAL_ACCESS"
+        },
+        {
+          "order": 113,
+          "rule": "INTEGER_LITERAL"
+        },
+        {
+          "order": 114,
+          "rule": "HEX_INTEGER_LITERAL"
+        },
+        {
+          "order": 115,
+          "rule": "REAL_LITERAL"
+        },
+        {
+          "order": 116,
+          "rule": "CHARACTER_LITERAL"
+        },
+        {
+          "order": 117,
+          "rule": "REGULAR_STRING"
+        },
+        {
+          "order": 118,
+          "rule": "VERBATIUM_STRING"
+        },
+        {
+          "order": 119,
+          "rule": "INTERPOLATED_REGULAR_STRING_START"
+        },
+        {
+          "order": 120,
+          "rule": "INTERPOLATED_VERBATIUM_STRING_START"
+        },
+        {
+          "order": 121,
+          "rule": "OPEN_BRACE"
+        },
+        {
+          "order": 122,
+          "rule": "CLOSE_BRACE"
+        },
+        {
+          "order": 123,
+          "rule": "OPEN_BRACKET"
+        },
+        {
+          "order": 124,
+          "rule": "CLOSE_BRACKET"
+        },
+        {
+          "order": 125,
+          "rule": "OPEN_PARENS"
+        },
+        {
+          "order": 126,
+          "rule": "CLOSE_PARENS"
+        },
+        {
+          "order": 127,
+          "rule": "DOT"
+        },
+        {
+          "order": 128,
+          "rule": "COMMA"
+        },
+        {
+          "order": 129,
+          "rule": "COLON"
+        },
+        {
+          "order": 130,
+          "rule": "SEMICOLON"
+        },
+        {
+          "order": 131,
+          "rule": "PLUS"
+        },
+        {
+          "order": 132,
+          "rule": "MINUS"
+        },
+        {
+          "order": 133,
+          "rule": "STAR"
+        },
+        {
+          "order": 134,
+          "rule": "DIV"
+        },
+        {
+          "order": 135,
+          "rule": "PERCENT"
+        },
+        {
+          "order": 136,
+          "rule": "AMP"
+        },
+        {
+          "order": 137,
+          "rule": "BITWISE_OR"
+        },
+        {
+          "order": 138,
+          "rule": "CARET"
+        },
+        {
+          "order": 139,
+          "rule": "BANG"
+        },
+        {
+          "order": 140,
+          "rule": "TILDE"
+        },
+        {
+          "order": 141,
+          "rule": "ASSIGNMENT"
+        },
+        {
+          "order": 142,
+          "rule": "LT"
+        },
+        {
+          "order": 143,
+          "rule": "GT"
+        },
+        {
+          "order": 144,
+          "rule": "INTERR"
+        },
+        {
+          "order": 145,
+          "rule": "DOUBLE_COLON"
+        },
+        {
+          "order": 146,
+          "rule": "OP_COALESCING"
+        },
+        {
+          "order": 147,
+          "rule": "OP_INC"
+        },
+        {
+          "order": 148,
+          "rule": "OP_DEC"
+        },
+        {
+          "order": 149,
+          "rule": "OP_AND"
+        },
+        {
+          "order": 150,
+          "rule": "OP_OR"
+        },
+        {
+          "order": 151,
+          "rule": "OP_PTR"
+        },
+        {
+          "order": 152,
+          "rule": "OP_EQ"
+        },
+        {
+          "order": 153,
+          "rule": "OP_NE"
+        },
+        {
+          "order": 154,
+          "rule": "OP_LE"
+        },
+        {
+          "order": 155,
+          "rule": "OP_GE"
+        },
+        {
+          "order": 156,
+          "rule": "OP_ADD_ASSIGNMENT"
+        },
+        {
+          "order": 157,
+          "rule": "OP_SUB_ASSIGNMENT"
+        },
+        {
+          "order": 158,
+          "rule": "OP_MULT_ASSIGNMENT"
+        },
+        {
+          "order": 159,
+          "rule": "OP_DIV_ASSIGNMENT"
+        },
+        {
+          "order": 160,
+          "rule": "OP_MOD_ASSIGNMENT"
+        },
+        {
+          "order": 161,
+          "rule": "OP_AND_ASSIGNMENT"
+        },
+        {
+          "order": 162,
+          "rule": "OP_OR_ASSIGNMENT"
+        },
+        {
+          "order": 163,
+          "rule": "OP_XOR_ASSIGNMENT"
+        },
+        {
+          "order": 164,
+          "rule": "OP_LEFT_SHIFT"
+        },
+        {
+          "order": 165,
+          "rule": "OP_LEFT_SHIFT_ASSIGNMENT"
+        }
+      ],
+      "INTERPOLATION_STRING": [
+        {
+          "order": 166,
+          "rule": "DOUBLE_CURLY_INSIDE"
+        },
+        {
+          "order": 167,
+          "rule": "OPEN_BRACE_INSIDE"
+        },
+        {
+          "order": 168,
+          "rule": "REGULAR_CHAR_INSIDE"
+        },
+        {
+          "order": 169,
+          "rule": "VERBATIUM_DOUBLE_QUOTE_INSIDE"
+        },
+        {
+          "order": 170,
+          "rule": "DOUBLE_QUOTE_INSIDE"
+        },
+        {
+          "order": 171,
+          "rule": "REGULAR_STRING_INSIDE"
+        },
+        {
+          "order": 172,
+          "rule": "VERBATIUM_INSIDE_STRING"
+        }
+      ]
+    },
+    "stateAndHelperCandidates": []
+  },
+  "generatedAcquisition": {
+    "lexerClass": "CSharpLexer",
+    "ruleNames": [
+      "BYTE_ORDER_MARK",
+      "SINGLE_LINE_DOC_COMMENT",
+      "DELIMITED_DOC_COMMENT",
+      "SINGLE_LINE_COMMENT",
+      "DELIMITED_COMMENT",
+      "WHITESPACES",
+      "SHARP",
+      "ABSTRACT",
+      "ADD",
+      "ALIAS",
+      "ARGLIST",
+      "AS",
+      "ASCENDING",
+      "ASYNC",
+      "AWAIT",
+      "BASE",
+      "BOOL",
+      "BREAK",
+      "BY",
+      "BYTE",
+      "CASE",
+      "CATCH",
+      "CHAR",
+      "CHECKED",
+      "CLASS",
+      "CONST",
+      "CONTINUE",
+      "DECIMAL",
+      "DEFAULT",
+      "DELEGATE",
+      "DESCENDING",
+      "DO",
+      "DOUBLE",
+      "DYNAMIC",
+      "ELSE",
+      "ENUM",
+      "EQUALS",
+      "EVENT",
+      "EXPLICIT",
+      "EXTERN",
+      "FALSE",
+      "FINALLY",
+      "FIXED",
+      "FLOAT",
+      "FOR",
+      "FOREACH",
+      "FROM",
+      "GET",
+      "GOTO",
+      "GROUP",
+      "IF",
+      "IMPLICIT",
+      "IN",
+      "INT",
+      "INTERFACE",
+      "INTERNAL",
+      "INTO",
+      "IS",
+      "JOIN",
+      "LET",
+      "LOCK",
+      "LONG",
+      "NAMEOF",
+      "NAMESPACE",
+      "NEW",
+      "NULL",
+      "OBJECT",
+      "ON",
+      "OPERATOR",
+      "ORDERBY",
+      "OUT",
+      "OVERRIDE",
+      "PARAMS",
+      "PARTIAL",
+      "PRIVATE",
+      "PROTECTED",
+      "PUBLIC",
+      "READONLY",
+      "REF",
+      "REMOVE",
+      "RETURN",
+      "SBYTE",
+      "SEALED",
+      "SELECT",
+      "SET",
+      "SHORT",
+      "SIZEOF",
+      "STACKALLOC",
+      "STATIC",
+      "STRING",
+      "STRUCT",
+      "SWITCH",
+      "THIS",
+      "THROW",
+      "TRUE",
+      "TRY",
+      "TYPEOF",
+      "UINT",
+      "ULONG",
+      "UNCHECKED",
+      "UNSAFE",
+      "USHORT",
+      "USING",
+      "VAR",
+      "VIRTUAL",
+      "VOID",
+      "VOLATILE",
+      "WHEN",
+      "WHERE",
+      "WHILE",
+      "YIELD",
+      "IDENTIFIER",
+      "LITERAL_ACCESS",
+      "INTEGER_LITERAL",
+      "HEX_INTEGER_LITERAL",
+      "REAL_LITERAL",
+      "CHARACTER_LITERAL",
+      "REGULAR_STRING",
+      "VERBATIUM_STRING",
+      "INTERPOLATED_REGULAR_STRING_START",
+      "INTERPOLATED_VERBATIUM_STRING_START",
+      "OPEN_BRACE",
+      "CLOSE_BRACE",
+      "OPEN_BRACKET",
+      "CLOSE_BRACKET",
+      "OPEN_PARENS",
+      "CLOSE_PARENS",
+      "DOT",
+      "COMMA",
+      "COLON",
+      "SEMICOLON",
+      "PLUS",
+      "MINUS",
+      "STAR",
+      "DIV",
+      "PERCENT",
+      "AMP",
+      "BITWISE_OR",
+      "CARET",
+      "BANG",
+      "TILDE",
+      "ASSIGNMENT",
+      "LT",
+      "GT",
+      "INTERR",
+      "DOUBLE_COLON",
+      "OP_COALESCING",
+      "OP_INC",
+      "OP_DEC",
+      "OP_AND",
+      "OP_OR",
+      "OP_PTR",
+      "OP_EQ",
+      "OP_NE",
+      "OP_LE",
+      "OP_GE",
+      "OP_ADD_ASSIGNMENT",
+      "OP_SUB_ASSIGNMENT",
+      "OP_MULT_ASSIGNMENT",
+      "OP_DIV_ASSIGNMENT",
+      "OP_MOD_ASSIGNMENT",
+      "OP_AND_ASSIGNMENT",
+      "OP_OR_ASSIGNMENT",
+      "OP_XOR_ASSIGNMENT",
+      "OP_LEFT_SHIFT",
+      "OP_LEFT_SHIFT_ASSIGNMENT",
+      "DOUBLE_CURLY_INSIDE",
+      "OPEN_BRACE_INSIDE",
+      "REGULAR_CHAR_INSIDE",
+      "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "DOUBLE_QUOTE_INSIDE",
+      "REGULAR_STRING_INSIDE",
+      "VERBATIUM_INSIDE_STRING",
+      "DOUBLE_CURLY_CLOSE_INSIDE",
+      "CLOSE_BRACE_INSIDE",
+      "FORMAT_STRING",
+      "DIRECTIVE_WHITESPACES",
+      "DIGITS",
+      "DIRECTIVE_TRUE",
+      "DIRECTIVE_FALSE",
+      "DEFINE",
+      "UNDEF",
+      "DIRECTIVE_IF",
+      "ELIF",
+      "DIRECTIVE_ELSE",
+      "ENDIF",
+      "LINE",
+      "ERROR",
+      "WARNING",
+      "REGION",
+      "ENDREGION",
+      "PRAGMA",
+      "DIRECTIVE_DEFAULT",
+      "DIRECTIVE_HIDDEN",
+      "DIRECTIVE_OPEN_PARENS",
+      "DIRECTIVE_CLOSE_PARENS",
+      "DIRECTIVE_BANG",
+      "DIRECTIVE_OP_EQ",
+      "DIRECTIVE_OP_NE",
+      "DIRECTIVE_OP_AND",
+      "DIRECTIVE_OP_OR",
+      "DIRECTIVE_STRING",
+      "CONDITIONAL_SYMBOL",
+      "DIRECTIVE_SINGLE_LINE_COMMENT",
+      "DIRECTIVE_NEW_LINE",
+      "TEXT",
+      "TEXT_NEW_LINE",
+      "InputCharacter",
+      "NewLineCharacter",
+      "IntegerTypeSuffix",
+      "ExponentPart",
+      "CommonCharacter",
+      "SimpleEscapeSequence",
+      "HexEscapeSequence",
+      "NewLine",
+      "Whitespace",
+      "UnicodeClassZS",
+      "IdentifierOrKeyword",
+      "IdentifierStartCharacter",
+      "IdentifierPartCharacter",
+      "LetterCharacter",
+      "DecimalDigitCharacter",
+      "ConnectingCharacter",
+      "CombiningCharacter",
+      "FormattingCharacter",
+      "UnicodeEscapeSequence",
+      "HexDigit",
+      "UnicodeClassLU",
+      "UnicodeClassLL",
+      "UnicodeClassLT",
+      "UnicodeClassLM",
+      "UnicodeClassLO",
+      "UnicodeClassNL",
+      "UnicodeClassMN",
+      "UnicodeClassMC",
+      "UnicodeClassCF",
+      "UnicodeClassPC",
+      "UnicodeClassND"
+    ],
+    "modeNames": [
+      "DEFAULT_MODE",
+      "INTERPOLATION_STRING",
+      "INTERPOLATION_FORMAT",
+      "DIRECTIVE_MODE",
+      "DIRECTIVE_TEXT"
+    ],
+    "channelNames": [
+      "DEFAULT_TOKEN_CHANNEL",
+      "HIDDEN",
+      "COMMENTS_CHANNEL",
+      "DIRECTIVE"
+    ],
+    "atn": {
+      "ruleCount": 238,
+      "modeCount": 5,
+      "stateCount": 1942
+    },
+    "tokenMappings": [
+      {
+        "rule": "DELIMITED_COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          24,
+          25
+        ],
+        "generatedTokenType": 5,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "DELIMITED_DOC_COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          22,
+          22
+        ],
+        "generatedTokenType": 3,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "DIRECTIVE_SINGLE_LINE_COMMENT",
+        "sourceMode": "DIRECTIVE_MODE",
+        "sourceSpan": [
+          285,
+          285
+        ],
+        "generatedTokenType": null,
+        "generatedMode": null,
+        "mapping": "no token mapping (fragment or non-token rule)"
+      },
+      {
+        "rule": "InputCharacter",
+        "sourceMode": "DIRECTIVE_TEXT",
+        "sourceSpan": [
+          295,
+          297
+        ],
+        "generatedTokenType": null,
+        "generatedMode": null,
+        "mapping": "no token mapping (fragment or non-token rule)"
+      },
+      {
+        "rule": "SINGLE_LINE_COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          23,
+          23
+        ],
+        "generatedTokenType": 4,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      },
+      {
+        "rule": "SINGLE_LINE_DOC_COMMENT",
+        "sourceMode": "DEFAULT_MODE",
+        "sourceSpan": [
+          21,
+          21
+        ],
+        "generatedTokenType": 2,
+        "generatedMode": "DEFAULT_MODE",
+        "mapping": "ATN.ruleToTokenType/Vocabulary"
+      }
+    ],
+    "limitations": [
+      "Action and semantic predicate source is not reconstructed from the ATN",
+      "skip/more effects and contextual keyword meaning require lexer execution or grammar-source inspection",
+      "Implicit literal token types may not have a lexer rule name"
+    ]
+  },
+  "interpretation": {
+    "staticModePathsAreCandidates": true,
+    "runtimeModeStackAndActionsObservedElsewhere": true,
+    "ruleOrderIsRecordedButLongestMatchStillRequiresLexerSemantics": true
+  }
+}

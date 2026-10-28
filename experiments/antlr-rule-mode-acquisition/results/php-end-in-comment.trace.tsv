@@ -1,0 +1,13 @@
+0	before=DEFAULT_MODE	after=PHP	type=4	name=PHPStart	channel=4	start=0	stop=4	text=<?php
+1	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=5	stop=5	text= 
+2	before=PHP	after=PHP	type=62	name=Echo	channel=0	start=6	stop=9	text=echo
+3	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=10	stop=10	text= 
+4	before=PHP	after=InterpolationString	type=221	name=DoubleQuote	channel=0	start=11	stop=11	text="
+5	before=InterpolationString	after=InterpolationString	type=226	name=StringPart	channel=0	start=12	stop=16	text=Hello
+6	before=InterpolationString	after=PHP	type=221	name=DoubleQuote	channel=0	start=17	stop=17	text="
+7	before=PHP	after=PHP	type=39	name=Whitespace	channel=4	start=18	stop=18	text= 
+8	before=PHP	after=SingleLineCommentMode	type=41	name=SingleLineComment	channel=4	start=19	stop=20	text=//
+9	before=SingleLineCommentMode	after=SingleLineCommentMode	type=227	name=Comment	channel=2	start=21	stop=29	text= comment 
+10	before=SingleLineCommentMode	after=DEFAULT_MODE	type=208	name=SemiColon	channel=0	start=0	stop=0	text=<null>
+11	before=DEFAULT_MODE	after=DEFAULT_MODE	type=1	name=SeaWhitespace	channel=1	start=32	stop=32	text=\n
+12	before=DEFAULT_MODE	after=DEFAULT_MODE	type=-1	name=EOF	channel=0	start=33	stop=32	text=<EOF>

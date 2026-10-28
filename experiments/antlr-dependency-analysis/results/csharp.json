@@ -1,0 +1,6294 @@
+{
+  "path": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/csharp/CSharpLexer.g4",
+  "modes": [
+    "DEFAULT_MODE",
+    "INTERPOLATION_STRING",
+    "INTERPOLATION_FORMAT",
+    "DIRECTIVE_MODE",
+    "DIRECTIVE_TEXT"
+  ],
+  "rules": [
+    {
+      "name": "BYTE_ORDER_MARK",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 19,
+      "text": " '\\u00EF\\u00BB\\u00BF';\n",
+      "endLine": 20,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u00EF\\u00BB\\u00BF'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SINGLE_LINE_DOC_COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 21,
+      "text": " '///' InputCharacter*    -> channel(COMMENTS_CHANNEL);",
+      "endLine": 21,
+      "references": [
+        "InputCharacter"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "COMMENTS_CHANNEL"
+        }
+      ],
+      "literals": [
+        "'///'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DELIMITED_DOC_COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 22,
+      "text": "   '/**' .*? '*/'           -> channel(COMMENTS_CHANNEL);",
+      "endLine": 22,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "COMMENTS_CHANNEL"
+        }
+      ],
+      "literals": [
+        "'/**'",
+        "'*/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SINGLE_LINE_COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 23,
+      "text": "     '//'  InputCharacter*    -> channel(COMMENTS_CHANNEL);",
+      "endLine": 23,
+      "references": [
+        "InputCharacter"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "COMMENTS_CHANNEL"
+        }
+      ],
+      "literals": [
+        "'//'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DELIMITED_COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 24,
+      "text": "       '/*'  .*? '*/'           -> channel(COMMENTS_CHANNEL);\n",
+      "endLine": 25,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "COMMENTS_CHANNEL"
+        }
+      ],
+      "literals": [
+        "'/*'",
+        "'*/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "WHITESPACES",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 26,
+      "text": "   (Whitespace | NewLine)+            -> channel(HIDDEN);",
+      "endLine": 26,
+      "references": [
+        "NewLine",
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SHARP",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 27,
+      "text": "         '#'                                -> mode(DIRECTIVE_MODE);\n",
+      "endLine": 28,
+      "references": [],
+      "commands": [
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_MODE"
+        }
+      ],
+      "literals": [
+        "'#'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ABSTRACT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 29,
+      "text": "      'abstract';",
+      "endLine": 29,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'abstract'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ADD",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 30,
+      "text": "           'add';",
+      "endLine": 30,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'add'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ALIAS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 31,
+      "text": "         'alias';",
+      "endLine": 31,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'alias'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ARGLIST",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 32,
+      "text": "       '__arglist';",
+      "endLine": 32,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'__arglist'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "AS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 33,
+      "text": "            'as';",
+      "endLine": 33,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'as'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ASCENDING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 34,
+      "text": "     'ascending';",
+      "endLine": 34,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'ascending'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ASYNC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 35,
+      "text": "         'async';",
+      "endLine": 35,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'async'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "AWAIT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 36,
+      "text": "         'await';",
+      "endLine": 36,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'await'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BASE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 37,
+      "text": "          'base';",
+      "endLine": 37,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'base'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BOOL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 38,
+      "text": "          'bool';",
+      "endLine": 38,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'bool'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BREAK",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 39,
+      "text": "         'break';",
+      "endLine": 39,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'break'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BY",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 40,
+      "text": "            'by';",
+      "endLine": 40,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'by'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BYTE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 41,
+      "text": "          'byte';",
+      "endLine": 41,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'byte'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CASE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 42,
+      "text": "          'case';",
+      "endLine": 42,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'case'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CATCH",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 43,
+      "text": "         'catch';",
+      "endLine": 43,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'catch'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CHAR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 44,
+      "text": "          'char';",
+      "endLine": 44,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'char'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CHECKED",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 45,
+      "text": "       'checked';",
+      "endLine": 45,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'checked'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CLASS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 46,
+      "text": "         'class';",
+      "endLine": 46,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'class'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CONST",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 47,
+      "text": "         'const';",
+      "endLine": 47,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'const'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CONTINUE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 48,
+      "text": "      'continue';",
+      "endLine": 48,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'continue'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DECIMAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 49,
+      "text": "       'decimal';",
+      "endLine": 49,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'decimal'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DEFAULT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 50,
+      "text": "       'default';",
+      "endLine": 50,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'default'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DELEGATE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 51,
+      "text": "      'delegate';",
+      "endLine": 51,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'delegate'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DESCENDING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 52,
+      "text": "    'descending';",
+      "endLine": 52,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'descending'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DO",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 53,
+      "text": "            'do';",
+      "endLine": 53,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'do'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DOUBLE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 54,
+      "text": "        'double';",
+      "endLine": 54,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'double'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DYNAMIC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 55,
+      "text": "       'dynamic';",
+      "endLine": 55,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'dynamic'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ELSE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 56,
+      "text": "          'else';",
+      "endLine": 56,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'else'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ENUM",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 57,
+      "text": "          'enum';",
+      "endLine": 57,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'enum'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EQUALS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 58,
+      "text": "        'equals';",
+      "endLine": 58,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'equals'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EVENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 59,
+      "text": "         'event';",
+      "endLine": 59,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'event'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EXPLICIT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 60,
+      "text": "      'explicit';",
+      "endLine": 60,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'explicit'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EXTERN",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 61,
+      "text": "        'extern';",
+      "endLine": 61,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'extern'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FALSE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 62,
+      "text": "         'false';",
+      "endLine": 62,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'false'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FINALLY",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 63,
+      "text": "       'finally';",
+      "endLine": 63,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'finally'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FIXED",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 64,
+      "text": "         'fixed';",
+      "endLine": 64,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'fixed'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FLOAT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 65,
+      "text": "         'float';",
+      "endLine": 65,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'float'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FOR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 66,
+      "text": "           'for';",
+      "endLine": 66,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'for'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FOREACH",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 67,
+      "text": "       'foreach';",
+      "endLine": 67,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'foreach'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FROM",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 68,
+      "text": "          'from';",
+      "endLine": 68,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'from'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "GET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 69,
+      "text": "           'get';",
+      "endLine": 69,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'get'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "GOTO",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 70,
+      "text": "          'goto';",
+      "endLine": 70,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'goto'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "GROUP",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 71,
+      "text": "         'group';",
+      "endLine": 71,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'group'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IF",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 72,
+      "text": "            'if';",
+      "endLine": 72,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'if'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IMPLICIT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 73,
+      "text": "      'implicit';",
+      "endLine": 73,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'implicit'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IN",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 74,
+      "text": "            'in';",
+      "endLine": 74,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'in'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 75,
+      "text": "           'int';",
+      "endLine": 75,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'int'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTERFACE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 76,
+      "text": "     'interface';",
+      "endLine": 76,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'interface'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTERNAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 77,
+      "text": "      'internal';",
+      "endLine": 77,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'internal'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTO",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 78,
+      "text": "          'into';",
+      "endLine": 78,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'into'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 79,
+      "text": "            'is';",
+      "endLine": 79,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'is'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "JOIN",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 80,
+      "text": "          'join';",
+      "endLine": 80,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'join'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 81,
+      "text": "           'let';",
+      "endLine": 81,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'let'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LOCK",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 82,
+      "text": "          'lock';",
+      "endLine": 82,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'lock'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LONG",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 83,
+      "text": "          'long';",
+      "endLine": 83,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'long'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NAMEOF",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 84,
+      "text": "        'nameof';",
+      "endLine": 84,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'nameof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NAMESPACE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 85,
+      "text": "     'namespace';",
+      "endLine": 85,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'namespace'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NEW",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 86,
+      "text": "           'new';",
+      "endLine": 86,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'new'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NULL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 87,
+      "text": "          'null';",
+      "endLine": 87,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'null'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OBJECT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 88,
+      "text": "        'object';",
+      "endLine": 88,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'object'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ON",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 89,
+      "text": "            'on';",
+      "endLine": 89,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'on'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OPERATOR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 90,
+      "text": "      'operator';",
+      "endLine": 90,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'operator'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ORDERBY",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 91,
+      "text": "       'orderby';",
+      "endLine": 91,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'orderby'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OUT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 92,
+      "text": "           'out';",
+      "endLine": 92,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'out'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OVERRIDE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 93,
+      "text": "      'override';",
+      "endLine": 93,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'override'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PARAMS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 94,
+      "text": "        'params';",
+      "endLine": 94,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'params'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PARTIAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 95,
+      "text": "       'partial';",
+      "endLine": 95,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'partial'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PRIVATE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 96,
+      "text": "       'private';",
+      "endLine": 96,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'private'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PROTECTED",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 97,
+      "text": "     'protected';",
+      "endLine": 97,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'protected'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PUBLIC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 98,
+      "text": "        'public';",
+      "endLine": 98,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'public'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "READONLY",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 99,
+      "text": "      'readonly';",
+      "endLine": 99,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'readonly'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "REF",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 100,
+      "text": "           'ref';",
+      "endLine": 100,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'ref'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "REMOVE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 101,
+      "text": "        'remove';",
+      "endLine": 101,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'remove'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "RETURN",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 102,
+      "text": "        'return';",
+      "endLine": 102,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'return'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SBYTE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 103,
+      "text": "         'sbyte';",
+      "endLine": 103,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'sbyte'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SEALED",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 104,
+      "text": "        'sealed';",
+      "endLine": 104,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'sealed'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SELECT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 105,
+      "text": "        'select';",
+      "endLine": 105,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'select'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 106,
+      "text": "           'set';",
+      "endLine": 106,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'set'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SHORT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 107,
+      "text": "         'short';",
+      "endLine": 107,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'short'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SIZEOF",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 108,
+      "text": "        'sizeof';",
+      "endLine": 108,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'sizeof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "STACKALLOC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 109,
+      "text": "    'stackalloc';",
+      "endLine": 109,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'stackalloc'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "STATIC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 110,
+      "text": "        'static';",
+      "endLine": 110,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'static'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "STRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 111,
+      "text": "        'string';",
+      "endLine": 111,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'string'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "STRUCT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 112,
+      "text": "        'struct';",
+      "endLine": 112,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'struct'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SWITCH",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 113,
+      "text": "        'switch';",
+      "endLine": 113,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'switch'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "THIS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 114,
+      "text": "          'this';",
+      "endLine": 114,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'this'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "THROW",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 115,
+      "text": "         'throw';",
+      "endLine": 115,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'throw'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TRUE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 116,
+      "text": "          'true';",
+      "endLine": 116,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'true'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TRY",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 117,
+      "text": "           'try';",
+      "endLine": 117,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'try'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TYPEOF",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 118,
+      "text": "        'typeof';",
+      "endLine": 118,
+      "references": [],
+      "commands": [
+        {
+          "name": "type",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'typeof'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UINT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 119,
+      "text": "          'uint';",
+      "endLine": 119,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'uint'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ULONG",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 120,
+      "text": "         'ulong';",
+      "endLine": 120,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'ulong'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UNCHECKED",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 121,
+      "text": "     'unchecked';",
+      "endLine": 121,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'unchecked'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UNSAFE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 122,
+      "text": "        'unsafe';",
+      "endLine": 122,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'unsafe'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "USHORT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 123,
+      "text": "        'ushort';",
+      "endLine": 123,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'ushort'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "USING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 124,
+      "text": "         'using';",
+      "endLine": 124,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'using'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VAR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 125,
+      "text": "\t\t   'var';",
+      "endLine": 125,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'var'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VIRTUAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 126,
+      "text": "       'virtual';",
+      "endLine": 126,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'virtual'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VOID",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 127,
+      "text": "          'void';",
+      "endLine": 127,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'void'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VOLATILE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 128,
+      "text": "      'volatile';",
+      "endLine": 128,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'volatile'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "WHEN",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 129,
+      "text": "          'when';",
+      "endLine": 129,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'when'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "WHERE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 130,
+      "text": "         'where';",
+      "endLine": 130,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'where'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "WHILE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 131,
+      "text": "         'while';",
+      "endLine": 131,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'while'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "YIELD",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 132,
+      "text": "         'yield';\n\n//B.1.6 Identifiers\n// must be defined after all keywords so the first branch (Available_identifier) does not match keywords\n// https://msdn.microsoft.com/en-us/library/aa664670(v=vs.71).aspx",
+      "endLine": 136,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'yield'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IDENTIFIER",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 137,
+      "text": "          '@'? IdentifierOrKeyword;\n\n//B.1.8 Literals\n// 0.Equals() would be parsed as an invalid real (1. branch) causing a lexer error",
+      "endLine": 140,
+      "references": [
+        "IdentifierOrKeyword"
+      ],
+      "commands": [],
+      "literals": [
+        "'@'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LITERAL_ACCESS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 141,
+      "text": "      [0-9]+ IntegerTypeSuffix? '.' '@'? IdentifierOrKeyword;",
+      "endLine": 141,
+      "references": [
+        "IdentifierOrKeyword",
+        "IntegerTypeSuffix"
+      ],
+      "commands": [],
+      "literals": [
+        "'.'",
+        "'@'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTEGER_LITERAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 142,
+      "text": "     [0-9]+ IntegerTypeSuffix?;",
+      "endLine": 142,
+      "references": [
+        "IntegerTypeSuffix"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HEX_INTEGER_LITERAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 143,
+      "text": " '0' [xX] HexDigit+ IntegerTypeSuffix?;",
+      "endLine": 143,
+      "references": [
+        "HexDigit",
+        "IntegerTypeSuffix"
+      ],
+      "commands": [],
+      "literals": [
+        "'0'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "REAL_LITERAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 144,
+      "text": "        [0-9]* '.' [0-9]+ ExponentPart? [FfDdMm]? | [0-9]+ ([FfDdMm] | ExponentPart [FfDdMm]?);\n",
+      "endLine": 145,
+      "references": [
+        "ExponentPart"
+      ],
+      "commands": [],
+      "literals": [
+        "'.'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CHARACTER_LITERAL",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 146,
+      "text": "                   '\\'' (~['\\\\\\r\\n\\u0085\\u2028\\u2029] | CommonCharacter) '\\'';",
+      "endLine": 146,
+      "references": [
+        "CommonCharacter"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\''",
+        "'\\\\\\r\\n\\u0085\\u2028\\u2029] | CommonCharacter) '",
+        "''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "REGULAR_STRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 147,
+      "text": "                      '\"'  (~[\"\\\\\\r\\n\\u0085\\u2028\\u2029] | CommonCharacter)* '\"';",
+      "endLine": 147,
+      "references": [
+        "CommonCharacter"
+      ],
+      "commands": [],
+      "literals": [
+        "'\"'",
+        "\"\\\\\\r\\n\\u0085\\u2028\\u2029] | CommonCharacter)* '\""
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "VERBATIUM_STRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 148,
+      "text": "                    '@\"' (~'\"' | '\"\"')* '\"';",
+      "endLine": 148,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'@\"'",
+        "'\"'",
+        "'\"\"'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTERPOLATED_REGULAR_STRING_START",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 149,
+      "text": "   '$\"'\n    { interpolatedStringLevel++; interpolatedVerbatiums.push(false); verbatium = false; } -> pushMode(INTERPOLATION_STRING);",
+      "endLine": 150,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "INTERPOLATION_STRING"
+        }
+      ],
+      "literals": [
+        "'$\"'"
+      ],
+      "actionIdentifiers": [
+        "INTERPOLATION_STRING",
+        "interpolatedStringLevel",
+        "interpolatedVerbatiums",
+        "push",
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "INTERPOLATED_VERBATIUM_STRING_START",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 151,
+      "text": " '$@\"'\n    { interpolatedStringLevel++; interpolatedVerbatiums.push(true); verbatium = true; }  -> pushMode(INTERPOLATION_STRING);\n\n//B.1.9 Operators And Punctuators",
+      "endLine": 154,
+      "references": [],
+      "commands": [
+        {
+          "name": "pushMode",
+          "argument": "INTERPOLATION_STRING"
+        }
+      ],
+      "literals": [
+        "'$@\"'"
+      ],
+      "actionIdentifiers": [
+        "INTERPOLATION_STRING",
+        "interpolatedStringLevel",
+        "interpolatedVerbatiums",
+        "push",
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "OPEN_BRACE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 155,
+      "text": "               '{'\n{\nif (interpolatedStringLevel > 0)\n{\n    curlyLevels.push(curlyLevels.pop() + 1);\n}};",
+      "endLine": 160,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'{'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "CLOSE_BRACE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 161,
+      "text": "              '}'\n{\nif (interpolatedStringLevel > 0)\n{\n    curlyLevels.push(curlyLevels.pop() - 1);\n    if (curlyLevels.peek() == 0)\n    {\n        curlyLevels.pop();\n        skip();\n        popMode();\n    }\n}\n};",
+      "endLine": 173,
+      "references": [],
+      "commands": [
+        {
+          "name": "skip",
+          "argument": ""
+        },
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'}'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "OPEN_BRACKET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 174,
+      "text": "             '[';",
+      "endLine": 174,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'['"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CLOSE_BRACKET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 175,
+      "text": "            ']';",
+      "endLine": 175,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "']'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OPEN_PARENS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 176,
+      "text": "              '(';",
+      "endLine": 176,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'('"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CLOSE_PARENS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 177,
+      "text": "             ')';",
+      "endLine": 177,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "')'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DOT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 178,
+      "text": "                      '.';",
+      "endLine": 178,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'.'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "COMMA",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 179,
+      "text": "                    ',';",
+      "endLine": 179,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "','"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "COLON",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 180,
+      "text": "                    ':'\n{\nif (interpolatedStringLevel > 0)\n{\n    int ind = 1;\n    boolean switchToFormatString = true;\n    while ((char)_input.LA(ind) != '}')\n    {\n        if (_input.LA(ind) == ':' || _input.LA(ind) == ')')\n        {\n            switchToFormatString = false;\n            break;\n        }\n        ind++;\n    }\n    if (switchToFormatString)\n    {\n        mode(INTERPOLATION_FORMAT);\n    }\n}\n};",
+      "endLine": 200,
+      "references": [],
+      "commands": [
+        {
+          "name": "mode",
+          "argument": "INTERPOLATION_FORMAT"
+        }
+      ],
+      "literals": [
+        "':'",
+        "'}'",
+        "':'",
+        "')'"
+      ],
+      "actionIdentifiers": [
+        "LA",
+        "_input",
+        "char",
+        "ind"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "SEMICOLON",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 201,
+      "text": "                ';';",
+      "endLine": 201,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "';'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PLUS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 202,
+      "text": "                     '+';",
+      "endLine": 202,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'+'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "MINUS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 203,
+      "text": "                    '-';",
+      "endLine": 203,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'-'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "STAR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 204,
+      "text": "                     '*';",
+      "endLine": 204,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'*'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIV",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 205,
+      "text": "                      '/';",
+      "endLine": 205,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'/'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PERCENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 206,
+      "text": "                  '%';",
+      "endLine": 206,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'%'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "AMP",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 207,
+      "text": "                      '&';",
+      "endLine": 207,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BITWISE_OR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 208,
+      "text": "               '|';",
+      "endLine": 208,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'|'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CARET",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 209,
+      "text": "                    '^';",
+      "endLine": 209,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'^'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "BANG",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 210,
+      "text": "                     '!';",
+      "endLine": 210,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'!'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TILDE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 211,
+      "text": "                    '~';",
+      "endLine": 211,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'~'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 212,
+      "text": "               '=';",
+      "endLine": 212,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 213,
+      "text": "                       '<';",
+      "endLine": 213,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "GT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 214,
+      "text": "                       '>';",
+      "endLine": 214,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INTERR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 215,
+      "text": "                   '?';",
+      "endLine": 215,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'?'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DOUBLE_COLON",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 216,
+      "text": "             '::';",
+      "endLine": 216,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'::'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_COALESCING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 217,
+      "text": "            '??';",
+      "endLine": 217,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'??'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_INC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 218,
+      "text": "                   '++';",
+      "endLine": 218,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'++'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_DEC",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 219,
+      "text": "                   '--';",
+      "endLine": 219,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'--'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_AND",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 220,
+      "text": "                   '&&';",
+      "endLine": 220,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&&'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_OR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 221,
+      "text": "                    '||';",
+      "endLine": 221,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'||'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_PTR",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 222,
+      "text": "                   '->';",
+      "endLine": 222,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'->'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_EQ",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 223,
+      "text": "                    '==';",
+      "endLine": 223,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'=='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_NE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 224,
+      "text": "                    '!=';",
+      "endLine": 224,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'!='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_LE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 225,
+      "text": "                    '<=';",
+      "endLine": 225,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_GE",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 226,
+      "text": "                    '>=';",
+      "endLine": 226,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'>='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_ADD_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 227,
+      "text": "        '+=';",
+      "endLine": 227,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'+='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_SUB_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 228,
+      "text": "        '-=';",
+      "endLine": 228,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'-='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_MULT_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 229,
+      "text": "       '*=';",
+      "endLine": 229,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'*='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_DIV_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 230,
+      "text": "        '/=';",
+      "endLine": 230,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'/='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_MOD_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 231,
+      "text": "        '%=';",
+      "endLine": 231,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'%='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_AND_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 232,
+      "text": "        '&=';",
+      "endLine": 232,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'&='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_OR_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 233,
+      "text": "         '|=';",
+      "endLine": 233,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'|='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_XOR_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 234,
+      "text": "        '^=';",
+      "endLine": 234,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'^='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_LEFT_SHIFT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 235,
+      "text": "            '<<';",
+      "endLine": 235,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<<'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "OP_LEFT_SHIFT_ASSIGNMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 236,
+      "text": " '<<=';\n\n// https://msdn.microsoft.com/en-us/library/dn961160.aspx",
+      "endLine": 238,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'<<='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DOUBLE_CURLY_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 241,
+      "text": "           '{{';",
+      "endLine": 241,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'{{'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "OPEN_BRACE_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 242,
+      "text": "             '{' { curlyLevels.push(1); } -> skip, pushMode(DEFAULT_MODE);",
+      "endLine": 242,
+      "references": [],
+      "commands": [
+        {
+          "name": "skip",
+          "argument": ""
+        },
+        {
+          "name": "pushMode",
+          "argument": "DEFAULT_MODE"
+        }
+      ],
+      "literals": [
+        "'{'"
+      ],
+      "actionIdentifiers": [
+        "DEFAULT_MODE",
+        "curlyLevels",
+        "push"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "REGULAR_CHAR_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 243,
+      "text": "           { !verbatium }? SimpleEscapeSequence;",
+      "endLine": 243,
+      "references": [
+        "SimpleEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 244,
+      "text": " {  verbatium }? '\"\"';",
+      "endLine": 244,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\"\"'"
+      ],
+      "actionIdentifiers": [
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "DOUBLE_QUOTE_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 245,
+      "text": "           '\"' { interpolatedStringLevel--; interpolatedVerbatiums.pop();\n    verbatium = (interpolatedVerbatiums.size() > 0 ? interpolatedVerbatiums.peek() : false); } -> popMode;",
+      "endLine": 246,
+      "references": [],
+      "commands": [
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'\"'"
+      ],
+      "actionIdentifiers": [
+        "interpolatedStringLevel",
+        "interpolatedVerbatiums",
+        "peek",
+        "pop",
+        "size",
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "REGULAR_STRING_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 247,
+      "text": "         { !verbatium }? ~('{' | '\\\\' | '\"')+;",
+      "endLine": 247,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'{'",
+        "'\\\\'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "VERBATIUM_INSIDE_STRING",
+      "fragment": false,
+      "mode": "INTERPOLATION_STRING",
+      "startLine": 248,
+      "text": "       {  verbatium }? ~('{' | '\"')+;\n",
+      "endLine": 249,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'{'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [
+        "verbatium"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "DOUBLE_CURLY_CLOSE_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_FORMAT",
+      "startLine": 252,
+      "text": "      '}}' -> type(FORMAT_STRING);",
+      "endLine": 252,
+      "references": [
+        "FORMAT_STRING"
+      ],
+      "commands": [
+        {
+          "name": "type",
+          "argument": "FORMAT_STRING"
+        }
+      ],
+      "literals": [
+        "'}}'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "CLOSE_BRACE_INSIDE",
+      "fragment": false,
+      "mode": "INTERPOLATION_FORMAT",
+      "startLine": 253,
+      "text": "             '}' { curlyLevels.pop(); }   -> skip, popMode;",
+      "endLine": 253,
+      "references": [],
+      "commands": [
+        {
+          "name": "skip",
+          "argument": ""
+        },
+        {
+          "name": "popMode",
+          "argument": ""
+        }
+      ],
+      "literals": [
+        "'}'"
+      ],
+      "actionIdentifiers": [
+        "curlyLevels",
+        "pop"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "FORMAT_STRING",
+      "fragment": false,
+      "mode": "INTERPOLATION_FORMAT",
+      "startLine": 254,
+      "text": "                  ~'}'+;\n",
+      "endLine": 255,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'}'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "DIRECTIVE_WHITESPACES",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 258,
+      "text": "         Whitespace+                      -> channel(HIDDEN);",
+      "endLine": 258,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIGITS",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 259,
+      "text": "                        [0-9]+                           -> channel(DIRECTIVE);",
+      "endLine": 259,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_TRUE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 260,
+      "text": "                'true'                           -> channel(DIRECTIVE), type(TRUE);",
+      "endLine": 260,
+      "references": [
+        "TRUE"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "TRUE"
+        }
+      ],
+      "literals": [
+        "'true'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_FALSE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 261,
+      "text": "               'false'                          -> channel(DIRECTIVE), type(FALSE);",
+      "endLine": 261,
+      "references": [
+        "FALSE"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "FALSE"
+        }
+      ],
+      "literals": [
+        "'false'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DEFINE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 262,
+      "text": "                        'define'                         -> channel(DIRECTIVE);",
+      "endLine": 262,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'define'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UNDEF",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 263,
+      "text": "                         'undef'                          -> channel(DIRECTIVE);",
+      "endLine": 263,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'undef'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_IF",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 264,
+      "text": "                  'if'                             -> channel(DIRECTIVE), type(IF);",
+      "endLine": 264,
+      "references": [
+        "IF"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "IF"
+        }
+      ],
+      "literals": [
+        "'if'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ELIF",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 265,
+      "text": "                          'elif'                           -> channel(DIRECTIVE);",
+      "endLine": 265,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'elif'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_ELSE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 266,
+      "text": "                'else'                           -> channel(DIRECTIVE), type(ELSE);",
+      "endLine": 266,
+      "references": [
+        "ELSE"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "ELSE"
+        }
+      ],
+      "literals": [
+        "'else'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ENDIF",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 267,
+      "text": "                         'endif'                          -> channel(DIRECTIVE);",
+      "endLine": 267,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'endif'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LINE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 268,
+      "text": "                          'line'                           -> channel(DIRECTIVE);",
+      "endLine": 268,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'line'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ERROR",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 269,
+      "text": "                         'error' Whitespace+              -> channel(DIRECTIVE), mode(DIRECTIVE_TEXT);",
+      "endLine": 269,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_TEXT"
+        }
+      ],
+      "literals": [
+        "'error'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "WARNING",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 270,
+      "text": "                       'warning' Whitespace+            -> channel(DIRECTIVE), mode(DIRECTIVE_TEXT);",
+      "endLine": 270,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_TEXT"
+        }
+      ],
+      "literals": [
+        "'warning'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "REGION",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 271,
+      "text": "                        'region' Whitespace*             -> channel(DIRECTIVE), mode(DIRECTIVE_TEXT);",
+      "endLine": 271,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_TEXT"
+        }
+      ],
+      "literals": [
+        "'region'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ENDREGION",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 272,
+      "text": "                     'endregion' Whitespace*          -> channel(DIRECTIVE), mode(DIRECTIVE_TEXT);",
+      "endLine": 272,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_TEXT"
+        }
+      ],
+      "literals": [
+        "'endregion'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "PRAGMA",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 273,
+      "text": "                        'pragma' Whitespace+             -> channel(DIRECTIVE), mode(DIRECTIVE_TEXT);",
+      "endLine": 273,
+      "references": [
+        "Whitespace"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DIRECTIVE_TEXT"
+        }
+      ],
+      "literals": [
+        "'pragma'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_DEFAULT",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 274,
+      "text": "             'default'                        -> channel(DIRECTIVE), type(DEFAULT);",
+      "endLine": 274,
+      "references": [
+        "DEFAULT"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "DEFAULT"
+        }
+      ],
+      "literals": [
+        "'default'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_HIDDEN",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 275,
+      "text": "              'hidden'                         -> channel(DIRECTIVE);",
+      "endLine": 275,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [
+        "'hidden'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_OPEN_PARENS",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 276,
+      "text": "         '('                              -> channel(DIRECTIVE), type(OPEN_PARENS);",
+      "endLine": 276,
+      "references": [
+        "OPEN_PARENS"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "OPEN_PARENS"
+        }
+      ],
+      "literals": [
+        "'('"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_CLOSE_PARENS",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 277,
+      "text": "        ')'                              -> channel(DIRECTIVE), type(CLOSE_PARENS);",
+      "endLine": 277,
+      "references": [
+        "CLOSE_PARENS"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "CLOSE_PARENS"
+        }
+      ],
+      "literals": [
+        "')'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_BANG",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 278,
+      "text": "                '!'                              -> channel(DIRECTIVE), type(BANG);",
+      "endLine": 278,
+      "references": [
+        "BANG"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "BANG"
+        }
+      ],
+      "literals": [
+        "'!'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_OP_EQ",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 279,
+      "text": "               '=='                             -> channel(DIRECTIVE), type(OP_EQ);",
+      "endLine": 279,
+      "references": [
+        "OP_EQ"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "OP_EQ"
+        }
+      ],
+      "literals": [
+        "'=='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_OP_NE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 280,
+      "text": "               '!='                             -> channel(DIRECTIVE), type(OP_NE);",
+      "endLine": 280,
+      "references": [
+        "OP_NE"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "OP_NE"
+        }
+      ],
+      "literals": [
+        "'!='"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_OP_AND",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 281,
+      "text": "              '&&'                             -> channel(DIRECTIVE), type(OP_AND);",
+      "endLine": 281,
+      "references": [
+        "OP_AND"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "OP_AND"
+        }
+      ],
+      "literals": [
+        "'&&'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_OP_OR",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 282,
+      "text": "               '||'                             -> channel(DIRECTIVE), type(OP_OR);",
+      "endLine": 282,
+      "references": [
+        "OP_OR"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "OP_OR"
+        }
+      ],
+      "literals": [
+        "'||'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_STRING",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 283,
+      "text": "              '\"' ~('\"' | [\\r\\n\\u0085\\u2028\\u2029])* '\"' -> channel(DIRECTIVE), type(STRING);",
+      "endLine": 283,
+      "references": [
+        "STRING"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "STRING"
+        }
+      ],
+      "literals": [
+        "'\"'",
+        "'\"'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CONDITIONAL_SYMBOL",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 284,
+      "text": "            IdentifierOrKeyword              -> channel(DIRECTIVE);",
+      "endLine": 284,
+      "references": [
+        "IdentifierOrKeyword"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_SINGLE_LINE_COMMENT",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 285,
+      "text": " '//' ~[\\r\\n\\u0085\\u2028\\u2029]*  -> channel(COMMENTS_CHANNEL), type(SINGLE_LINE_COMMENT);",
+      "endLine": 285,
+      "references": [
+        "SINGLE_LINE_COMMENT"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "COMMENTS_CHANNEL"
+        },
+        {
+          "name": "type",
+          "argument": "SINGLE_LINE_COMMENT"
+        }
+      ],
+      "literals": [
+        "'//'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DIRECTIVE_NEW_LINE",
+      "fragment": false,
+      "mode": "DIRECTIVE_MODE",
+      "startLine": 286,
+      "text": "            NewLine                          -> channel(DIRECTIVE), mode(DEFAULT_MODE);\n",
+      "endLine": 287,
+      "references": [
+        "NewLine"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "mode",
+          "argument": "DEFAULT_MODE"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TEXT",
+      "fragment": false,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 290,
+      "text": "                          ~[\\r\\n\\u0085\\u2028\\u2029]+       -> channel(DIRECTIVE);",
+      "endLine": 290,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "TEXT_NEW_LINE",
+      "fragment": false,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 291,
+      "text": "                 NewLine    -> channel(DIRECTIVE), type(DIRECTIVE_NEW_LINE), mode(DEFAULT_MODE);\n\n// Fragments\n",
+      "endLine": 294,
+      "references": [
+        "DIRECTIVE_NEW_LINE",
+        "NewLine"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "DIRECTIVE"
+        },
+        {
+          "name": "type",
+          "argument": "DIRECTIVE_NEW_LINE"
+        },
+        {
+          "name": "mode",
+          "argument": "DEFAULT_MODE"
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "InputCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 295,
+      "text": "       ~[\\r\\n\\u0085\\u2028\\u2029];\n",
+      "endLine": 297,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NewLineCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 297,
+      "text": " '\\u000D' //'<Carriage Return CHARACTER (U+000D)>'\n\t| '\\u000A' //'<Line Feed CHARACTER (U+000A)>'\n\t| '\\u0085' //'<Next Line CHARACTER (U+0085)>'\n\t| '\\u2028' //'<Line Separator CHARACTER (U+2028)>'\n\t| '\\u2029' //'<Paragraph Separator CHARACTER (U+2029)>'\n\t;\n",
+      "endLine": 304,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u000D'",
+        "'\\u000A'",
+        "'\\u0085'",
+        "'\\u2028'",
+        "'\\u2029'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IntegerTypeSuffix",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 305,
+      "text": "         [lL]? [uU] | [uU]? [lL];",
+      "endLine": 305,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ExponentPart",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 306,
+      "text": "              [eE] ('+' | '-')? [0-9]+;\n",
+      "endLine": 308,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'+'",
+        "'-'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CommonCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 308,
+      "text": " SimpleEscapeSequence\n\t| HexEscapeSequence\n\t| UnicodeEscapeSequence\n\t;\n",
+      "endLine": 314,
+      "references": [
+        "HexEscapeSequence",
+        "SimpleEscapeSequence",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SimpleEscapeSequence",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 314,
+      "text": " '\\\\\\''\n\t| '\\\\\"'\n\t| '\\\\\\\\'\n\t| '\\\\0'\n\t| '\\\\a'\n\t| '\\\\b'\n\t| '\\\\f'\n\t| '\\\\n'\n\t| '\\\\r'\n\t| '\\\\t'\n\t| '\\\\v'\n\t;\n",
+      "endLine": 328,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\\\\\''",
+        "'\\\\\"'",
+        "'\\\\\\\\'",
+        "'\\\\0'",
+        "'\\\\a'",
+        "'\\\\b'",
+        "'\\\\f'",
+        "'\\\\n'",
+        "'\\\\r'",
+        "'\\\\t'",
+        "'\\\\v'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexEscapeSequence",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 328,
+      "text": " '\\\\x' HexDigit\n\t| '\\\\x' HexDigit HexDigit\n\t| '\\\\x' HexDigit HexDigit HexDigit\n\t| '\\\\x' HexDigit HexDigit HexDigit HexDigit\n\t;\n",
+      "endLine": 335,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\x'",
+        "'\\\\x'",
+        "'\\\\x'",
+        "'\\\\x'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NewLine",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 335,
+      "text": " '\\r\\n' | '\\r' | '\\n'\n\t| '\\u0085' // <Next Line CHARACTER (U+0085)>'\n\t| '\\u2028' //'<Line Separator CHARACTER (U+2028)>'\n\t| '\\u2029' //'<Paragraph Separator CHARACTER (U+2029)>'\n\t;\n",
+      "endLine": 342,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\r\\n'",
+        "'\\r'",
+        "'\\n'",
+        "'\\u0085'",
+        "'\\u2028'",
+        "'\\u2029'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "Whitespace",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 342,
+      "text": " UnicodeClassZS //'<Any Character With Unicode Class Zs>'\n\t| '\\u0009' //'<Horizontal Tab Character (U+0009)>'\n\t| '\\u000B' //'<Vertical Tab Character (U+000B)>'\n\t| '\\u000C' //'<Form Feed Character (U+000C)>'\n\t;\n",
+      "endLine": 349,
+      "references": [
+        "UnicodeClassZS"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\u0009'",
+        "'\\u000B'",
+        "'\\u000C'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassZS",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 349,
+      "text": " '\\u0020' // SPACE\n\t| '\\u00A0' // NO_BREAK SPACE\n\t| '\\u1680' // OGHAM SPACE MARK\n\t| '\\u180E' // MONGOLIAN VOWEL SEPARATOR\n\t| '\\u2000' // EN QUAD\n\t| '\\u2001' // EM QUAD\n\t| '\\u2002' // EN SPACE\n\t| '\\u2003' // EM SPACE\n\t| '\\u2004' // THREE_PER_EM SPACE\n\t| '\\u2005' // FOUR_PER_EM SPACE\n\t| '\\u2006' // SIX_PER_EM SPACE\n\t| '\\u2008' // PUNCTUATION SPACE\n\t| '\\u2009' // THIN SPACE\n\t| '\\u200A' // HAIR SPACE\n\t| '\\u202F' // NARROW NO_BREAK SPACE\n\t| '\\u3000' // IDEOGRAPHIC SPACE\n\t| '\\u205F' // MEDIUM MATHEMATICAL SPACE\n\t;\n",
+      "endLine": 369,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0020'",
+        "'\\u00A0'",
+        "'\\u1680'",
+        "'\\u180E'",
+        "'\\u2000'",
+        "'\\u2001'",
+        "'\\u2002'",
+        "'\\u2003'",
+        "'\\u2004'",
+        "'\\u2005'",
+        "'\\u2006'",
+        "'\\u2008'",
+        "'\\u2009'",
+        "'\\u200A'",
+        "'\\u202F'",
+        "'\\u3000'",
+        "'\\u205F'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IdentifierOrKeyword",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 369,
+      "text": " IdentifierStartCharacter IdentifierPartCharacter*\n\t;\n",
+      "endLine": 373,
+      "references": [
+        "IdentifierPartCharacter",
+        "IdentifierStartCharacter"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IdentifierStartCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 373,
+      "text": " LetterCharacter\n\t| '_'\n\t;\n",
+      "endLine": 378,
+      "references": [
+        "LetterCharacter"
+      ],
+      "commands": [],
+      "literals": [
+        "'_'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "IdentifierPartCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 378,
+      "text": " LetterCharacter\n\t| DecimalDigitCharacter\n\t| ConnectingCharacter\n\t| CombiningCharacter\n\t| FormattingCharacter\n\t;\n\n//'<A Unicode Character Of Classes Lu, Ll, Lt, Lm, Lo, Or Nl>'\n// WARNING: ignores UnicodeEscapeSequence",
+      "endLine": 388,
+      "references": [
+        "CombiningCharacter",
+        "ConnectingCharacter",
+        "DecimalDigitCharacter",
+        "FormattingCharacter",
+        "LetterCharacter"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LetterCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 388,
+      "text": " UnicodeClassLU\n\t| UnicodeClassLL\n\t| UnicodeClassLT\n\t| UnicodeClassLM\n\t| UnicodeClassLO\n\t| UnicodeClassNL\n\t| UnicodeEscapeSequence\n\t;\n\n//'<A Unicode Character Of The Class Nd>'\n// WARNING: ignores UnicodeEscapeSequence",
+      "endLine": 400,
+      "references": [
+        "UnicodeClassLL",
+        "UnicodeClassLM",
+        "UnicodeClassLO",
+        "UnicodeClassLT",
+        "UnicodeClassLU",
+        "UnicodeClassNL",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DecimalDigitCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 400,
+      "text": " UnicodeClassND\n\t| UnicodeEscapeSequence\n\t;\n\n//'<A Unicode Character Of The Class Pc>'\n// WARNING: ignores UnicodeEscapeSequence",
+      "endLine": 407,
+      "references": [
+        "UnicodeClassND",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ConnectingCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 407,
+      "text": " UnicodeClassPC\n\t| UnicodeEscapeSequence\n\t;\n\n//'<A Unicode Character Of Classes Mn Or Mc>'\n// WARNING: ignores UnicodeEscapeSequence",
+      "endLine": 414,
+      "references": [
+        "UnicodeClassPC",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CombiningCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 414,
+      "text": " UnicodeClassMN\n\t| UnicodeClassMC\n\t| UnicodeEscapeSequence\n\t;\n\n//'<A Unicode Character Of The Class Cf>'\n// WARNING: ignores UnicodeEscapeSequence",
+      "endLine": 422,
+      "references": [
+        "UnicodeClassMC",
+        "UnicodeClassMN",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FormattingCharacter",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 422,
+      "text": " UnicodeClassCF\n\t| UnicodeEscapeSequence\n\t;\n\n//B.1.5 Unicode Character Escape Sequences",
+      "endLine": 428,
+      "references": [
+        "UnicodeClassCF",
+        "UnicodeEscapeSequence"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeEscapeSequence",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 428,
+      "text": " '\\\\u' HexDigit HexDigit HexDigit HexDigit\n\t| '\\\\U' HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit HexDigit\n\t;\n",
+      "endLine": 432,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\u'",
+        "'\\\\U'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexDigit",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 433,
+      "text": " [0-9] | [A-F] | [a-f];\n\n// Unicode character classes",
+      "endLine": 436,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassLU",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 436,
+      "text": " '\\u0041'..'\\u005a'\n\t| '\\u00c0'..'\\u00d6'\n\t| '\\u00d8'..'\\u00de'\n\t| '\\u0100'..'\\u0136'\n\t| '\\u0139'..'\\u0147'\n\t| '\\u014a'..'\\u0178'\n\t| '\\u0179'..'\\u017d'\n\t| '\\u0181'..'\\u0182'\n\t| '\\u0184'..'\\u0186'\n\t| '\\u0187'..'\\u0189'\n\t| '\\u018a'..'\\u018b'\n\t| '\\u018e'..'\\u0191'\n\t| '\\u0193'..'\\u0194'\n\t| '\\u0196'..'\\u0198'\n\t| '\\u019c'..'\\u019d'\n\t| '\\u019f'..'\\u01a0'\n\t| '\\u01a2'..'\\u01a6'\n\t| '\\u01a7'..'\\u01a9'\n\t| '\\u01ac'..'\\u01ae'\n\t| '\\u01af'..'\\u01b1'\n\t| '\\u01b2'..'\\u01b3'\n\t| '\\u01b5'..'\\u01b7'\n\t| '\\u01b8'..'\\u01bc'\n\t| '\\u01c4'..'\\u01cd'\n\t| '\\u01cf'..'\\u01db'\n\t| '\\u01de'..'\\u01ee'\n\t| '\\u01f1'..'\\u01f4'\n\t| '\\u01f6'..'\\u01f8'\n\t| '\\u01fa'..'\\u0232'\n\t| '\\u023a'..'\\u023b'\n\t| '\\u023d'..'\\u023e'\n\t| '\\u0241'..'\\u0243'\n\t| '\\u0244'..'\\u0246'\n\t| '\\u0248'..'\\u024e'\n\t| '\\u0370'..'\\u0372'\n\t| '\\u0376'..'\\u037f'\n\t| '\\u0386'..'\\u0388'\n\t| '\\u0389'..'\\u038a'\n\t| '\\u038c'..'\\u038e'\n\t| '\\u038f'..'\\u0391'\n\t| '\\u0392'..'\\u03a1'\n\t| '\\u03a3'..'\\u03ab'\n\t| '\\u03cf'..'\\u03d2'\n\t| '\\u03d3'..'\\u03d4'\n\t| '\\u03d8'..'\\u03ee'\n\t| '\\u03f4'..'\\u03f7'\n\t| '\\u03f9'..'\\u03fa'\n\t| '\\u03fd'..'\\u042f'\n\t| '\\u0460'..'\\u0480'\n\t| '\\u048a'..'\\u04c0'\n\t| '\\u04c1'..'\\u04cd'\n\t| '\\u04d0'..'\\u052e'\n\t| '\\u0531'..'\\u0556'\n\t| '\\u10a0'..'\\u10c5'\n\t| '\\u10c7'..'\\u10cd'\n\t| '\\u1e00'..'\\u1e94'\n\t| '\\u1e9e'..'\\u1efe'\n\t| '\\u1f08'..'\\u1f0f'\n\t| '\\u1f18'..'\\u1f1d'\n\t| '\\u1f28'..'\\u1f2f'\n\t| '\\u1f38'..'\\u1f3f'\n\t| '\\u1f48'..'\\u1f4d'\n\t| '\\u1f59'..'\\u1f5f'\n\t| '\\u1f68'..'\\u1f6f'\n\t| '\\u1fb8'..'\\u1fbb'\n\t| '\\u1fc8'..'\\u1fcb'\n\t| '\\u1fd8'..'\\u1fdb'\n\t| '\\u1fe8'..'\\u1fec'\n\t| '\\u1ff8'..'\\u1ffb'\n\t| '\\u2102'..'\\u2107'\n\t| '\\u210b'..'\\u210d'\n\t| '\\u2110'..'\\u2112'\n\t| '\\u2115'..'\\u2119'\n\t| '\\u211a'..'\\u211d'\n\t| '\\u2124'..'\\u212a'\n\t| '\\u212b'..'\\u212d'\n\t| '\\u2130'..'\\u2133'\n\t| '\\u213e'..'\\u213f'\n\t| '\\u2145'..'\\u2183'\n\t| '\\u2c00'..'\\u2c2e'\n\t| '\\u2c60'..'\\u2c62'\n\t| '\\u2c63'..'\\u2c64'\n\t| '\\u2c67'..'\\u2c6d'\n\t| '\\u2c6e'..'\\u2c70'\n\t| '\\u2c72'..'\\u2c75'\n\t| '\\u2c7e'..'\\u2c80'\n\t| '\\u2c82'..'\\u2ce2'\n\t| '\\u2ceb'..'\\u2ced'\n\t| '\\u2cf2'..'\\ua640'\n\t| '\\ua642'..'\\ua66c'\n\t| '\\ua680'..'\\ua69a'\n\t| '\\ua722'..'\\ua72e'\n\t| '\\ua732'..'\\ua76e'\n\t| '\\ua779'..'\\ua77d'\n\t| '\\ua77e'..'\\ua786'\n\t| '\\ua78b'..'\\ua78d'\n\t| '\\ua790'..'\\ua792'\n\t| '\\ua796'..'\\ua7aa'\n\t| '\\ua7ab'..'\\ua7ad'\n\t| '\\ua7b0'..'\\ua7b1'\n\t| '\\uff21'..'\\uff3a'\n\t;\n",
+      "endLine": 540,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0041'",
+        "'\\u005a'",
+        "'\\u00c0'",
+        "'\\u00d6'",
+        "'\\u00d8'",
+        "'\\u00de'",
+        "'\\u0100'",
+        "'\\u0136'",
+        "'\\u0139'",
+        "'\\u0147'",
+        "'\\u014a'",
+        "'\\u0178'",
+        "'\\u0179'",
+        "'\\u017d'",
+        "'\\u0181'",
+        "'\\u0182'",
+        "'\\u0184'",
+        "'\\u0186'",
+        "'\\u0187'",
+        "'\\u0189'",
+        "'\\u018a'",
+        "'\\u018b'",
+        "'\\u018e'",
+        "'\\u0191'",
+        "'\\u0193'",
+        "'\\u0194'",
+        "'\\u0196'",
+        "'\\u0198'",
+        "'\\u019c'",
+        "'\\u019d'",
+        "'\\u019f'",
+        "'\\u01a0'",
+        "'\\u01a2'",
+        "'\\u01a6'",
+        "'\\u01a7'",
+        "'\\u01a9'",
+        "'\\u01ac'",
+        "'\\u01ae'",
+        "'\\u01af'",
+        "'\\u01b1'",
+        "'\\u01b2'",
+        "'\\u01b3'",
+        "'\\u01b5'",
+        "'\\u01b7'",
+        "'\\u01b8'",
+        "'\\u01bc'",
+        "'\\u01c4'",
+        "'\\u01cd'",
+        "'\\u01cf'",
+        "'\\u01db'",
+        "'\\u01de'",
+        "'\\u01ee'",
+        "'\\u01f1'",
+        "'\\u01f4'",
+        "'\\u01f6'",
+        "'\\u01f8'",
+        "'\\u01fa'",
+        "'\\u0232'",
+        "'\\u023a'",
+        "'\\u023b'",
+        "'\\u023d'",
+        "'\\u023e'",
+        "'\\u0241'",
+        "'\\u0243'",
+        "'\\u0244'",
+        "'\\u0246'",
+        "'\\u0248'",
+        "'\\u024e'",
+        "'\\u0370'",
+        "'\\u0372'",
+        "'\\u0376'",
+        "'\\u037f'",
+        "'\\u0386'",
+        "'\\u0388'",
+        "'\\u0389'",
+        "'\\u038a'",
+        "'\\u038c'",
+        "'\\u038e'",
+        "'\\u038f'",
+        "'\\u0391'",
+        "'\\u0392'",
+        "'\\u03a1'",
+        "'\\u03a3'",
+        "'\\u03ab'",
+        "'\\u03cf'",
+        "'\\u03d2'",
+        "'\\u03d3'",
+        "'\\u03d4'",
+        "'\\u03d8'",
+        "'\\u03ee'",
+        "'\\u03f4'",
+        "'\\u03f7'",
+        "'\\u03f9'",
+        "'\\u03fa'",
+        "'\\u03fd'",
+        "'\\u042f'",
+        "'\\u0460'",
+        "'\\u0480'",
+        "'\\u048a'",
+        "'\\u04c0'",
+        "'\\u04c1'",
+        "'\\u04cd'",
+        "'\\u04d0'",
+        "'\\u052e'",
+        "'\\u0531'",
+        "'\\u0556'",
+        "'\\u10a0'",
+        "'\\u10c5'",
+        "'\\u10c7'",
+        "'\\u10cd'",
+        "'\\u1e00'",
+        "'\\u1e94'",
+        "'\\u1e9e'",
+        "'\\u1efe'",
+        "'\\u1f08'",
+        "'\\u1f0f'",
+        "'\\u1f18'",
+        "'\\u1f1d'",
+        "'\\u1f28'",
+        "'\\u1f2f'",
+        "'\\u1f38'",
+        "'\\u1f3f'",
+        "'\\u1f48'",
+        "'\\u1f4d'",
+        "'\\u1f59'",
+        "'\\u1f5f'",
+        "'\\u1f68'",
+        "'\\u1f6f'",
+        "'\\u1fb8'",
+        "'\\u1fbb'",
+        "'\\u1fc8'",
+        "'\\u1fcb'",
+        "'\\u1fd8'",
+        "'\\u1fdb'",
+        "'\\u1fe8'",
+        "'\\u1fec'",
+        "'\\u1ff8'",
+        "'\\u1ffb'",
+        "'\\u2102'",
+        "'\\u2107'",
+        "'\\u210b'",
+        "'\\u210d'",
+        "'\\u2110'",
+        "'\\u2112'",
+        "'\\u2115'",
+        "'\\u2119'",
+        "'\\u211a'",
+        "'\\u211d'",
+        "'\\u2124'",
+        "'\\u212a'",
+        "'\\u212b'",
+        "'\\u212d'",
+        "'\\u2130'",
+        "'\\u2133'",
+        "'\\u213e'",
+        "'\\u213f'",
+        "'\\u2145'",
+        "'\\u2183'",
+        "'\\u2c00'",
+        "'\\u2c2e'",
+        "'\\u2c60'",
+        "'\\u2c62'",
+        "'\\u2c63'",
+        "'\\u2c64'",
+        "'\\u2c67'",
+        "'\\u2c6d'",
+        "'\\u2c6e'",
+        "'\\u2c70'",
+        "'\\u2c72'",
+        "'\\u2c75'",
+        "'\\u2c7e'",
+        "'\\u2c80'",
+        "'\\u2c82'",
+        "'\\u2ce2'",
+        "'\\u2ceb'",
+        "'\\u2ced'",
+        "'\\u2cf2'",
+        "'\\ua640'",
+        "'\\ua642'",
+        "'\\ua66c'",
+        "'\\ua680'",
+        "'\\ua69a'",
+        "'\\ua722'",
+        "'\\ua72e'",
+        "'\\ua732'",
+        "'\\ua76e'",
+        "'\\ua779'",
+        "'\\ua77d'",
+        "'\\ua77e'",
+        "'\\ua786'",
+        "'\\ua78b'",
+        "'\\ua78d'",
+        "'\\ua790'",
+        "'\\ua792'",
+        "'\\ua796'",
+        "'\\ua7aa'",
+        "'\\ua7ab'",
+        "'\\ua7ad'",
+        "'\\ua7b0'",
+        "'\\ua7b1'",
+        "'\\uff21'",
+        "'\\uff3a'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassLL",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 540,
+      "text": " '\\u0061'..'\\u007A'\n\t| '\\u00b5'..'\\u00df'\n\t| '\\u00e0'..'\\u00f6'\n\t| '\\u00f8'..'\\u00ff'\n\t| '\\u0101'..'\\u0137'\n\t| '\\u0138'..'\\u0148'\n\t| '\\u0149'..'\\u0177'\n\t| '\\u017a'..'\\u017e'\n\t| '\\u017f'..'\\u0180'\n\t| '\\u0183'..'\\u0185'\n\t| '\\u0188'..'\\u018c'\n\t| '\\u018d'..'\\u0192'\n\t| '\\u0195'..'\\u0199'\n\t| '\\u019a'..'\\u019b'\n\t| '\\u019e'..'\\u01a1'\n\t| '\\u01a3'..'\\u01a5'\n\t| '\\u01a8'..'\\u01aa'\n\t| '\\u01ab'..'\\u01ad'\n\t| '\\u01b0'..'\\u01b4'\n\t| '\\u01b6'..'\\u01b9'\n\t| '\\u01ba'..'\\u01bd'\n\t| '\\u01be'..'\\u01bf'\n\t| '\\u01c6'..'\\u01cc'\n\t| '\\u01ce'..'\\u01dc'\n\t| '\\u01dd'..'\\u01ef'\n\t| '\\u01f0'..'\\u01f3'\n\t| '\\u01f5'..'\\u01f9'\n\t| '\\u01fb'..'\\u0233'\n\t| '\\u0234'..'\\u0239'\n\t| '\\u023c'..'\\u023f'\n\t| '\\u0240'..'\\u0242'\n\t| '\\u0247'..'\\u024f'\n\t| '\\u0250'..'\\u0293'\n\t| '\\u0295'..'\\u02af'\n\t| '\\u0371'..'\\u0373'\n\t| '\\u0377'..'\\u037b'\n\t| '\\u037c'..'\\u037d'\n\t| '\\u0390'..'\\u03ac'\n\t| '\\u03ad'..'\\u03ce'\n\t| '\\u03d0'..'\\u03d1'\n\t| '\\u03d5'..'\\u03d7'\n\t| '\\u03d9'..'\\u03ef'\n\t| '\\u03f0'..'\\u03f3'\n\t| '\\u03f5'..'\\u03fb'\n\t| '\\u03fc'..'\\u0430'\n\t| '\\u0431'..'\\u045f'\n\t| '\\u0461'..'\\u0481'\n\t| '\\u048b'..'\\u04bf'\n\t| '\\u04c2'..'\\u04ce'\n\t| '\\u04cf'..'\\u052f'\n\t| '\\u0561'..'\\u0587'\n\t| '\\u1d00'..'\\u1d2b'\n\t| '\\u1d6b'..'\\u1d77'\n\t| '\\u1d79'..'\\u1d9a'\n\t| '\\u1e01'..'\\u1e95'\n\t| '\\u1e96'..'\\u1e9d'\n\t| '\\u1e9f'..'\\u1eff'\n\t| '\\u1f00'..'\\u1f07'\n\t| '\\u1f10'..'\\u1f15'\n\t| '\\u1f20'..'\\u1f27'\n\t| '\\u1f30'..'\\u1f37'\n\t| '\\u1f40'..'\\u1f45'\n\t| '\\u1f50'..'\\u1f57'\n\t| '\\u1f60'..'\\u1f67'\n\t| '\\u1f70'..'\\u1f7d'\n\t| '\\u1f80'..'\\u1f87'\n\t| '\\u1f90'..'\\u1f97'\n\t| '\\u1fa0'..'\\u1fa7'\n\t| '\\u1fb0'..'\\u1fb4'\n\t| '\\u1fb6'..'\\u1fb7'\n\t| '\\u1fbe'..'\\u1fc2'\n\t| '\\u1fc3'..'\\u1fc4'\n\t| '\\u1fc6'..'\\u1fc7'\n\t| '\\u1fd0'..'\\u1fd3'\n\t| '\\u1fd6'..'\\u1fd7'\n\t| '\\u1fe0'..'\\u1fe7'\n\t| '\\u1ff2'..'\\u1ff4'\n\t| '\\u1ff6'..'\\u1ff7'\n\t| '\\u210a'..'\\u210e'\n\t| '\\u210f'..'\\u2113'\n\t| '\\u212f'..'\\u2139'\n\t| '\\u213c'..'\\u213d'\n\t| '\\u2146'..'\\u2149'\n\t| '\\u214e'..'\\u2184'\n\t| '\\u2c30'..'\\u2c5e'\n\t| '\\u2c61'..'\\u2c65'\n\t| '\\u2c66'..'\\u2c6c'\n\t| '\\u2c71'..'\\u2c73'\n\t| '\\u2c74'..'\\u2c76'\n\t| '\\u2c77'..'\\u2c7b'\n\t| '\\u2c81'..'\\u2ce3'\n\t| '\\u2ce4'..'\\u2cec'\n\t| '\\u2cee'..'\\u2cf3'\n\t| '\\u2d00'..'\\u2d25'\n\t| '\\u2d27'..'\\u2d2d'\n\t| '\\ua641'..'\\ua66d'\n\t| '\\ua681'..'\\ua69b'\n\t| '\\ua723'..'\\ua72f'\n\t| '\\ua730'..'\\ua731'\n\t| '\\ua733'..'\\ua771'\n\t| '\\ua772'..'\\ua778'\n\t| '\\ua77a'..'\\ua77c'\n\t| '\\ua77f'..'\\ua787'\n\t| '\\ua78c'..'\\ua78e'\n\t| '\\ua791'..'\\ua793'\n\t| '\\ua794'..'\\ua795'\n\t| '\\ua797'..'\\ua7a9'\n\t| '\\ua7fa'..'\\uab30'\n\t| '\\uab31'..'\\uab5a'\n\t| '\\uab64'..'\\uab65'\n\t| '\\ufb00'..'\\ufb06'\n\t| '\\ufb13'..'\\ufb17'\n\t| '\\uff41'..'\\uff5a'\n\t;\n",
+      "endLine": 656,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0061'",
+        "'\\u007A'",
+        "'\\u00b5'",
+        "'\\u00df'",
+        "'\\u00e0'",
+        "'\\u00f6'",
+        "'\\u00f8'",
+        "'\\u00ff'",
+        "'\\u0101'",
+        "'\\u0137'",
+        "'\\u0138'",
+        "'\\u0148'",
+        "'\\u0149'",
+        "'\\u0177'",
+        "'\\u017a'",
+        "'\\u017e'",
+        "'\\u017f'",
+        "'\\u0180'",
+        "'\\u0183'",
+        "'\\u0185'",
+        "'\\u0188'",
+        "'\\u018c'",
+        "'\\u018d'",
+        "'\\u0192'",
+        "'\\u0195'",
+        "'\\u0199'",
+        "'\\u019a'",
+        "'\\u019b'",
+        "'\\u019e'",
+        "'\\u01a1'",
+        "'\\u01a3'",
+        "'\\u01a5'",
+        "'\\u01a8'",
+        "'\\u01aa'",
+        "'\\u01ab'",
+        "'\\u01ad'",
+        "'\\u01b0'",
+        "'\\u01b4'",
+        "'\\u01b6'",
+        "'\\u01b9'",
+        "'\\u01ba'",
+        "'\\u01bd'",
+        "'\\u01be'",
+        "'\\u01bf'",
+        "'\\u01c6'",
+        "'\\u01cc'",
+        "'\\u01ce'",
+        "'\\u01dc'",
+        "'\\u01dd'",
+        "'\\u01ef'",
+        "'\\u01f0'",
+        "'\\u01f3'",
+        "'\\u01f5'",
+        "'\\u01f9'",
+        "'\\u01fb'",
+        "'\\u0233'",
+        "'\\u0234'",
+        "'\\u0239'",
+        "'\\u023c'",
+        "'\\u023f'",
+        "'\\u0240'",
+        "'\\u0242'",
+        "'\\u0247'",
+        "'\\u024f'",
+        "'\\u0250'",
+        "'\\u0293'",
+        "'\\u0295'",
+        "'\\u02af'",
+        "'\\u0371'",
+        "'\\u0373'",
+        "'\\u0377'",
+        "'\\u037b'",
+        "'\\u037c'",
+        "'\\u037d'",
+        "'\\u0390'",
+        "'\\u03ac'",
+        "'\\u03ad'",
+        "'\\u03ce'",
+        "'\\u03d0'",
+        "'\\u03d1'",
+        "'\\u03d5'",
+        "'\\u03d7'",
+        "'\\u03d9'",
+        "'\\u03ef'",
+        "'\\u03f0'",
+        "'\\u03f3'",
+        "'\\u03f5'",
+        "'\\u03fb'",
+        "'\\u03fc'",
+        "'\\u0430'",
+        "'\\u0431'",
+        "'\\u045f'",
+        "'\\u0461'",
+        "'\\u0481'",
+        "'\\u048b'",
+        "'\\u04bf'",
+        "'\\u04c2'",
+        "'\\u04ce'",
+        "'\\u04cf'",
+        "'\\u052f'",
+        "'\\u0561'",
+        "'\\u0587'",
+        "'\\u1d00'",
+        "'\\u1d2b'",
+        "'\\u1d6b'",
+        "'\\u1d77'",
+        "'\\u1d79'",
+        "'\\u1d9a'",
+        "'\\u1e01'",
+        "'\\u1e95'",
+        "'\\u1e96'",
+        "'\\u1e9d'",
+        "'\\u1e9f'",
+        "'\\u1eff'",
+        "'\\u1f00'",
+        "'\\u1f07'",
+        "'\\u1f10'",
+        "'\\u1f15'",
+        "'\\u1f20'",
+        "'\\u1f27'",
+        "'\\u1f30'",
+        "'\\u1f37'",
+        "'\\u1f40'",
+        "'\\u1f45'",
+        "'\\u1f50'",
+        "'\\u1f57'",
+        "'\\u1f60'",
+        "'\\u1f67'",
+        "'\\u1f70'",
+        "'\\u1f7d'",
+        "'\\u1f80'",
+        "'\\u1f87'",
+        "'\\u1f90'",
+        "'\\u1f97'",
+        "'\\u1fa0'",
+        "'\\u1fa7'",
+        "'\\u1fb0'",
+        "'\\u1fb4'",
+        "'\\u1fb6'",
+        "'\\u1fb7'",
+        "'\\u1fbe'",
+        "'\\u1fc2'",
+        "'\\u1fc3'",
+        "'\\u1fc4'",
+        "'\\u1fc6'",
+        "'\\u1fc7'",
+        "'\\u1fd0'",
+        "'\\u1fd3'",
+        "'\\u1fd6'",
+        "'\\u1fd7'",
+        "'\\u1fe0'",
+        "'\\u1fe7'",
+        "'\\u1ff2'",
+        "'\\u1ff4'",
+        "'\\u1ff6'",
+        "'\\u1ff7'",
+        "'\\u210a'",
+        "'\\u210e'",
+        "'\\u210f'",
+        "'\\u2113'",
+        "'\\u212f'",
+        "'\\u2139'",
+        "'\\u213c'",
+        "'\\u213d'",
+        "'\\u2146'",
+        "'\\u2149'",
+        "'\\u214e'",
+        "'\\u2184'",
+        "'\\u2c30'",
+        "'\\u2c5e'",
+        "'\\u2c61'",
+        "'\\u2c65'",
+        "'\\u2c66'",
+        "'\\u2c6c'",
+        "'\\u2c71'",
+        "'\\u2c73'",
+        "'\\u2c74'",
+        "'\\u2c76'",
+        "'\\u2c77'",
+        "'\\u2c7b'",
+        "'\\u2c81'",
+        "'\\u2ce3'",
+        "'\\u2ce4'",
+        "'\\u2cec'",
+        "'\\u2cee'",
+        "'\\u2cf3'",
+        "'\\u2d00'",
+        "'\\u2d25'",
+        "'\\u2d27'",
+        "'\\u2d2d'",
+        "'\\ua641'",
+        "'\\ua66d'",
+        "'\\ua681'",
+        "'\\ua69b'",
+        "'\\ua723'",
+        "'\\ua72f'",
+        "'\\ua730'",
+        "'\\ua731'",
+        "'\\ua733'",
+        "'\\ua771'",
+        "'\\ua772'",
+        "'\\ua778'",
+        "'\\ua77a'",
+        "'\\ua77c'",
+        "'\\ua77f'",
+        "'\\ua787'",
+        "'\\ua78c'",
+        "'\\ua78e'",
+        "'\\ua791'",
+        "'\\ua793'",
+        "'\\ua794'",
+        "'\\ua795'",
+        "'\\ua797'",
+        "'\\ua7a9'",
+        "'\\ua7fa'",
+        "'\\uab30'",
+        "'\\uab31'",
+        "'\\uab5a'",
+        "'\\uab64'",
+        "'\\uab65'",
+        "'\\ufb00'",
+        "'\\ufb06'",
+        "'\\ufb13'",
+        "'\\ufb17'",
+        "'\\uff41'",
+        "'\\uff5a'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassLT",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 656,
+      "text": " '\\u01c5'..'\\u01cb'\n\t| '\\u01f2'..'\\u1f88'\n\t| '\\u1f89'..'\\u1f8f'\n\t| '\\u1f98'..'\\u1f9f'\n\t| '\\u1fa8'..'\\u1faf'\n\t| '\\u1fbc'..'\\u1fcc'\n\t| '\\u1ffc'..'\\u1ffc'\n\t;\n",
+      "endLine": 666,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u01c5'",
+        "'\\u01cb'",
+        "'\\u01f2'",
+        "'\\u1f88'",
+        "'\\u1f89'",
+        "'\\u1f8f'",
+        "'\\u1f98'",
+        "'\\u1f9f'",
+        "'\\u1fa8'",
+        "'\\u1faf'",
+        "'\\u1fbc'",
+        "'\\u1fcc'",
+        "'\\u1ffc'",
+        "'\\u1ffc'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassLM",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 666,
+      "text": " '\\u02b0'..'\\u02c1'\n\t| '\\u02c6'..'\\u02d1'\n\t| '\\u02e0'..'\\u02e4'\n\t| '\\u02ec'..'\\u02ee'\n\t| '\\u0374'..'\\u037a'\n\t| '\\u0559'..'\\u0640'\n\t| '\\u06e5'..'\\u06e6'\n\t| '\\u07f4'..'\\u07f5'\n\t| '\\u07fa'..'\\u081a'\n\t| '\\u0824'..'\\u0828'\n\t| '\\u0971'..'\\u0e46'\n\t| '\\u0ec6'..'\\u10fc'\n\t| '\\u17d7'..'\\u1843'\n\t| '\\u1aa7'..'\\u1c78'\n\t| '\\u1c79'..'\\u1c7d'\n\t| '\\u1d2c'..'\\u1d6a'\n\t| '\\u1d78'..'\\u1d9b'\n\t| '\\u1d9c'..'\\u1dbf'\n\t| '\\u2071'..'\\u207f'\n\t| '\\u2090'..'\\u209c'\n\t| '\\u2c7c'..'\\u2c7d'\n\t| '\\u2d6f'..'\\u2e2f'\n\t| '\\u3005'..'\\u3031'\n\t| '\\u3032'..'\\u3035'\n\t| '\\u303b'..'\\u309d'\n\t| '\\u309e'..'\\u30fc'\n\t| '\\u30fd'..'\\u30fe'\n\t| '\\ua015'..'\\ua4f8'\n\t| '\\ua4f9'..'\\ua4fd'\n\t| '\\ua60c'..'\\ua67f'\n\t| '\\ua69c'..'\\ua69d'\n\t| '\\ua717'..'\\ua71f'\n\t| '\\ua770'..'\\ua788'\n\t| '\\ua7f8'..'\\ua7f9'\n\t| '\\ua9cf'..'\\ua9e6'\n\t| '\\uaa70'..'\\uaadd'\n\t| '\\uaaf3'..'\\uaaf4'\n\t| '\\uab5c'..'\\uab5f'\n\t| '\\uff70'..'\\uff9e'\n\t| '\\uff9f'..'\\uff9f'\n\t;\n",
+      "endLine": 709,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u02b0'",
+        "'\\u02c1'",
+        "'\\u02c6'",
+        "'\\u02d1'",
+        "'\\u02e0'",
+        "'\\u02e4'",
+        "'\\u02ec'",
+        "'\\u02ee'",
+        "'\\u0374'",
+        "'\\u037a'",
+        "'\\u0559'",
+        "'\\u0640'",
+        "'\\u06e5'",
+        "'\\u06e6'",
+        "'\\u07f4'",
+        "'\\u07f5'",
+        "'\\u07fa'",
+        "'\\u081a'",
+        "'\\u0824'",
+        "'\\u0828'",
+        "'\\u0971'",
+        "'\\u0e46'",
+        "'\\u0ec6'",
+        "'\\u10fc'",
+        "'\\u17d7'",
+        "'\\u1843'",
+        "'\\u1aa7'",
+        "'\\u1c78'",
+        "'\\u1c79'",
+        "'\\u1c7d'",
+        "'\\u1d2c'",
+        "'\\u1d6a'",
+        "'\\u1d78'",
+        "'\\u1d9b'",
+        "'\\u1d9c'",
+        "'\\u1dbf'",
+        "'\\u2071'",
+        "'\\u207f'",
+        "'\\u2090'",
+        "'\\u209c'",
+        "'\\u2c7c'",
+        "'\\u2c7d'",
+        "'\\u2d6f'",
+        "'\\u2e2f'",
+        "'\\u3005'",
+        "'\\u3031'",
+        "'\\u3032'",
+        "'\\u3035'",
+        "'\\u303b'",
+        "'\\u309d'",
+        "'\\u309e'",
+        "'\\u30fc'",
+        "'\\u30fd'",
+        "'\\u30fe'",
+        "'\\ua015'",
+        "'\\ua4f8'",
+        "'\\ua4f9'",
+        "'\\ua4fd'",
+        "'\\ua60c'",
+        "'\\ua67f'",
+        "'\\ua69c'",
+        "'\\ua69d'",
+        "'\\ua717'",
+        "'\\ua71f'",
+        "'\\ua770'",
+        "'\\ua788'",
+        "'\\ua7f8'",
+        "'\\ua7f9'",
+        "'\\ua9cf'",
+        "'\\ua9e6'",
+        "'\\uaa70'",
+        "'\\uaadd'",
+        "'\\uaaf3'",
+        "'\\uaaf4'",
+        "'\\uab5c'",
+        "'\\uab5f'",
+        "'\\uff70'",
+        "'\\uff9e'",
+        "'\\uff9f'",
+        "'\\uff9f'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassLO",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 709,
+      "text": " '\\u00aa'..'\\u00ba'\n\t| '\\u01bb'..'\\u01c0'\n\t| '\\u01c1'..'\\u01c3'\n\t| '\\u0294'..'\\u05d0'\n\t| '\\u05d1'..'\\u05ea'\n\t| '\\u05f0'..'\\u05f2'\n\t| '\\u0620'..'\\u063f'\n\t| '\\u0641'..'\\u064a'\n\t| '\\u066e'..'\\u066f'\n\t| '\\u0671'..'\\u06d3'\n\t| '\\u06d5'..'\\u06ee'\n\t| '\\u06ef'..'\\u06fa'\n\t| '\\u06fb'..'\\u06fc'\n\t| '\\u06ff'..'\\u0710'\n\t| '\\u0712'..'\\u072f'\n\t| '\\u074d'..'\\u07a5'\n\t| '\\u07b1'..'\\u07ca'\n\t| '\\u07cb'..'\\u07ea'\n\t| '\\u0800'..'\\u0815'\n\t| '\\u0840'..'\\u0858'\n\t| '\\u08a0'..'\\u08b2'\n\t| '\\u0904'..'\\u0939'\n\t| '\\u093d'..'\\u0950'\n\t| '\\u0958'..'\\u0961'\n\t| '\\u0972'..'\\u0980'\n\t| '\\u0985'..'\\u098c'\n\t| '\\u098f'..'\\u0990'\n\t| '\\u0993'..'\\u09a8'\n\t| '\\u09aa'..'\\u09b0'\n\t| '\\u09b2'..'\\u09b6'\n\t| '\\u09b7'..'\\u09b9'\n\t| '\\u09bd'..'\\u09ce'\n\t| '\\u09dc'..'\\u09dd'\n\t| '\\u09df'..'\\u09e1'\n\t| '\\u09f0'..'\\u09f1'\n\t| '\\u0a05'..'\\u0a0a'\n\t| '\\u0a0f'..'\\u0a10'\n\t| '\\u0a13'..'\\u0a28'\n\t| '\\u0a2a'..'\\u0a30'\n\t| '\\u0a32'..'\\u0a33'\n\t| '\\u0a35'..'\\u0a36'\n\t| '\\u0a38'..'\\u0a39'\n\t| '\\u0a59'..'\\u0a5c'\n\t| '\\u0a5e'..'\\u0a72'\n\t| '\\u0a73'..'\\u0a74'\n\t| '\\u0a85'..'\\u0a8d'\n\t| '\\u0a8f'..'\\u0a91'\n\t| '\\u0a93'..'\\u0aa8'\n\t| '\\u0aaa'..'\\u0ab0'\n\t| '\\u0ab2'..'\\u0ab3'\n\t| '\\u0ab5'..'\\u0ab9'\n\t| '\\u0abd'..'\\u0ad0'\n\t| '\\u0ae0'..'\\u0ae1'\n\t| '\\u0b05'..'\\u0b0c'\n\t| '\\u0b0f'..'\\u0b10'\n\t| '\\u0b13'..'\\u0b28'\n\t| '\\u0b2a'..'\\u0b30'\n\t| '\\u0b32'..'\\u0b33'\n\t| '\\u0b35'..'\\u0b39'\n\t| '\\u0b3d'..'\\u0b5c'\n\t| '\\u0b5d'..'\\u0b5f'\n\t| '\\u0b60'..'\\u0b61'\n\t| '\\u0b71'..'\\u0b83'\n\t| '\\u0b85'..'\\u0b8a'\n\t| '\\u0b8e'..'\\u0b90'\n\t| '\\u0b92'..'\\u0b95'\n\t| '\\u0b99'..'\\u0b9a'\n\t| '\\u0b9c'..'\\u0b9e'\n\t| '\\u0b9f'..'\\u0ba3'\n\t| '\\u0ba4'..'\\u0ba8'\n\t| '\\u0ba9'..'\\u0baa'\n\t| '\\u0bae'..'\\u0bb9'\n\t| '\\u0bd0'..'\\u0c05'\n\t| '\\u0c06'..'\\u0c0c'\n\t| '\\u0c0e'..'\\u0c10'\n\t| '\\u0c12'..'\\u0c28'\n\t| '\\u0c2a'..'\\u0c39'\n\t| '\\u0c3d'..'\\u0c58'\n\t| '\\u0c59'..'\\u0c60'\n\t| '\\u0c61'..'\\u0c85'\n\t| '\\u0c86'..'\\u0c8c'\n\t| '\\u0c8e'..'\\u0c90'\n\t| '\\u0c92'..'\\u0ca8'\n\t| '\\u0caa'..'\\u0cb3'\n\t| '\\u0cb5'..'\\u0cb9'\n\t| '\\u0cbd'..'\\u0cde'\n\t| '\\u0ce0'..'\\u0ce1'\n\t| '\\u0cf1'..'\\u0cf2'\n\t| '\\u0d05'..'\\u0d0c'\n\t| '\\u0d0e'..'\\u0d10'\n\t| '\\u0d12'..'\\u0d3a'\n\t| '\\u0d3d'..'\\u0d4e'\n\t| '\\u0d60'..'\\u0d61'\n\t| '\\u0d7a'..'\\u0d7f'\n\t| '\\u0d85'..'\\u0d96'\n\t| '\\u0d9a'..'\\u0db1'\n\t| '\\u0db3'..'\\u0dbb'\n\t| '\\u0dbd'..'\\u0dc0'\n\t| '\\u0dc1'..'\\u0dc6'\n\t| '\\u0e01'..'\\u0e30'\n\t| '\\u0e32'..'\\u0e33'\n\t| '\\u0e40'..'\\u0e45'\n\t| '\\u0e81'..'\\u0e82'\n\t| '\\u0e84'..'\\u0e87'\n\t| '\\u0e88'..'\\u0e8a'\n\t| '\\u0e8d'..'\\u0e94'\n\t| '\\u0e95'..'\\u0e97'\n\t| '\\u0e99'..'\\u0e9f'\n\t| '\\u0ea1'..'\\u0ea3'\n\t| '\\u0ea5'..'\\u0ea7'\n\t| '\\u0eaa'..'\\u0eab'\n\t| '\\u0ead'..'\\u0eb0'\n\t| '\\u0eb2'..'\\u0eb3'\n\t| '\\u0ebd'..'\\u0ec0'\n\t| '\\u0ec1'..'\\u0ec4'\n\t| '\\u0edc'..'\\u0edf'\n\t| '\\u0f00'..'\\u0f40'\n\t| '\\u0f41'..'\\u0f47'\n\t| '\\u0f49'..'\\u0f6c'\n\t| '\\u0f88'..'\\u0f8c'\n\t| '\\u1000'..'\\u102a'\n\t| '\\u103f'..'\\u1050'\n\t| '\\u1051'..'\\u1055'\n\t| '\\u105a'..'\\u105d'\n\t| '\\u1061'..'\\u1065'\n\t| '\\u1066'..'\\u106e'\n\t| '\\u106f'..'\\u1070'\n\t| '\\u1075'..'\\u1081'\n\t| '\\u108e'..'\\u10d0'\n\t| '\\u10d1'..'\\u10fa'\n\t| '\\u10fd'..'\\u1248'\n\t| '\\u124a'..'\\u124d'\n\t| '\\u1250'..'\\u1256'\n\t| '\\u1258'..'\\u125a'\n\t| '\\u125b'..'\\u125d'\n\t| '\\u1260'..'\\u1288'\n\t| '\\u128a'..'\\u128d'\n\t| '\\u1290'..'\\u12b0'\n\t| '\\u12b2'..'\\u12b5'\n\t| '\\u12b8'..'\\u12be'\n\t| '\\u12c0'..'\\u12c2'\n\t| '\\u12c3'..'\\u12c5'\n\t| '\\u12c8'..'\\u12d6'\n\t| '\\u12d8'..'\\u1310'\n\t| '\\u1312'..'\\u1315'\n\t| '\\u1318'..'\\u135a'\n\t| '\\u1380'..'\\u138f'\n\t| '\\u13a0'..'\\u13f4'\n\t| '\\u1401'..'\\u166c'\n\t| '\\u166f'..'\\u167f'\n\t| '\\u1681'..'\\u169a'\n\t| '\\u16a0'..'\\u16ea'\n\t| '\\u16f1'..'\\u16f8'\n\t| '\\u1700'..'\\u170c'\n\t| '\\u170e'..'\\u1711'\n\t| '\\u1720'..'\\u1731'\n\t| '\\u1740'..'\\u1751'\n\t| '\\u1760'..'\\u176c'\n\t| '\\u176e'..'\\u1770'\n\t| '\\u1780'..'\\u17b3'\n\t| '\\u17dc'..'\\u1820'\n\t| '\\u1821'..'\\u1842'\n\t| '\\u1844'..'\\u1877'\n\t| '\\u1880'..'\\u18a8'\n\t| '\\u18aa'..'\\u18b0'\n\t| '\\u18b1'..'\\u18f5'\n\t| '\\u1900'..'\\u191e'\n\t| '\\u1950'..'\\u196d'\n\t| '\\u1970'..'\\u1974'\n\t| '\\u1980'..'\\u19ab'\n\t| '\\u19c1'..'\\u19c7'\n\t| '\\u1a00'..'\\u1a16'\n\t| '\\u1a20'..'\\u1a54'\n\t| '\\u1b05'..'\\u1b33'\n\t| '\\u1b45'..'\\u1b4b'\n\t| '\\u1b83'..'\\u1ba0'\n\t| '\\u1bae'..'\\u1baf'\n\t| '\\u1bba'..'\\u1be5'\n\t| '\\u1c00'..'\\u1c23'\n\t| '\\u1c4d'..'\\u1c4f'\n\t| '\\u1c5a'..'\\u1c77'\n\t| '\\u1ce9'..'\\u1cec'\n\t| '\\u1cee'..'\\u1cf1'\n\t| '\\u1cf5'..'\\u1cf6'\n\t| '\\u2135'..'\\u2138'\n\t| '\\u2d30'..'\\u2d67'\n\t| '\\u2d80'..'\\u2d96'\n\t| '\\u2da0'..'\\u2da6'\n\t| '\\u2da8'..'\\u2dae'\n\t| '\\u2db0'..'\\u2db6'\n\t| '\\u2db8'..'\\u2dbe'\n\t| '\\u2dc0'..'\\u2dc6'\n\t| '\\u2dc8'..'\\u2dce'\n\t| '\\u2dd0'..'\\u2dd6'\n\t| '\\u2dd8'..'\\u2dde'\n\t| '\\u3006'..'\\u303c'\n\t| '\\u3041'..'\\u3096'\n\t| '\\u309f'..'\\u30a1'\n\t| '\\u30a2'..'\\u30fa'\n\t| '\\u30ff'..'\\u3105'\n\t| '\\u3106'..'\\u312d'\n\t| '\\u3131'..'\\u318e'\n\t| '\\u31a0'..'\\u31ba'\n\t| '\\u31f0'..'\\u31ff'\n\t| '\\u3400'..'\\u4db5'\n\t| '\\u4e00'..'\\u9fcc'\n\t| '\\ua000'..'\\ua014'\n\t| '\\ua016'..'\\ua48c'\n\t| '\\ua4d0'..'\\ua4f7'\n\t| '\\ua500'..'\\ua60b'\n\t| '\\ua610'..'\\ua61f'\n\t| '\\ua62a'..'\\ua62b'\n\t| '\\ua66e'..'\\ua6a0'\n\t| '\\ua6a1'..'\\ua6e5'\n\t| '\\ua7f7'..'\\ua7fb'\n\t| '\\ua7fc'..'\\ua801'\n\t| '\\ua803'..'\\ua805'\n\t| '\\ua807'..'\\ua80a'\n\t| '\\ua80c'..'\\ua822'\n\t| '\\ua840'..'\\ua873'\n\t| '\\ua882'..'\\ua8b3'\n\t| '\\ua8f2'..'\\ua8f7'\n\t| '\\ua8fb'..'\\ua90a'\n\t| '\\ua90b'..'\\ua925'\n\t| '\\ua930'..'\\ua946'\n\t| '\\ua960'..'\\ua97c'\n\t| '\\ua984'..'\\ua9b2'\n\t| '\\ua9e0'..'\\ua9e4'\n\t| '\\ua9e7'..'\\ua9ef'\n\t| '\\ua9fa'..'\\ua9fe'\n\t| '\\uaa00'..'\\uaa28'\n\t| '\\uaa40'..'\\uaa42'\n\t| '\\uaa44'..'\\uaa4b'\n\t| '\\uaa60'..'\\uaa6f'\n\t| '\\uaa71'..'\\uaa76'\n\t| '\\uaa7a'..'\\uaa7e'\n\t| '\\uaa7f'..'\\uaaaf'\n\t| '\\uaab1'..'\\uaab5'\n\t| '\\uaab6'..'\\uaab9'\n\t| '\\uaaba'..'\\uaabd'\n\t| '\\uaac0'..'\\uaac2'\n\t| '\\uaadb'..'\\uaadc'\n\t| '\\uaae0'..'\\uaaea'\n\t| '\\uaaf2'..'\\uab01'\n\t| '\\uab02'..'\\uab06'\n\t| '\\uab09'..'\\uab0e'\n\t| '\\uab11'..'\\uab16'\n\t| '\\uab20'..'\\uab26'\n\t| '\\uab28'..'\\uab2e'\n\t| '\\uabc0'..'\\uabe2'\n\t| '\\uac00'..'\\ud7a3'\n\t| '\\ud7b0'..'\\ud7c6'\n\t| '\\ud7cb'..'\\ud7fb'\n\t| '\\uf900'..'\\ufa6d'\n\t| '\\ufa70'..'\\ufad9'\n\t| '\\ufb1d'..'\\ufb1f'\n\t| '\\ufb20'..'\\ufb28'\n\t| '\\ufb2a'..'\\ufb36'\n\t| '\\ufb38'..'\\ufb3c'\n\t| '\\ufb3e'..'\\ufb40'\n\t| '\\ufb41'..'\\ufb43'\n\t| '\\ufb44'..'\\ufb46'\n\t| '\\ufb47'..'\\ufbb1'\n\t| '\\ufbd3'..'\\ufd3d'\n\t| '\\ufd50'..'\\ufd8f'\n\t| '\\ufd92'..'\\ufdc7'\n\t| '\\ufdf0'..'\\ufdfb'\n\t| '\\ufe70'..'\\ufe74'\n\t| '\\ufe76'..'\\ufefc'\n\t| '\\uff66'..'\\uff6f'\n\t| '\\uff71'..'\\uff9d'\n\t| '\\uffa0'..'\\uffbe'\n\t| '\\uffc2'..'\\uffc7'\n\t| '\\uffca'..'\\uffcf'\n\t| '\\uffd2'..'\\uffd7'\n\t| '\\uffda'..'\\uffdc'\n\t;\n",
+      "endLine": 988,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u00aa'",
+        "'\\u00ba'",
+        "'\\u01bb'",
+        "'\\u01c0'",
+        "'\\u01c1'",
+        "'\\u01c3'",
+        "'\\u0294'",
+        "'\\u05d0'",
+        "'\\u05d1'",
+        "'\\u05ea'",
+        "'\\u05f0'",
+        "'\\u05f2'",
+        "'\\u0620'",
+        "'\\u063f'",
+        "'\\u0641'",
+        "'\\u064a'",
+        "'\\u066e'",
+        "'\\u066f'",
+        "'\\u0671'",
+        "'\\u06d3'",
+        "'\\u06d5'",
+        "'\\u06ee'",
+        "'\\u06ef'",
+        "'\\u06fa'",
+        "'\\u06fb'",
+        "'\\u06fc'",
+        "'\\u06ff'",
+        "'\\u0710'",
+        "'\\u0712'",
+        "'\\u072f'",
+        "'\\u074d'",
+        "'\\u07a5'",
+        "'\\u07b1'",
+        "'\\u07ca'",
+        "'\\u07cb'",
+        "'\\u07ea'",
+        "'\\u0800'",
+        "'\\u0815'",
+        "'\\u0840'",
+        "'\\u0858'",
+        "'\\u08a0'",
+        "'\\u08b2'",
+        "'\\u0904'",
+        "'\\u0939'",
+        "'\\u093d'",
+        "'\\u0950'",
+        "'\\u0958'",
+        "'\\u0961'",
+        "'\\u0972'",
+        "'\\u0980'",
+        "'\\u0985'",
+        "'\\u098c'",
+        "'\\u098f'",
+        "'\\u0990'",
+        "'\\u0993'",
+        "'\\u09a8'",
+        "'\\u09aa'",
+        "'\\u09b0'",
+        "'\\u09b2'",
+        "'\\u09b6'",
+        "'\\u09b7'",
+        "'\\u09b9'",
+        "'\\u09bd'",
+        "'\\u09ce'",
+        "'\\u09dc'",
+        "'\\u09dd'",
+        "'\\u09df'",
+        "'\\u09e1'",
+        "'\\u09f0'",
+        "'\\u09f1'",
+        "'\\u0a05'",
+        "'\\u0a0a'",
+        "'\\u0a0f'",
+        "'\\u0a10'",
+        "'\\u0a13'",
+        "'\\u0a28'",
+        "'\\u0a2a'",
+        "'\\u0a30'",
+        "'\\u0a32'",
+        "'\\u0a33'",
+        "'\\u0a35'",
+        "'\\u0a36'",
+        "'\\u0a38'",
+        "'\\u0a39'",
+        "'\\u0a59'",
+        "'\\u0a5c'",
+        "'\\u0a5e'",
+        "'\\u0a72'",
+        "'\\u0a73'",
+        "'\\u0a74'",
+        "'\\u0a85'",
+        "'\\u0a8d'",
+        "'\\u0a8f'",
+        "'\\u0a91'",
+        "'\\u0a93'",
+        "'\\u0aa8'",
+        "'\\u0aaa'",
+        "'\\u0ab0'",
+        "'\\u0ab2'",
+        "'\\u0ab3'",
+        "'\\u0ab5'",
+        "'\\u0ab9'",
+        "'\\u0abd'",
+        "'\\u0ad0'",
+        "'\\u0ae0'",
+        "'\\u0ae1'",
+        "'\\u0b05'",
+        "'\\u0b0c'",
+        "'\\u0b0f'",
+        "'\\u0b10'",
+        "'\\u0b13'",
+        "'\\u0b28'",
+        "'\\u0b2a'",
+        "'\\u0b30'",
+        "'\\u0b32'",
+        "'\\u0b33'",
+        "'\\u0b35'",
+        "'\\u0b39'",
+        "'\\u0b3d'",
+        "'\\u0b5c'",
+        "'\\u0b5d'",
+        "'\\u0b5f'",
+        "'\\u0b60'",
+        "'\\u0b61'",
+        "'\\u0b71'",
+        "'\\u0b83'",
+        "'\\u0b85'",
+        "'\\u0b8a'",
+        "'\\u0b8e'",
+        "'\\u0b90'",
+        "'\\u0b92'",
+        "'\\u0b95'",
+        "'\\u0b99'",
+        "'\\u0b9a'",
+        "'\\u0b9c'",
+        "'\\u0b9e'",
+        "'\\u0b9f'",
+        "'\\u0ba3'",
+        "'\\u0ba4'",
+        "'\\u0ba8'",
+        "'\\u0ba9'",
+        "'\\u0baa'",
+        "'\\u0bae'",
+        "'\\u0bb9'",
+        "'\\u0bd0'",
+        "'\\u0c05'",
+        "'\\u0c06'",
+        "'\\u0c0c'",
+        "'\\u0c0e'",
+        "'\\u0c10'",
+        "'\\u0c12'",
+        "'\\u0c28'",
+        "'\\u0c2a'",
+        "'\\u0c39'",
+        "'\\u0c3d'",
+        "'\\u0c58'",
+        "'\\u0c59'",
+        "'\\u0c60'",
+        "'\\u0c61'",
+        "'\\u0c85'",
+        "'\\u0c86'",
+        "'\\u0c8c'",
+        "'\\u0c8e'",
+        "'\\u0c90'",
+        "'\\u0c92'",
+        "'\\u0ca8'",
+        "'\\u0caa'",
+        "'\\u0cb3'",
+        "'\\u0cb5'",
+        "'\\u0cb9'",
+        "'\\u0cbd'",
+        "'\\u0cde'",
+        "'\\u0ce0'",
+        "'\\u0ce1'",
+        "'\\u0cf1'",
+        "'\\u0cf2'",
+        "'\\u0d05'",
+        "'\\u0d0c'",
+        "'\\u0d0e'",
+        "'\\u0d10'",
+        "'\\u0d12'",
+        "'\\u0d3a'",
+        "'\\u0d3d'",
+        "'\\u0d4e'",
+        "'\\u0d60'",
+        "'\\u0d61'",
+        "'\\u0d7a'",
+        "'\\u0d7f'",
+        "'\\u0d85'",
+        "'\\u0d96'",
+        "'\\u0d9a'",
+        "'\\u0db1'",
+        "'\\u0db3'",
+        "'\\u0dbb'",
+        "'\\u0dbd'",
+        "'\\u0dc0'",
+        "'\\u0dc1'",
+        "'\\u0dc6'",
+        "'\\u0e01'",
+        "'\\u0e30'",
+        "'\\u0e32'",
+        "'\\u0e33'",
+        "'\\u0e40'",
+        "'\\u0e45'",
+        "'\\u0e81'",
+        "'\\u0e82'",
+        "'\\u0e84'",
+        "'\\u0e87'",
+        "'\\u0e88'",
+        "'\\u0e8a'",
+        "'\\u0e8d'",
+        "'\\u0e94'",
+        "'\\u0e95'",
+        "'\\u0e97'",
+        "'\\u0e99'",
+        "'\\u0e9f'",
+        "'\\u0ea1'",
+        "'\\u0ea3'",
+        "'\\u0ea5'",
+        "'\\u0ea7'",
+        "'\\u0eaa'",
+        "'\\u0eab'",
+        "'\\u0ead'",
+        "'\\u0eb0'",
+        "'\\u0eb2'",
+        "'\\u0eb3'",
+        "'\\u0ebd'",
+        "'\\u0ec0'",
+        "'\\u0ec1'",
+        "'\\u0ec4'",
+        "'\\u0edc'",
+        "'\\u0edf'",
+        "'\\u0f00'",
+        "'\\u0f40'",
+        "'\\u0f41'",
+        "'\\u0f47'",
+        "'\\u0f49'",
+        "'\\u0f6c'",
+        "'\\u0f88'",
+        "'\\u0f8c'",
+        "'\\u1000'",
+        "'\\u102a'",
+        "'\\u103f'",
+        "'\\u1050'",
+        "'\\u1051'",
+        "'\\u1055'",
+        "'\\u105a'",
+        "'\\u105d'",
+        "'\\u1061'",
+        "'\\u1065'",
+        "'\\u1066'",
+        "'\\u106e'",
+        "'\\u106f'",
+        "'\\u1070'",
+        "'\\u1075'",
+        "'\\u1081'",
+        "'\\u108e'",
+        "'\\u10d0'",
+        "'\\u10d1'",
+        "'\\u10fa'",
+        "'\\u10fd'",
+        "'\\u1248'",
+        "'\\u124a'",
+        "'\\u124d'",
+        "'\\u1250'",
+        "'\\u1256'",
+        "'\\u1258'",
+        "'\\u125a'",
+        "'\\u125b'",
+        "'\\u125d'",
+        "'\\u1260'",
+        "'\\u1288'",
+        "'\\u128a'",
+        "'\\u128d'",
+        "'\\u1290'",
+        "'\\u12b0'",
+        "'\\u12b2'",
+        "'\\u12b5'",
+        "'\\u12b8'",
+        "'\\u12be'",
+        "'\\u12c0'",
+        "'\\u12c2'",
+        "'\\u12c3'",
+        "'\\u12c5'",
+        "'\\u12c8'",
+        "'\\u12d6'",
+        "'\\u12d8'",
+        "'\\u1310'",
+        "'\\u1312'",
+        "'\\u1315'",
+        "'\\u1318'",
+        "'\\u135a'",
+        "'\\u1380'",
+        "'\\u138f'",
+        "'\\u13a0'",
+        "'\\u13f4'",
+        "'\\u1401'",
+        "'\\u166c'",
+        "'\\u166f'",
+        "'\\u167f'",
+        "'\\u1681'",
+        "'\\u169a'",
+        "'\\u16a0'",
+        "'\\u16ea'",
+        "'\\u16f1'",
+        "'\\u16f8'",
+        "'\\u1700'",
+        "'\\u170c'",
+        "'\\u170e'",
+        "'\\u1711'",
+        "'\\u1720'",
+        "'\\u1731'",
+        "'\\u1740'",
+        "'\\u1751'",
+        "'\\u1760'",
+        "'\\u176c'",
+        "'\\u176e'",
+        "'\\u1770'",
+        "'\\u1780'",
+        "'\\u17b3'",
+        "'\\u17dc'",
+        "'\\u1820'",
+        "'\\u1821'",
+        "'\\u1842'",
+        "'\\u1844'",
+        "'\\u1877'",
+        "'\\u1880'",
+        "'\\u18a8'",
+        "'\\u18aa'",
+        "'\\u18b0'",
+        "'\\u18b1'",
+        "'\\u18f5'",
+        "'\\u1900'",
+        "'\\u191e'",
+        "'\\u1950'",
+        "'\\u196d'",
+        "'\\u1970'",
+        "'\\u1974'",
+        "'\\u1980'",
+        "'\\u19ab'",
+        "'\\u19c1'",
+        "'\\u19c7'",
+        "'\\u1a00'",
+        "'\\u1a16'",
+        "'\\u1a20'",
+        "'\\u1a54'",
+        "'\\u1b05'",
+        "'\\u1b33'",
+        "'\\u1b45'",
+        "'\\u1b4b'",
+        "'\\u1b83'",
+        "'\\u1ba0'",
+        "'\\u1bae'",
+        "'\\u1baf'",
+        "'\\u1bba'",
+        "'\\u1be5'",
+        "'\\u1c00'",
+        "'\\u1c23'",
+        "'\\u1c4d'",
+        "'\\u1c4f'",
+        "'\\u1c5a'",
+        "'\\u1c77'",
+        "'\\u1ce9'",
+        "'\\u1cec'",
+        "'\\u1cee'",
+        "'\\u1cf1'",
+        "'\\u1cf5'",
+        "'\\u1cf6'",
+        "'\\u2135'",
+        "'\\u2138'",
+        "'\\u2d30'",
+        "'\\u2d67'",
+        "'\\u2d80'",
+        "'\\u2d96'",
+        "'\\u2da0'",
+        "'\\u2da6'",
+        "'\\u2da8'",
+        "'\\u2dae'",
+        "'\\u2db0'",
+        "'\\u2db6'",
+        "'\\u2db8'",
+        "'\\u2dbe'",
+        "'\\u2dc0'",
+        "'\\u2dc6'",
+        "'\\u2dc8'",
+        "'\\u2dce'",
+        "'\\u2dd0'",
+        "'\\u2dd6'",
+        "'\\u2dd8'",
+        "'\\u2dde'",
+        "'\\u3006'",
+        "'\\u303c'",
+        "'\\u3041'",
+        "'\\u3096'",
+        "'\\u309f'",
+        "'\\u30a1'",
+        "'\\u30a2'",
+        "'\\u30fa'",
+        "'\\u30ff'",
+        "'\\u3105'",
+        "'\\u3106'",
+        "'\\u312d'",
+        "'\\u3131'",
+        "'\\u318e'",
+        "'\\u31a0'",
+        "'\\u31ba'",
+        "'\\u31f0'",
+        "'\\u31ff'",
+        "'\\u3400'",
+        "'\\u4db5'",
+        "'\\u4e00'",
+        "'\\u9fcc'",
+        "'\\ua000'",
+        "'\\ua014'",
+        "'\\ua016'",
+        "'\\ua48c'",
+        "'\\ua4d0'",
+        "'\\ua4f7'",
+        "'\\ua500'",
+        "'\\ua60b'",
+        "'\\ua610'",
+        "'\\ua61f'",
+        "'\\ua62a'",
+        "'\\ua62b'",
+        "'\\ua66e'",
+        "'\\ua6a0'",
+        "'\\ua6a1'",
+        "'\\ua6e5'",
+        "'\\ua7f7'",
+        "'\\ua7fb'",
+        "'\\ua7fc'",
+        "'\\ua801'",
+        "'\\ua803'",
+        "'\\ua805'",
+        "'\\ua807'",
+        "'\\ua80a'",
+        "'\\ua80c'",
+        "'\\ua822'",
+        "'\\ua840'",
+        "'\\ua873'",
+        "'\\ua882'",
+        "'\\ua8b3'",
+        "'\\ua8f2'",
+        "'\\ua8f7'",
+        "'\\ua8fb'",
+        "'\\ua90a'",
+        "'\\ua90b'",
+        "'\\ua925'",
+        "'\\ua930'",
+        "'\\ua946'",
+        "'\\ua960'",
+        "'\\ua97c'",
+        "'\\ua984'",
+        "'\\ua9b2'",
+        "'\\ua9e0'",
+        "'\\ua9e4'",
+        "'\\ua9e7'",
+        "'\\ua9ef'",
+        "'\\ua9fa'",
+        "'\\ua9fe'",
+        "'\\uaa00'",
+        "'\\uaa28'",
+        "'\\uaa40'",
+        "'\\uaa42'",
+        "'\\uaa44'",
+        "'\\uaa4b'",
+        "'\\uaa60'",
+        "'\\uaa6f'",
+        "'\\uaa71'",
+        "'\\uaa76'",
+        "'\\uaa7a'",
+        "'\\uaa7e'",
+        "'\\uaa7f'",
+        "'\\uaaaf'",
+        "'\\uaab1'",
+        "'\\uaab5'",
+        "'\\uaab6'",
+        "'\\uaab9'",
+        "'\\uaaba'",
+        "'\\uaabd'",
+        "'\\uaac0'",
+        "'\\uaac2'",
+        "'\\uaadb'",
+        "'\\uaadc'",
+        "'\\uaae0'",
+        "'\\uaaea'",
+        "'\\uaaf2'",
+        "'\\uab01'",
+        "'\\uab02'",
+        "'\\uab06'",
+        "'\\uab09'",
+        "'\\uab0e'",
+        "'\\uab11'",
+        "'\\uab16'",
+        "'\\uab20'",
+        "'\\uab26'",
+        "'\\uab28'",
+        "'\\uab2e'",
+        "'\\uabc0'",
+        "'\\uabe2'",
+        "'\\uac00'",
+        "'\\ud7a3'",
+        "'\\ud7b0'",
+        "'\\ud7c6'",
+        "'\\ud7cb'",
+        "'\\ud7fb'",
+        "'\\uf900'",
+        "'\\ufa6d'",
+        "'\\ufa70'",
+        "'\\ufad9'",
+        "'\\ufb1d'",
+        "'\\ufb1f'",
+        "'\\ufb20'",
+        "'\\ufb28'",
+        "'\\ufb2a'",
+        "'\\ufb36'",
+        "'\\ufb38'",
+        "'\\ufb3c'",
+        "'\\ufb3e'",
+        "'\\ufb40'",
+        "'\\ufb41'",
+        "'\\ufb43'",
+        "'\\ufb44'",
+        "'\\ufb46'",
+        "'\\ufb47'",
+        "'\\ufbb1'",
+        "'\\ufbd3'",
+        "'\\ufd3d'",
+        "'\\ufd50'",
+        "'\\ufd8f'",
+        "'\\ufd92'",
+        "'\\ufdc7'",
+        "'\\ufdf0'",
+        "'\\ufdfb'",
+        "'\\ufe70'",
+        "'\\ufe74'",
+        "'\\ufe76'",
+        "'\\ufefc'",
+        "'\\uff66'",
+        "'\\uff6f'",
+        "'\\uff71'",
+        "'\\uff9d'",
+        "'\\uffa0'",
+        "'\\uffbe'",
+        "'\\uffc2'",
+        "'\\uffc7'",
+        "'\\uffca'",
+        "'\\uffcf'",
+        "'\\uffd2'",
+        "'\\uffd7'",
+        "'\\uffda'",
+        "'\\uffdc'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassNL",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 988,
+      "text": " '\\u16EE' // RUNIC ARLAUG SYMBOL\n\t| '\\u16EF' // RUNIC TVIMADUR SYMBOL\n\t| '\\u16F0' // RUNIC BELGTHOR SYMBOL\n\t| '\\u2160' // ROMAN NUMERAL ONE\n\t| '\\u2161' // ROMAN NUMERAL TWO\n\t| '\\u2162' // ROMAN NUMERAL THREE\n\t| '\\u2163' // ROMAN NUMERAL FOUR\n\t| '\\u2164' // ROMAN NUMERAL FIVE\n\t| '\\u2165' // ROMAN NUMERAL SIX\n\t| '\\u2166' // ROMAN NUMERAL SEVEN\n\t| '\\u2167' // ROMAN NUMERAL EIGHT\n\t| '\\u2168' // ROMAN NUMERAL NINE\n\t| '\\u2169' // ROMAN NUMERAL TEN\n\t| '\\u216A' // ROMAN NUMERAL ELEVEN\n\t| '\\u216B' // ROMAN NUMERAL TWELVE\n\t| '\\u216C' // ROMAN NUMERAL FIFTY\n\t| '\\u216D' // ROMAN NUMERAL ONE HUNDRED\n\t| '\\u216E' // ROMAN NUMERAL FIVE HUNDRED\n\t| '\\u216F' // ROMAN NUMERAL ONE THOUSAND\n\t;\n",
+      "endLine": 1010,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u16EE'",
+        "'\\u16EF'",
+        "'\\u16F0'",
+        "'\\u2160'",
+        "'\\u2161'",
+        "'\\u2162'",
+        "'\\u2163'",
+        "'\\u2164'",
+        "'\\u2165'",
+        "'\\u2166'",
+        "'\\u2167'",
+        "'\\u2168'",
+        "'\\u2169'",
+        "'\\u216A'",
+        "'\\u216B'",
+        "'\\u216C'",
+        "'\\u216D'",
+        "'\\u216E'",
+        "'\\u216F'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassMN",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 1010,
+      "text": " '\\u0300' // COMBINING GRAVE ACCENT\n\t| '\\u0301' // COMBINING ACUTE ACCENT\n\t| '\\u0302' // COMBINING CIRCUMFLEX ACCENT\n\t| '\\u0303' // COMBINING TILDE\n\t| '\\u0304' // COMBINING MACRON\n\t| '\\u0305' // COMBINING OVERLINE\n\t| '\\u0306' // COMBINING BREVE\n\t| '\\u0307' // COMBINING DOT ABOVE\n\t| '\\u0308' // COMBINING DIAERESIS\n\t| '\\u0309' // COMBINING HOOK ABOVE\n\t| '\\u030A' // COMBINING RING ABOVE\n\t| '\\u030B' // COMBINING DOUBLE ACUTE ACCENT\n\t| '\\u030C' // COMBINING CARON\n\t| '\\u030D' // COMBINING VERTICAL LINE ABOVE\n\t| '\\u030E' // COMBINING DOUBLE VERTICAL LINE ABOVE\n\t| '\\u030F' // COMBINING DOUBLE GRAVE ACCENT\n\t| '\\u0310' // COMBINING CANDRABINDU\n\t;\n",
+      "endLine": 1030,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0300'",
+        "'\\u0301'",
+        "'\\u0302'",
+        "'\\u0303'",
+        "'\\u0304'",
+        "'\\u0305'",
+        "'\\u0306'",
+        "'\\u0307'",
+        "'\\u0308'",
+        "'\\u0309'",
+        "'\\u030A'",
+        "'\\u030B'",
+        "'\\u030C'",
+        "'\\u030D'",
+        "'\\u030E'",
+        "'\\u030F'",
+        "'\\u0310'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassMC",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 1030,
+      "text": " '\\u0903' // DEVANAGARI SIGN VISARGA\n\t| '\\u093E' // DEVANAGARI VOWEL SIGN AA\n\t| '\\u093F' // DEVANAGARI VOWEL SIGN I\n\t| '\\u0940' // DEVANAGARI VOWEL SIGN II\n\t| '\\u0949' // DEVANAGARI VOWEL SIGN CANDRA O\n\t| '\\u094A' // DEVANAGARI VOWEL SIGN SHORT O\n\t| '\\u094B' // DEVANAGARI VOWEL SIGN O\n\t| '\\u094C' // DEVANAGARI VOWEL SIGN AU\n\t;\n",
+      "endLine": 1041,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0903'",
+        "'\\u093E'",
+        "'\\u093F'",
+        "'\\u0940'",
+        "'\\u0949'",
+        "'\\u094A'",
+        "'\\u094B'",
+        "'\\u094C'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassCF",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 1041,
+      "text": " '\\u00AD' // SOFT HYPHEN\n\t| '\\u0600' // ARABIC NUMBER SIGN\n\t| '\\u0601' // ARABIC SIGN SANAH\n\t| '\\u0602' // ARABIC FOOTNOTE MARKER\n\t| '\\u0603' // ARABIC SIGN SAFHA\n\t| '\\u06DD' // ARABIC END OF AYAH\n\t;\n",
+      "endLine": 1050,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u00AD'",
+        "'\\u0600'",
+        "'\\u0601'",
+        "'\\u0602'",
+        "'\\u0603'",
+        "'\\u06DD'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassPC",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 1050,
+      "text": " '\\u005F' // LOW LINE\n\t| '\\u203F' // UNDERTIE\n\t| '\\u2040' // CHARACTER TIE\n\t| '\\u2054' // INVERTED UNDERTIE\n\t| '\\uFE33' // PRESENTATION FORM FOR VERTICAL LOW LINE\n\t| '\\uFE34' // PRESENTATION FORM FOR VERTICAL WAVY LOW LINE\n\t| '\\uFE4D' // DASHED LOW LINE\n\t| '\\uFE4E' // CENTRELINE LOW LINE\n\t| '\\uFE4F' // WAVY LOW LINE\n\t| '\\uFF3F' // FULLWIDTH LOW LINE\n\t;\n",
+      "endLine": 1063,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u005F'",
+        "'\\u203F'",
+        "'\\u2040'",
+        "'\\u2054'",
+        "'\\uFE33'",
+        "'\\uFE34'",
+        "'\\uFE4D'",
+        "'\\uFE4E'",
+        "'\\uFE4F'",
+        "'\\uFF3F'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UnicodeClassND",
+      "fragment": true,
+      "mode": "DIRECTIVE_TEXT",
+      "startLine": 1063,
+      "text": " '\\u0030'..'\\u0039'\n\t| '\\u0660'..'\\u0669'\n\t| '\\u06f0'..'\\u06f9'\n\t| '\\u07c0'..'\\u07c9'\n\t| '\\u0966'..'\\u096f'\n\t| '\\u09e6'..'\\u09ef'\n\t| '\\u0a66'..'\\u0a6f'\n\t| '\\u0ae6'..'\\u0aef'\n\t| '\\u0b66'..'\\u0b6f'\n\t| '\\u0be6'..'\\u0bef'\n\t| '\\u0c66'..'\\u0c6f'\n\t| '\\u0ce6'..'\\u0cef'\n\t| '\\u0d66'..'\\u0d6f'\n\t| '\\u0de6'..'\\u0def'\n\t| '\\u0e50'..'\\u0e59'\n\t| '\\u0ed0'..'\\u0ed9'\n\t| '\\u0f20'..'\\u0f29'\n\t| '\\u1040'..'\\u1049'\n\t| '\\u1090'..'\\u1099'\n\t| '\\u17e0'..'\\u17e9'\n\t| '\\u1810'..'\\u1819'\n\t| '\\u1946'..'\\u194f'\n\t| '\\u19d0'..'\\u19d9'\n\t| '\\u1a80'..'\\u1a89'\n\t| '\\u1a90'..'\\u1a99'\n\t| '\\u1b50'..'\\u1b59'\n\t| '\\u1bb0'..'\\u1bb9'\n\t| '\\u1c40'..'\\u1c49'\n\t| '\\u1c50'..'\\u1c59'\n\t| '\\ua620'..'\\ua629'\n\t| '\\ua8d0'..'\\ua8d9'\n\t| '\\ua900'..'\\ua909'\n\t| '\\ua9d0'..'\\ua9d9'\n\t| '\\ua9f0'..'\\ua9f9'\n\t| '\\uaa50'..'\\uaa59'\n\t| '\\uabf0'..'\\uabf9'\n\t| '\\uff10'..'\\uff19'\n\t;",
+      "endLine": 1101,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'\\u0030'",
+        "'\\u0039'",
+        "'\\u0660'",
+        "'\\u0669'",
+        "'\\u06f0'",
+        "'\\u06f9'",
+        "'\\u07c0'",
+        "'\\u07c9'",
+        "'\\u0966'",
+        "'\\u096f'",
+        "'\\u09e6'",
+        "'\\u09ef'",
+        "'\\u0a66'",
+        "'\\u0a6f'",
+        "'\\u0ae6'",
+        "'\\u0aef'",
+        "'\\u0b66'",
+        "'\\u0b6f'",
+        "'\\u0be6'",
+        "'\\u0bef'",
+        "'\\u0c66'",
+        "'\\u0c6f'",
+        "'\\u0ce6'",
+        "'\\u0cef'",
+        "'\\u0d66'",
+        "'\\u0d6f'",
+        "'\\u0de6'",
+        "'\\u0def'",
+        "'\\u0e50'",
+        "'\\u0e59'",
+        "'\\u0ed0'",
+        "'\\u0ed9'",
+        "'\\u0f20'",
+        "'\\u0f29'",
+        "'\\u1040'",
+        "'\\u1049'",
+        "'\\u1090'",
+        "'\\u1099'",
+        "'\\u17e0'",
+        "'\\u17e9'",
+        "'\\u1810'",
+        "'\\u1819'",
+        "'\\u1946'",
+        "'\\u194f'",
+        "'\\u19d0'",
+        "'\\u19d9'",
+        "'\\u1a80'",
+        "'\\u1a89'",
+        "'\\u1a90'",
+        "'\\u1a99'",
+        "'\\u1b50'",
+        "'\\u1b59'",
+        "'\\u1bb0'",
+        "'\\u1bb9'",
+        "'\\u1c40'",
+        "'\\u1c49'",
+        "'\\u1c50'",
+        "'\\u1c59'",
+        "'\\ua620'",
+        "'\\ua629'",
+        "'\\ua8d0'",
+        "'\\ua8d9'",
+        "'\\ua900'",
+        "'\\ua909'",
+        "'\\ua9d0'",
+        "'\\ua9d9'",
+        "'\\ua9f0'",
+        "'\\ua9f9'",
+        "'\\uaa50'",
+        "'\\uaa59'",
+        "'\\uabf0'",
+        "'\\uabf9'",
+        "'\\uff10'",
+        "'\\uff19'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    }
+  ],
+  "analysis": {
+    "seedSelection": {
+      "SINGLE_LINE_DOC_COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "DELIMITED_DOC_COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "SINGLE_LINE_COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "DELIMITED_COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ],
+      "DIRECTIVE_SINGLE_LINE_COMMENT": [
+        "rule name/body contains comment",
+        "comment-like channel command"
+      ]
+    },
+    "seedRules": [
+      "SINGLE_LINE_DOC_COMMENT",
+      "DELIMITED_DOC_COMMENT",
+      "SINGLE_LINE_COMMENT",
+      "DELIMITED_COMMENT",
+      "DIRECTIVE_SINGLE_LINE_COMMENT"
+    ],
+    "directReferenceClosure": [
+      "DELIMITED_COMMENT",
+      "DELIMITED_DOC_COMMENT",
+      "DIRECTIVE_SINGLE_LINE_COMMENT",
+      "InputCharacter",
+      "SINGLE_LINE_COMMENT",
+      "SINGLE_LINE_DOC_COMMENT"
+    ],
+    "ruleReferenceEdges": [
+      {
+        "from": "SINGLE_LINE_DOC_COMMENT",
+        "to": "InputCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "SINGLE_LINE_COMMENT",
+        "to": "InputCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "WHITESPACES",
+        "to": "NewLine",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "WHITESPACES",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IDENTIFIER",
+        "to": "IdentifierOrKeyword",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LITERAL_ACCESS",
+        "to": "IdentifierOrKeyword",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LITERAL_ACCESS",
+        "to": "IntegerTypeSuffix",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "INTEGER_LITERAL",
+        "to": "IntegerTypeSuffix",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HEX_INTEGER_LITERAL",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HEX_INTEGER_LITERAL",
+        "to": "IntegerTypeSuffix",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "REAL_LITERAL",
+        "to": "ExponentPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CHARACTER_LITERAL",
+        "to": "CommonCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "REGULAR_STRING",
+        "to": "CommonCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "REGULAR_CHAR_INSIDE",
+        "to": "SimpleEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DOUBLE_CURLY_CLOSE_INSIDE",
+        "to": "FORMAT_STRING",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_WHITESPACES",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_TRUE",
+        "to": "TRUE",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_FALSE",
+        "to": "FALSE",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_IF",
+        "to": "IF",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_ELSE",
+        "to": "ELSE",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ERROR",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "WARNING",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "REGION",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ENDREGION",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "PRAGMA",
+        "to": "Whitespace",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_DEFAULT",
+        "to": "DEFAULT",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_OPEN_PARENS",
+        "to": "OPEN_PARENS",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_CLOSE_PARENS",
+        "to": "CLOSE_PARENS",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_BANG",
+        "to": "BANG",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_OP_EQ",
+        "to": "OP_EQ",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_OP_NE",
+        "to": "OP_NE",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_OP_AND",
+        "to": "OP_AND",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_OP_OR",
+        "to": "OP_OR",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_STRING",
+        "to": "STRING",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CONDITIONAL_SYMBOL",
+        "to": "IdentifierOrKeyword",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_SINGLE_LINE_COMMENT",
+        "to": "SINGLE_LINE_COMMENT",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DIRECTIVE_NEW_LINE",
+        "to": "NewLine",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "TEXT_NEW_LINE",
+        "to": "DIRECTIVE_NEW_LINE",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "TEXT_NEW_LINE",
+        "to": "NewLine",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CommonCharacter",
+        "to": "HexEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CommonCharacter",
+        "to": "SimpleEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CommonCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HexEscapeSequence",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "Whitespace",
+        "to": "UnicodeClassZS",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierOrKeyword",
+        "to": "IdentifierPartCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierOrKeyword",
+        "to": "IdentifierStartCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierStartCharacter",
+        "to": "LetterCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierPartCharacter",
+        "to": "CombiningCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierPartCharacter",
+        "to": "ConnectingCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierPartCharacter",
+        "to": "DecimalDigitCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierPartCharacter",
+        "to": "FormattingCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "IdentifierPartCharacter",
+        "to": "LetterCharacter",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassLL",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassLM",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassLO",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassLT",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassLU",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeClassNL",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LetterCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DecimalDigitCharacter",
+        "to": "UnicodeClassND",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DecimalDigitCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ConnectingCharacter",
+        "to": "UnicodeClassPC",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ConnectingCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CombiningCharacter",
+        "to": "UnicodeClassMC",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CombiningCharacter",
+        "to": "UnicodeClassMN",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CombiningCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "FormattingCharacter",
+        "to": "UnicodeClassCF",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "FormattingCharacter",
+        "to": "UnicodeEscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "UnicodeEscapeSequence",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      }
+    ],
+    "modeEdges": [
+      {
+        "fromRule": "SHARP",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "DIRECTIVE_MODE",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "INTERPOLATED_REGULAR_STRING_START",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INTERPOLATION_STRING",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "INTERPOLATED_VERBATIUM_STRING_START",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INTERPOLATION_STRING",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "CLOSE_BRACE",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "COLON",
+        "fromMode": "DEFAULT_MODE",
+        "toMode": "INTERPOLATION_FORMAT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "OPEN_BRACE_INSIDE",
+        "fromMode": "INTERPOLATION_STRING",
+        "toMode": "DEFAULT_MODE",
+        "kind": "pushMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "DOUBLE_QUOTE_INSIDE",
+        "fromMode": "INTERPOLATION_STRING",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "CLOSE_BRACE_INSIDE",
+        "fromMode": "INTERPOLATION_FORMAT",
+        "toMode": "caller/previous mode",
+        "kind": "popMode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "ERROR",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DIRECTIVE_TEXT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "WARNING",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DIRECTIVE_TEXT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "REGION",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DIRECTIVE_TEXT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "ENDREGION",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DIRECTIVE_TEXT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "PRAGMA",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DIRECTIVE_TEXT",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "DIRECTIVE_NEW_LINE",
+        "fromMode": "DIRECTIVE_MODE",
+        "toMode": "DEFAULT_MODE",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      },
+      {
+        "fromRule": "TEXT_NEW_LINE",
+        "fromMode": "DIRECTIVE_TEXT",
+        "toMode": "DEFAULT_MODE",
+        "kind": "mode",
+        "reason": "lexer command in rule body"
+      }
+    ],
+    "seedModes": [
+      "DEFAULT_MODE",
+      "DIRECTIVE_MODE"
+    ],
+    "relatedModesByModeEdges": [
+      "DEFAULT_MODE",
+      "DIRECTIVE_MODE",
+      "DIRECTIVE_TEXT",
+      "INTERPOLATION_FORMAT",
+      "INTERPOLATION_STRING"
+    ],
+    "rulesInRelatedModes": [
+      "ABSTRACT",
+      "ADD",
+      "ALIAS",
+      "AMP",
+      "ARGLIST",
+      "AS",
+      "ASCENDING",
+      "ASSIGNMENT",
+      "ASYNC",
+      "AWAIT",
+      "BANG",
+      "BASE",
+      "BITWISE_OR",
+      "BOOL",
+      "BREAK",
+      "BY",
+      "BYTE",
+      "BYTE_ORDER_MARK",
+      "CARET",
+      "CASE",
+      "CATCH",
+      "CHAR",
+      "CHARACTER_LITERAL",
+      "CHECKED",
+      "CLASS",
+      "CLOSE_BRACE",
+      "CLOSE_BRACE_INSIDE",
+      "CLOSE_BRACKET",
+      "CLOSE_PARENS",
+      "COLON",
+      "COMMA",
+      "CONDITIONAL_SYMBOL",
+      "CONST",
+      "CONTINUE",
+      "CombiningCharacter",
+      "CommonCharacter",
+      "ConnectingCharacter",
+      "DECIMAL",
+      "DEFAULT",
+      "DEFINE",
+      "DELEGATE",
+      "DELIMITED_COMMENT",
+      "DELIMITED_DOC_COMMENT",
+      "DESCENDING",
+      "DIGITS",
+      "DIRECTIVE_BANG",
+      "DIRECTIVE_CLOSE_PARENS",
+      "DIRECTIVE_DEFAULT",
+      "DIRECTIVE_ELSE",
+      "DIRECTIVE_FALSE",
+      "DIRECTIVE_HIDDEN",
+      "DIRECTIVE_IF",
+      "DIRECTIVE_NEW_LINE",
+      "DIRECTIVE_OPEN_PARENS",
+      "DIRECTIVE_OP_AND",
+      "DIRECTIVE_OP_EQ",
+      "DIRECTIVE_OP_NE",
+      "DIRECTIVE_OP_OR",
+      "DIRECTIVE_SINGLE_LINE_COMMENT",
+      "DIRECTIVE_STRING",
+      "DIRECTIVE_TRUE",
+      "DIRECTIVE_WHITESPACES",
+      "DIV",
+      "DO",
+      "DOT",
+      "DOUBLE",
+      "DOUBLE_COLON",
+      "DOUBLE_CURLY_CLOSE_INSIDE",
+      "DOUBLE_CURLY_INSIDE",
+      "DOUBLE_QUOTE_INSIDE",
+      "DYNAMIC",
+      "DecimalDigitCharacter",
+      "ELIF",
+      "ELSE",
+      "ENDIF",
+      "ENDREGION",
+      "ENUM",
+      "EQUALS",
+      "ERROR",
+      "EVENT",
+      "EXPLICIT",
+      "EXTERN",
+      "ExponentPart",
+      "FALSE",
+      "FINALLY",
+      "FIXED",
+      "FLOAT",
+      "FOR",
+      "FOREACH",
+      "FORMAT_STRING",
+      "FROM",
+      "FormattingCharacter",
+      "GET",
+      "GOTO",
+      "GROUP",
+      "GT",
+      "HEX_INTEGER_LITERAL",
+      "HexDigit",
+      "HexEscapeSequence",
+      "IDENTIFIER",
+      "IF",
+      "IMPLICIT",
+      "IN",
+      "INT",
+      "INTEGER_LITERAL",
+      "INTERFACE",
+      "INTERNAL",
+      "INTERPOLATED_REGULAR_STRING_START",
+      "INTERPOLATED_VERBATIUM_STRING_START",
+      "INTERR",
+      "INTO",
+      "IS",
+      "IdentifierOrKeyword",
+      "IdentifierPartCharacter",
+      "IdentifierStartCharacter",
+      "InputCharacter",
+      "IntegerTypeSuffix",
+      "JOIN",
+      "LET",
+      "LINE",
+      "LITERAL_ACCESS",
+      "LOCK",
+      "LONG",
+      "LT",
+      "LetterCharacter",
+      "MINUS",
+      "NAMEOF",
+      "NAMESPACE",
+      "NEW",
+      "NULL",
+      "NewLine",
+      "NewLineCharacter",
+      "OBJECT",
+      "ON",
+      "OPEN_BRACE",
+      "OPEN_BRACE_INSIDE",
+      "OPEN_BRACKET",
+      "OPEN_PARENS",
+      "OPERATOR",
+      "OP_ADD_ASSIGNMENT",
+      "OP_AND",
+      "OP_AND_ASSIGNMENT",
+      "OP_COALESCING",
+      "OP_DEC",
+      "OP_DIV_ASSIGNMENT",
+      "OP_EQ",
+      "OP_GE",
+      "OP_INC",
+      "OP_LE",
+      "OP_LEFT_SHIFT",
+      "OP_LEFT_SHIFT_ASSIGNMENT",
+      "OP_MOD_ASSIGNMENT",
+      "OP_MULT_ASSIGNMENT",
+      "OP_NE",
+      "OP_OR",
+      "OP_OR_ASSIGNMENT",
+      "OP_PTR",
+      "OP_SUB_ASSIGNMENT",
+      "OP_XOR_ASSIGNMENT",
+      "ORDERBY",
+      "OUT",
+      "OVERRIDE",
+      "PARAMS",
+      "PARTIAL",
+      "PERCENT",
+      "PLUS",
+      "PRAGMA",
+      "PRIVATE",
+      "PROTECTED",
+      "PUBLIC",
+      "READONLY",
+      "REAL_LITERAL",
+      "REF",
+      "REGION",
+      "REGULAR_CHAR_INSIDE",
+      "REGULAR_STRING",
+      "REGULAR_STRING_INSIDE",
+      "REMOVE",
+      "RETURN",
+      "SBYTE",
+      "SEALED",
+      "SELECT",
+      "SEMICOLON",
+      "SET",
+      "SHARP",
+      "SHORT",
+      "SINGLE_LINE_COMMENT",
+      "SINGLE_LINE_DOC_COMMENT",
+      "SIZEOF",
+      "STACKALLOC",
+      "STAR",
+      "STATIC",
+      "STRING",
+      "STRUCT",
+      "SWITCH",
+      "SimpleEscapeSequence",
+      "TEXT",
+      "TEXT_NEW_LINE",
+      "THIS",
+      "THROW",
+      "TILDE",
+      "TRUE",
+      "TRY",
+      "TYPEOF",
+      "UINT",
+      "ULONG",
+      "UNCHECKED",
+      "UNDEF",
+      "UNSAFE",
+      "USHORT",
+      "USING",
+      "UnicodeClassCF",
+      "UnicodeClassLL",
+      "UnicodeClassLM",
+      "UnicodeClassLO",
+      "UnicodeClassLT",
+      "UnicodeClassLU",
+      "UnicodeClassMC",
+      "UnicodeClassMN",
+      "UnicodeClassND",
+      "UnicodeClassNL",
+      "UnicodeClassPC",
+      "UnicodeClassZS",
+      "UnicodeEscapeSequence",
+      "VAR",
+      "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "VERBATIUM_INSIDE_STRING",
+      "VERBATIUM_STRING",
+      "VIRTUAL",
+      "VOID",
+      "VOLATILE",
+      "WARNING",
+      "WHEN",
+      "WHERE",
+      "WHILE",
+      "WHITESPACES",
+      "Whitespace",
+      "YIELD"
+    ],
+    "actionOrPredicateRules": [
+      "CLOSE_BRACE",
+      "CLOSE_BRACE_INSIDE",
+      "COLON",
+      "DOUBLE_CURLY_CLOSE_INSIDE",
+      "DOUBLE_CURLY_INSIDE",
+      "DOUBLE_QUOTE_INSIDE",
+      "FORMAT_STRING",
+      "INTERPOLATED_REGULAR_STRING_START",
+      "INTERPOLATED_VERBATIUM_STRING_START",
+      "OPEN_BRACE",
+      "OPEN_BRACE_INSIDE",
+      "REGULAR_CHAR_INSIDE",
+      "REGULAR_STRING_INSIDE",
+      "VERBATIUM_DOUBLE_QUOTE_INSIDE",
+      "VERBATIUM_INSIDE_STRING"
+    ],
+    "stateOrHelperIdentifiersReached": [],
+    "literalEvidenceInClosure": [
+      "'*/'",
+      "'/*'",
+      "'/**'",
+      "'//'",
+      "'///'"
+    ],
+    "identifierLikeRules": [
+      "IDENTIFIER"
+    ],
+    "keywordLikeRules": [
+      "ABSTRACT",
+      "ADD",
+      "ALIAS",
+      "ARGLIST",
+      "AS",
+      "ASCENDING",
+      "ASYNC",
+      "AWAIT",
+      "BASE",
+      "BOOL",
+      "BREAK",
+      "BY",
+      "BYTE",
+      "CASE",
+      "CATCH",
+      "CHAR",
+      "CHECKED",
+      "CLASS",
+      "CONST",
+      "CONTINUE",
+      "DECIMAL",
+      "DEFAULT",
+      "DELEGATE",
+      "DESCENDING",
+      "DO",
+      "DOUBLE",
+      "DYNAMIC",
+      "ELSE",
+      "ENUM",
+      "EQUALS",
+      "EVENT",
+      "EXPLICIT",
+      "EXTERN",
+      "FALSE",
+      "FINALLY",
+      "FIXED",
+      "FLOAT",
+      "FOR",
+      "FOREACH",
+      "FROM",
+      "GET",
+      "GOTO",
+      "GROUP",
+      "IF",
+      "IMPLICIT",
+      "IN",
+      "INT",
+      "INTERFACE",
+      "INTERNAL",
+      "INTO",
+      "IS",
+      "JOIN",
+      "LET",
+      "LOCK",
+      "LONG",
+      "NAMEOF",
+      "NAMESPACE",
+      "NEW",
+      "NULL",
+      "OBJECT",
+      "ON",
+      "OPERATOR",
+      "ORDERBY",
+      "OUT",
+      "OVERRIDE",
+      "PARAMS",
+      "PARTIAL",
+      "PRIVATE",
+      "PROTECTED",
+      "PUBLIC",
+      "READONLY",
+      "REF",
+      "REMOVE",
+      "RETURN",
+      "SBYTE",
+      "SEALED",
+      "SELECT",
+      "SET",
+      "SHORT",
+      "SIZEOF",
+      "STACKALLOC",
+      "STATIC",
+      "STRING",
+      "STRUCT",
+      "SWITCH",
+      "THIS",
+      "THROW",
+      "TRUE",
+      "TRY",
+      "TYPEOF",
+      "UINT",
+      "ULONG",
+      "UNCHECKED",
+      "UNSAFE",
+      "USHORT",
+      "USING",
+      "VAR",
+      "VIRTUAL",
+      "VOID",
+      "VOLATILE",
+      "WHEN",
+      "WHERE",
+      "WHILE",
+      "YIELD",
+      "DIRECTIVE_TRUE",
+      "DIRECTIVE_FALSE",
+      "DEFINE",
+      "UNDEF",
+      "DIRECTIVE_IF",
+      "ELIF",
+      "DIRECTIVE_ELSE",
+      "ENDIF",
+      "LINE",
+      "ERROR",
+      "WARNING",
+      "REGION",
+      "ENDREGION",
+      "PRAGMA",
+      "DIRECTIVE_DEFAULT",
+      "DIRECTIVE_HIDDEN",
+      "IdentifierStartCharacter"
+    ],
+    "cannotInferAutomatically": [
+      "Whether a channel or skip command semantically means comment",
+      "Whether a literal keyword is reserved in the language or contextual",
+      "Java action/predicate semantics, helper methods, and base-class behavior",
+      "Whether longest-match/rule-order competition changes the desired category",
+      "A complete entry path for every mode without analyzing the whole lexer"
+    ],
+    "humanSuppliedSeeds": [
+      "SINGLE_LINE_COMMENT",
+      "DELIMITED_COMMENT",
+      "SINGLE_LINE_DOC_COMMENT",
+      "DELIMITED_DOC_COMMENT"
+    ]
+  }
+}

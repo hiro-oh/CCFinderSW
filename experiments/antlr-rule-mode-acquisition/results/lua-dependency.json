@@ -1,0 +1,610 @@
+{
+  "path": "/media/workspace/master/CCFinderSW/CCFinderSW-1.0/grammarsv4/lua/Lua.g4",
+  "modes": [
+    "DEFAULT_MODE"
+  ],
+  "rules": [
+    {
+      "name": "NAME",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 227,
+      "text": " [a-zA-Z_][a-zA-Z_0-9]*\n    ;\n",
+      "endLine": 231,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NORMALSTRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 231,
+      "text": " '\"' ( EscapeSequence | ~('\\\\'|'\"') )* '\"' \n    ;\n",
+      "endLine": 235,
+      "references": [
+        "EscapeSequence"
+      ],
+      "commands": [],
+      "literals": [
+        "'\"'",
+        "'\\\\'",
+        "'\"'",
+        "'\"'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "CHARSTRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 235,
+      "text": " '\\'' ( EscapeSequence | ~('\\''|'\\\\') )* '\\''\n    ;\n",
+      "endLine": 239,
+      "references": [
+        "EscapeSequence"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\''",
+        "'\\''",
+        "'\\\\'",
+        "'\\''"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LONGSTRING",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 239,
+      "text": " '[' NESTED_STR ']'\n    ;\n",
+      "endLine": 244,
+      "references": [
+        "NESTED_STR"
+      ],
+      "commands": [],
+      "literals": [
+        "'['",
+        "']'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "NESTED_STR",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 244,
+      "text": " '=' NESTED_STR '='\n    | '[' .*? ']'\n    ;\n",
+      "endLine": 249,
+      "references": [],
+      "commands": [],
+      "literals": [
+        "'='",
+        "'='",
+        "'['",
+        "']'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "INT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 249,
+      "text": " Digit+\n    ;\n",
+      "endLine": 253,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HEX",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 253,
+      "text": " '0' [xX] HexDigit+\n    ;\n",
+      "endLine": 257,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'0'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "FLOAT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 257,
+      "text": " Digit+ '.' Digit* ExponentPart?\n    | '.' Digit+ ExponentPart?\n    | Digit+ ExponentPart\n    ;\n",
+      "endLine": 263,
+      "references": [
+        "Digit",
+        "ExponentPart"
+      ],
+      "commands": [],
+      "literals": [
+        "'.'",
+        "'.'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HEX_FLOAT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 263,
+      "text": " '0' [xX] HexDigit+ '.' HexDigit* HexExponentPart?\n    | '0' [xX] '.' HexDigit+ HexExponentPart?\n    | '0' [xX] HexDigit+ HexExponentPart\n    ;\n",
+      "endLine": 270,
+      "references": [
+        "HexDigit",
+        "HexExponentPart"
+      ],
+      "commands": [],
+      "literals": [
+        "'0'",
+        "'.'",
+        "'0'",
+        "'.'",
+        "'0'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "ExponentPart",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 270,
+      "text": " [eE] [+-]? Digit+\n    ;\n",
+      "endLine": 275,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexExponentPart",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 275,
+      "text": " [pP] [+-]? Digit+\n    ;\n",
+      "endLine": 280,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "EscapeSequence",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 280,
+      "text": " '\\\\' [abfnrtvz\"'\\\\]\n    | '\\\\' '\\r'? '\\n'\n    | DecimalEscape\n    | HexEscape\n    | UtfEscape\n    ;\n    ",
+      "endLine": 289,
+      "references": [
+        "DecimalEscape",
+        "HexEscape",
+        "UtfEscape"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\'",
+        "'\\\\]\n    | '",
+        "' '",
+        "'? '"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "DecimalEscape",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 289,
+      "text": " '\\\\' Digit\n    | '\\\\' Digit Digit\n    | '\\\\' [0-2] Digit Digit\n    ;\n    ",
+      "endLine": 296,
+      "references": [
+        "Digit"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\'",
+        "'\\\\'",
+        "'\\\\'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexEscape",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 296,
+      "text": " '\\\\' 'x' HexDigit HexDigit\n    ;\n",
+      "endLine": 301,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\'",
+        "'x'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "UtfEscape",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 301,
+      "text": " '\\\\' 'u{' HexDigit+ '}'\n    ;\n",
+      "endLine": 306,
+      "references": [
+        "HexDigit"
+      ],
+      "commands": [],
+      "literals": [
+        "'\\\\'",
+        "'u{'",
+        "'}'"
+      ],
+      "actionIdentifiers": [
+        "u"
+      ],
+      "uncertainty": [
+        "action-or-predicate"
+      ]
+    },
+    {
+      "name": "Digit",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 306,
+      "text": " [0-9]\n    ;\n",
+      "endLine": 311,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "HexDigit",
+      "fragment": true,
+      "mode": "DEFAULT_MODE",
+      "startLine": 311,
+      "text": " [0-9a-fA-F]\n    ;\n",
+      "endLine": 315,
+      "references": [],
+      "commands": [],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 315,
+      "text": " '--[' NESTED_STR ']' -> channel(HIDDEN)\n    ;\n    ",
+      "endLine": 319,
+      "references": [
+        "NESTED_STR"
+      ],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [
+        "'--['",
+        "']'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "LINE_COMMENT",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 319,
+      "text": " '--'\n    (                                               // --\n    | '[' '='*                                      // --[==\n    | '[' '='* ~('='|'['|'\\r'|'\\n') ~('\\r'|'\\n')*   // --[==AA\n    | ~('['|'\\r'|'\\n') ~('\\r'|'\\n')*                // --AAA\n    ) ('\\r\\n'|'\\r'|'\\n'|EOF)\n    -> channel(HIDDEN)\n    ;\n    ",
+      "endLine": 329,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [
+        "'--'",
+        "'['",
+        "'='",
+        "'['",
+        "'='",
+        "'='",
+        "'['",
+        "'\\r'",
+        "'\\n'",
+        "'\\r'",
+        "'\\n'",
+        "'['",
+        "'\\r'",
+        "'\\n'",
+        "'\\r'",
+        "'\\n'",
+        "'\\r\\n'",
+        "'\\r'",
+        "'\\n'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": [
+        "EOF"
+      ]
+    },
+    {
+      "name": "WS",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 329,
+      "text": " [ \\t\\u000C\\r\\n]+ -> skip\n    ;\n",
+      "endLine": 333,
+      "references": [],
+      "commands": [
+        {
+          "name": "skip",
+          "argument": ""
+        }
+      ],
+      "literals": [],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    },
+    {
+      "name": "SHEBANG",
+      "fragment": false,
+      "mode": "DEFAULT_MODE",
+      "startLine": 333,
+      "text": " '#' '!' ~('\\n'|'\\r')* -> channel(HIDDEN)\n    ;",
+      "endLine": 335,
+      "references": [],
+      "commands": [
+        {
+          "name": "channel",
+          "argument": "HIDDEN"
+        }
+      ],
+      "literals": [
+        "'#'",
+        "'!'",
+        "'\\n'",
+        "'\\r'"
+      ],
+      "actionIdentifiers": [],
+      "uncertainty": []
+    }
+  ],
+  "analysis": {
+    "seedSelection": {
+      "NESTED_STR": [
+        "explicit human seed"
+      ],
+      "COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ],
+      "LINE_COMMENT": [
+        "explicit human seed",
+        "rule name/body contains comment"
+      ]
+    },
+    "seedRules": [
+      "NESTED_STR",
+      "COMMENT",
+      "LINE_COMMENT"
+    ],
+    "directReferenceClosure": [
+      "COMMENT",
+      "LINE_COMMENT",
+      "NESTED_STR"
+    ],
+    "ruleReferenceEdges": [
+      {
+        "from": "NORMALSTRING",
+        "to": "EscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "CHARSTRING",
+        "to": "EscapeSequence",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "LONGSTRING",
+        "to": "NESTED_STR",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "INT",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HEX",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "FLOAT",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "FLOAT",
+        "to": "ExponentPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HEX_FLOAT",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HEX_FLOAT",
+        "to": "HexExponentPart",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "ExponentPart",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HexExponentPart",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "EscapeSequence",
+        "to": "DecimalEscape",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "EscapeSequence",
+        "to": "HexEscape",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "EscapeSequence",
+        "to": "UtfEscape",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "DecimalEscape",
+        "to": "Digit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "HexEscape",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "UtfEscape",
+        "to": "HexDigit",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      },
+      {
+        "from": "COMMENT",
+        "to": "NESTED_STR",
+        "kind": "rule-reference",
+        "reason": "identifier in lexer rule body"
+      }
+    ],
+    "modeEdges": [],
+    "seedModes": [
+      "DEFAULT_MODE"
+    ],
+    "relatedModesByModeEdges": [
+      "DEFAULT_MODE"
+    ],
+    "rulesInRelatedModes": [
+      "CHARSTRING",
+      "COMMENT",
+      "DecimalEscape",
+      "Digit",
+      "EscapeSequence",
+      "ExponentPart",
+      "FLOAT",
+      "HEX",
+      "HEX_FLOAT",
+      "HexDigit",
+      "HexEscape",
+      "HexExponentPart",
+      "INT",
+      "LINE_COMMENT",
+      "LONGSTRING",
+      "NAME",
+      "NESTED_STR",
+      "NORMALSTRING",
+      "SHEBANG",
+      "UtfEscape",
+      "WS"
+    ],
+    "actionOrPredicateRules": [
+      "LINE_COMMENT",
+      "UtfEscape"
+    ],
+    "stateOrHelperIdentifiersReached": [],
+    "literalEvidenceInClosure": [
+      "'--'",
+      "'--['",
+      "'='",
+      "'['",
+      "'\\n'",
+      "'\\r'",
+      "'\\r\\n'",
+      "']'"
+    ],
+    "identifierLikeRules": [
+      "NAME"
+    ],
+    "keywordLikeRules": [
+      "HexEscape"
+    ],
+    "cannotInferAutomatically": [
+      "Whether a channel or skip command semantically means comment",
+      "Whether a literal keyword is reserved in the language or contextual",
+      "Java action/predicate semantics, helper methods, and base-class behavior",
+      "Whether longest-match/rule-order competition changes the desired category",
+      "A complete entry path for every mode without analyzing the whole lexer"
+    ],
+    "humanSuppliedSeeds": [
+      "COMMENT",
+      "LINE_COMMENT",
+      "NESTED_STR"
+    ]
+  }
+}
